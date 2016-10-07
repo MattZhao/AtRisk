@@ -4,7 +4,7 @@ Application for Orinda PD
 [![Code Climate](https://codeclimate.com/github/rails/rails/badges/gpa.svg)](https://codeclimate.com/github/rails/rails)
 [![Build Status](https://travis-ci.org/MattZhao/AtRisk.svg?branch=master)](https://travis-ci.org/MattZhao/AtRisk)
 
-Link to deployed app on Heroku: https://immense-bastion-70744.herokuapp.com
+Link to deployed app on Heroku: https://at-risk.herokuapp.com/
 
 Link to Pivotal Tracker: https://www.pivotaltracker.com/projects/1886649
 
