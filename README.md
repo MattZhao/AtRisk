@@ -4,12 +4,12 @@ Application for Orinda PD
 [![Code Climate](https://codeclimate.com/github/rails/rails/badges/gpa.svg)](https://codeclimate.com/github/rails/rails)
 [![Build Status](https://travis-ci.org/MattZhao/AtRisk.svg?branch=master)](https://travis-ci.org/MattZhao/AtRisk)
 
-Link to deployed app on Heroku: ???
+Link to deployed app on Heroku: https://immense-bastion-70744.herokuapp.com
 
 Link to Pivotal Tracker: https://www.pivotaltracker.com/projects/1886649
 
 **Background/Problem:**
-Care facilities missing old people. Orinda families missing young children. They just walk away without letting others know that really sucks. We need a system to keep track of all the people who has a potential to get lost
+Care facilities missing old people. Orinda families missing young children. They just walk away without letting others know that really sucks. We need a system to keep track of all the people who has a potential to get lost. Customer Website: http://cityoforinda.org/index.asp?Type=B_BASIC&SEC=%7BB7C9FC74-5440-4274-BA91-7B9206C8411F%7D
 
 **Current Solution:**
 The PD keeps a physical binders of their info (name, DoB, characteristics, medical condition, etc. ) with their photos. Populate the binder with physical forms filled out by the targets’ families and friends. Once the target is missing their parents/care center will call the police department, and the PD will be able to start searching immediately with he available info in the binder. *Problem:* there is only one binder, which means they will need to get back to the office, grab the binder, and then get the info. Also updating the binder could be a hassle.
