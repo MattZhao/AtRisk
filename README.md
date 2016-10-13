@@ -1,7 +1,7 @@
 # At Risk
 Application for Orinda PD
 
-[![Code Climate](https://codeclimate.com/github/rails/rails/badges/gpa.svg)](https://codeclimate.com/github/rails/rails)
+[![Code Climate](https://codeclimate.com/github/MattZhao/AtRisk/badges/gpa.svg)](https://codeclimate.com/github/MattZhao/AtRisk)
 [![Build Status](https://travis-ci.org/MattZhao/AtRisk.svg?branch=master)](https://travis-ci.org/MattZhao/AtRisk)
 
 Link to deployed app on Heroku: https://at-risk.herokuapp.com/
