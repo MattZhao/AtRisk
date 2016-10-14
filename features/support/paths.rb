@@ -22,6 +22,16 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
 
+    when /^the user dashboard page$/
+      '/'
+    when /^the New AtRisk form page$/
+      '/'
+    when /^the Edit Form page$/
+      '/'
+    when /^the Detailed Form page$/
+      '/'
+
+    # original codes
     else
       begin
         page_name =~ /^the (.*) page$/
