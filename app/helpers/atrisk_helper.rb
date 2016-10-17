@@ -1,0 +1,2 @@
+module AtriskHelper
+end

@@ -1,0 +1,2 @@
+class AtriskController < ApplicationController
+end
