@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root "at_risk#index"
   # The priority is based upon order of creation: first created -> highest priority.
