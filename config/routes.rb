@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :forms
   devise_for :users
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root "at_risk#index"
