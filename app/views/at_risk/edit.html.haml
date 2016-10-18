@@ -1,0 +1,92 @@
+%h1 Edit Existing Form
+
+= form_tag movie_path(@movie), :method => :put do
+
+  = label :form, :id_user, 'User ID'
+  = text_field :form, 'id_user'
+  
+  = label :form, :form_type, 'Form Type'
+  = select :form, :form_type, 'form_type', ['Autism', 'At Risk']
+  
+  = label :form, :photo_path, 'Photo'
+  = text_field :form, "photo_path"
+  
+  = label :form, :name, 'Name'
+  = text_field :form, "name"
+  
+  = label :form, :address, 'Address'
+  = text_field :form, "address"
+  
+  = label :form, :live_alone, 'Lives Alone'
+  = select :form, :form_type, 'live_alone', ['Yes', 'No']
+  
+  = label :form, :birth_date, 'Date Of Birth'
+  = date_field :form, "birth_date"
+  
+  = label :form, :nickname, 'Nickname'
+  = text_field :form, "nickname"
+  
+  = label :form, :sex, 'Sex'
+  = select :form, "Sex", ['Male', 'Female', 'Others']
+  
+  = label :form, :height, 'Height'
+  = text_field :form, "height"
+  
+  = label :form, :weight, 'Weight'
+  = text_field :form, "weight"
+
+  = label :form, :color_eye, 'Eye Color'
+  = text_field :form, "color_eye"
+  
+  = label :form, :color_hair, 'Hair Color'
+  = text_field :form, "color_hair"
+  
+  = label :form, :body_marks, 'Body Marks'
+  = text_field :form, "body_marks"
+  
+  = label :form, :other_medical_conds, 'Other Medical Coditions'
+  = text_field :form, "other_medical_conds"
+
+  = label :form, :meds_needed, 'Medical Needed'
+  = text_field :form, "meds_needed"
+  
+  = label :form, :phone_number, 'Phone Number'
+  = number_field :form, "phone_number"
+  
+  = label :form, :phone_company, 'Company Phone Number'
+  = number_field :form, "phone_company"
+  
+  = label :form, :ec1_name, 'Emergency Contact 1 Name'
+  = text_field :form, "ec1_name"
+  
+  = label :form, :ec1_address, 'Emergency Contact 1 Address'
+  = text_field :form, "ec1_address"
+  
+  = label :form, :ec1_phone_home, 'Emergency Contact 1 Home Phone Number'
+  = number_field :form, "ec1_phone_home"
+  
+  = label :form, :ec1_phone_work, 'Emergency Contact 1 Work Phone Number'
+  = number_field :form, "ec1_phone_work"
+  
+  = label :form, :ec1_phone_cell, 'Emergency Contact 1 Cell Phone Number'
+  = number_field :form, "ec1_phone_cell"
+  
+  = label :form, :ec2_name, 'Emergency Contact 2 Name'
+  = text_field :form, "ec2_name"
+  
+  = label :form, :ec2_address, 'Emergency Contact 2 Address'
+  = text_field :form, "ec2_address"
+  
+  = label :form, :ec2_phone_home, 'Emergency Contact 2 Home Phone Number'
+  = number_field :form, "ec2_phone_home"
+  
+  = label :form, :ec1_phone_work, 'Emergency Contact 2 Work Phone Number'
+  = number_field :form, "ec2_phone_work"
+  
+  = label :form, :ec1_phone_cell, 'Emergency Contact 2 Cell Phone Number'
+  = number_field :form, "ec2_phone_cell"
+  
+  = label :form, :ec1_name, 'Emergency Contact 1 Name'
+  = text_field :form, "ec1_name"
+  
+  = submit_tag 'Update Form Info'

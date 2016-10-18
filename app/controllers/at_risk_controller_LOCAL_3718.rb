@@ -12,9 +12,5 @@ class AtRiskController < ApplicationController
       flash[:notice] = 'Your form is submitted'
       redirect_to forms_path
     end
-    
-    def edit
-        @form = Form.find params[:id]
-    end
-  
 end
+
