@@ -1,17 +1,11 @@
 %h1 Create New Movie
 
 = form_tag dashboard do
-
-  = label :form, :id_user, 'User ID'
-  = text_field :form, 'id_user'
   
-  = label :form, :form_type, 'Form Type'
-  = select :form, :form_type, 'form_type', ['Autism', 'At Risk']
-  
-  = label :form, :photo_path, 'Photo'
+  = label :form, :photo_path, 'Photo of the Individual'
   = text_field :form, "photo_path"
   
-  = label :form, :name, 'Name'
+  = label :form, :name, "Individual//'s Name"
   = text_field :form, "name"
   
   = label :form, :address, 'Address'
@@ -20,10 +14,10 @@
   = label :form, :live_alone, 'Lives Alone'
   = select :form, :form_type, 'live_alone', ['Yes', 'No']
   
-  = label :form, :birth_date, 'Date Of Birth'
+  = label :form, :birth_date, 'Date of Birth'
   = date_field :form, "birth_date"
   
-  = label :form, :nickname, 'Nickname'
+  = label :form, :nickname, 'Preferred Name//Nickname'
   = text_field :form, "nickname"
   
   = label :form, :sex, 'Sex'
@@ -41,75 +35,82 @@
   = label :form, :color_hair, 'Hair Color'
   = text_field :form, "color_hair"
   
-  = label :form, :body_marks, 'Body Marks'
+  = label :form, :body_marks, 'Scars, Tattoos, or Other Identifying Marks'
   = text_field :form, "body_marks"
   
-  = label :form, :other_medical_conds, 'Other Medical Coditions'
+  = label :form, :other_medical_conds, 'Other Reverent Medical Conditions'
   = text_field :form, "other_medical_conds"
 
-  = label :form, :meds_needed, 'Medical Needed'
+  = label :form, :meds_needed, 'Prescription Medicines Needed'
   = text_field :form, "meds_needed"
   
-  = label :form, :phone_number, 'Phone Number'
+  = label :form, :sensory_dietary_issues, 'Sensory or Dietary Issues'
+  = text_field :form, "sensory_dietary_issues"
+  
+  = label :form, :calming_methods, 'Calming Methods'
+  = text_field :form, "calming_methods"
+  
+  = label :form, :info_other_first_resp, 'Any Other Information First Responders May Need'
+  = text_field :form, "info_other_first_resp"
+  
+  = label :form, :phone_number, "Individual/'s Cell Phone Number"
   = number_field :form, "phone_number"
   
-  = label :form, :phone_company, 'Company Phone Number'
-  = number_field :form, "phone_company"
+  = label :form, :phone_company, 'Individual/'s Cell Phone Provider Company'
+  = text_field :form, "phone_company"
   
-  = label :form, :ec1_name, 'Emergency Contact 1 Name'
+  = label :form, :ec1_name, 'Name of Emergency Contact'
   = text_field :form, "ec1_name"
   
-  = label :form, :ec1_address, 'Emergency Contact 1 Address'
+  = label :form, :ec1_address, Emergency Contact/'s Address'
   = text_field :form, "ec1_address"
   
-  = label :form, :ec1_phone_home, 'Emergency Contact 1 Home Phone Number'
+  = label :form, :ec1_phone_home, 'Emergency Contact/'s Home Phone'
   = number_field :form, "ec1_phone_home"
   
-  = label :form, :ec1_phone_work, 'Emergency Contact 1 Work Phone Number'
+  = label :form, :ec1_phone_work, 'Emergency Contact/'s Work Phone'
   = number_field :form, "ec1_phone_work"
   
-  = label :form, :ec1_phone_cell, 'Emergency Contact 1 Cell Phone Number'
+  = label :form, :ec1_phone_cell, 'Emergency Contact/'s Cell Phone'
   = number_field :form, "ec1_phone_cell"
   
-  = label :form, :ec2_name, 'Emergency Contact 2 Name'
+  = label :form, :ec2_name, 'Name of Alternative Emergency Contact'
   = text_field :form, "ec2_name"
   
-  = label :form, :ec2_address, 'Emergency Contact 2 Address'
+  = label :form, :ec2_address, 'Alternative Emergency Contact/'s Address'
   = text_field :form, "ec2_address"
   
-  = label :form, :ec2_phone_home, 'Emergency Contact 2 Home Phone Number'
+  = label :form, :ec2_phone_home, 'Alternative Emergency Contact/'s Home Phone'
   = number_field :form, "ec2_phone_home"
   
-  = label :form, :ec1_phone_work, 'Emergency Contact 2 Work Phone Number'
+  = label :form, :ec1_phone_work, 'Alternative Emergency Contact/'s Work Phone'
   = number_field :form, "ec2_phone_work"
   
-  = label :form, :ec1_phone_cell, 'Emergency Contact 2 Cell Phone Number'
+  = label :form, :ec1_phone_cell, 'Alternative Emergency Contact/'s Cell Phone'
   = number_field :form, "ec2_phone_cell"
+
+  = label :form, :attractions_locations, 'Nearby water sources & favorite attractions or locations where the individual may be found'
+  = text_field :form, "attractions_locations"
+
+  = label :form, :atypical_behaviors, 'Atypical behaviors or characteristics of the individual that may affect the attention of responders'
+  = text_field :form, "atypical_behaviors"
   
-  = label :form, :ec1_name, 'Emergency Contact 1 Name'
-  = text_field :form, "ec1_name"
+  = label :form, :favorite_topics, 'Individual/'s favorite toys, objects, music, discussion topics, likes, and dislikes'
+  = text_field :form, "favorite_topics"
+  
+  = label :form, :preferred_language, 'Individual/'s Preferred Spoken Language'
+  = text_field :form, "preferred_language"
+
+  = label :form, :communication_method_1, 'Method of Preferred Communication'
+  = text_field :form, "communication_method_1"
+
+  = label :form, :communication_method_2, 'Method of Preferred Communication II'
+  = text_field :form, "communication_method_2"
+  
+  = label :form, :info_id, ' Individual/'s Identification Information'
+  = text_field :form, "info_id"
+  
+  = label :form, :info_tracking, 'Individual/'s Tracking Information'
+  = text_field :form, "info_tracking"
   
   = submit_tag 'Submit Form'
-
-    t.string   "preferred_language"
-    t.text     "info_id"
-    t.text     "info_tracking"
-    t.boolean  "has_alzheimers"
-    t.boolean  "has_dementia"
-    t.boolean  "has_down_syndrome"
-    t.boolean  "has_other_disorders"
-    t.text     "other_disorders"
-    t.text     "sensory_dietary_issues"
-    t.text     "calming_methods"
-    t.text     "info_other_first_resp"
-    t.text     "attractions_locations"
-    t.text     "atypical_behaviors"
-    t.text     "favorite_topics"
-    t.text     "communication_method_1"
-    t.text     "communication_method_2"
-    t.boolean  "form_activeness"
-    t.boolean  "dummy_boolean"
-    t.string   "dummy_string"
-    t.text     "dummy_text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
