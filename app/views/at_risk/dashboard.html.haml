@@ -1,0 +1,21 @@
+
+%table#forms
+  %thead
+    %tr
+      %th name
+      %th date of birth
+      %th type
+      %th more info
+  %tbody
+    - @my_forms.each do |form|
+      %tr
+        %td= form.name 
+        %td= form.birth_date
+        %td= form.type
+        %td= link_to "more", form_path(form)
+
+%p for elders with disorders like alzheimer's
+= link_to 'new at-risk form', new_form_path
+
+%p for children with autism
+= link_to 'new autism form', new_form_path
