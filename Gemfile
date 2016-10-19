@@ -66,3 +66,6 @@ end
 group :production do
   gem 'pg' 
 end
+
+# support haml
+gem 'haml'
