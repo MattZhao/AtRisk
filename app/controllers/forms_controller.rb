@@ -18,14 +18,21 @@ class FormsController < ApplicationController
   def create
     @form = Form.create!(form_params)
     flash[:notice] = "form was successfully create for #{@form.name}"
-    redirect_to forms_path
+    redirect_to form_path
+  end
+  
+  def update
+    @form = Form.find params[:id]
+    @form.update_attributes!(form_params)
+    flash[:notice] = "#The information for #{@form.name} was successfully updated."
+    redirect_to form_path(@form.id)
   end
   
   def destroy
     @form = Form.find(params[:id])
     @form.form_activeness = false
     flash[:notice] = "Form was deleted."
-    redirect_to forms_path
+    redirect_to form_path
   end
   
   def edit
