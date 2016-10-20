@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+forms = [{:name => 'Aladdin', :form_type => 'atrisk', :sex => 'Male', :birth_date => '25-Nov-1992', :has_alzheimers => true}]
+
+forms.each do |form|
+  Form.create!(form)
+end
