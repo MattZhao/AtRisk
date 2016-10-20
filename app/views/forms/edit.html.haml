@@ -5,23 +5,23 @@
   = label :form, :photo_path, 'Photo of the Individual'
   = text_field :form, "photo_path"
   
-  = label :form, :name, "Individual//'s Name"
+  = label :form, :name, "Individuals Name"
   = text_field :form, "name"
   
   = label :form, :address, 'Address'
   = text_field :form, "address"
   
   = label :form, :live_alone, 'Lives Alone'
-  = select :form, :form_type, 'live_alone', ['Yes', 'No']
+  = number_field :form, "live_alone"
   
   = label :form, :birth_date, 'Date of Birth'
   = date_field :form, "birth_date"
   
-  = label :form, :nickname, 'Preferred Name//Nickname'
+  = label :form, :nickname, 'Preferred Name, Nickname'
   = text_field :form, "nickname"
   
   = label :form, :sex, 'Sex'
-  = select :form, "Sex", ['Male', 'Female', 'Others']
+  = number_field :form, "sex"
   
   = label :form, :height, 'Height'
   = text_field :form, "height"
@@ -53,40 +53,40 @@
   = label :form, :info_other_first_resp, 'Any Other Information First Responders May Need'
   = text_field :form, "info_other_first_resp"
   
-  = label :form, :phone_number, "Individual/'s Cell Phone Number"
+  = label :form, :phone_number, "Individuals Cell Phone Number"
   = number_field :form, "phone_number"
   
-  = label :form, :phone_company, 'Individual/'s Cell Phone Provider Company'
+  = label :form, :phone_company, 'Individuals Cell Phone Provider Company'
   = text_field :form, "phone_company"
   
   = label :form, :ec1_name, 'Name of Emergency Contact'
   = text_field :form, "ec1_name"
   
-  = label :form, :ec1_address, Emergency Contact/'s Address'
+  = label :form, :ec1_address, 'Emergency Contacts Address'
   = text_field :form, "ec1_address"
   
-  = label :form, :ec1_phone_home, 'Emergency Contact/'s Home Phone'
+  = label :form, :ec1_phone_home, 'Emergency Contacts Home Phone'
   = number_field :form, "ec1_phone_home"
   
-  = label :form, :ec1_phone_work, 'Emergency Contact/'s Work Phone'
+  = label :form, :ec1_phone_work, 'Emergency Contacts Work Phone'
   = number_field :form, "ec1_phone_work"
   
-  = label :form, :ec1_phone_cell, 'Emergency Contact/'s Cell Phone'
+  = label :form, :ec1_phone_cell, 'Emergency Contacts Cell Phone'
   = number_field :form, "ec1_phone_cell"
   
   = label :form, :ec2_name, 'Name of Alternative Emergency Contact'
   = text_field :form, "ec2_name"
   
-  = label :form, :ec2_address, 'Alternative Emergency Contact/'s Address'
+  = label :form, :ec2_address, 'Alternative Emergency Contacts Address'
   = text_field :form, "ec2_address"
   
-  = label :form, :ec2_phone_home, 'Alternative Emergency Contact/'s Home Phone'
+  = label :form, :ec2_phone_home, 'Alternative Emergency Contacts Home Phone'
   = number_field :form, "ec2_phone_home"
   
-  = label :form, :ec1_phone_work, 'Alternative Emergency Contact/'s Work Phone'
+  = label :form, :ec1_phone_work, 'Alternative Emergency Contacts Work Phone'
   = number_field :form, "ec2_phone_work"
   
-  = label :form, :ec1_phone_cell, 'Alternative Emergency Contact/'s Cell Phone'
+  = label :form, :ec1_phone_cell, 'Alternative Emergency Contacts Cell Phone'
   = number_field :form, "ec2_phone_cell"
 
   = label :form, :attractions_locations, 'Nearby water sources & favorite attractions or locations where the individual may be found'
@@ -95,10 +95,10 @@
   = label :form, :atypical_behaviors, 'Atypical behaviors or characteristics of the individual that may affect the attention of responders'
   = text_field :form, "atypical_behaviors"
   
-  = label :form, :favorite_topics, 'Individual/'s favorite toys, objects, music, discussion topics, likes, and dislikes'
+  = label :form, :favorite_topics, 'Individuals favorite toys, objects, music, discussion topics, likes, and dislikes'
   = text_field :form, "favorite_topics"
   
-  = label :form, :preferred_language, 'Individual/'s Preferred Spoken Language'
+  = label :form, :preferred_language, 'Individuals Preferred Spoken Language'
   = text_field :form, "preferred_language"
 
   = label :form, :communication_method_1, 'Method of Preferred Communication'
@@ -107,10 +107,10 @@
   = label :form, :communication_method_2, 'Method of Preferred Communication II'
   = text_field :form, "communication_method_2"
   
-  = label :form, :info_id, ' Individual/'s Identification Information'
+  = label :form, :info_id, 'Individuals Identification Information'
   = text_field :form, "info_id"
   
-  = label :form, :info_tracking, 'Individual/'s Tracking Information'
+  = label :form, :info_tracking, 'Individuals Tracking Information'
   = text_field :form, "info_tracking"
   
   = submit_tag 'Update Form Info'
