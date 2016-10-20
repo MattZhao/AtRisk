@@ -23,7 +23,7 @@ module NavigationHelpers
     #     user_profile_path(User.find_by_login($1))
 
     when /^the user dashboard page$/
-      '/'
+      '/forms'
     when /^the New AtRisk form page$/
       '/'
     when /^the Edit Form page$/

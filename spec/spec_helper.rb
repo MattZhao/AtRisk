@@ -1,6 +1,6 @@
-# at TOP of spec/spec_helper.rb:
 require 'simplecov'
 SimpleCov.start
+# at TOP of spec/spec_helper.rb:
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
