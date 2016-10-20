@@ -1,5 +1,4 @@
 class AtRiskController < ApplicationController
-  
   before_action :authenticate_user!, only: [] # todo: add your action here if it requires login
   
   def index
