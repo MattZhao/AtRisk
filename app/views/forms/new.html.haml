@@ -1,4 +1,4 @@
-%h1 Create New Movie
+%h1 Create New Form
 
 = form_tag forms_path do
   
@@ -112,5 +112,7 @@
   
   = label :form, :info_tracking, 'Individuals Tracking Information'
   = text_field :form, "info_tracking"
+  
+  %h3 
   
   = submit_tag 'Submit Form'
