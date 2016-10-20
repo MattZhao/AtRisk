@@ -13,12 +13,11 @@ class FormsController < ApplicationController
   end
   
   def show
-    @currentUser = current_user.id
     id = params[:id] # retrieve form ID from URI route
     @get_form = Form.find(id) # look up form by unique ID
     
     # check user validaty
-    if @get_form.id_user == @currentUser.to_s
+    if @get_form.id_user == current_user.id.to_s
       @form = @get_form
     else
       redirect_to '/messages/no_access'
@@ -45,7 +44,7 @@ class FormsController < ApplicationController
   
   def update
     @form = Form.find(params[:id])
-    if @form.id_user != @currentUser.to_s
+    if @form.id_user != current_user.id.to_s
       return redirect_to '/messages/no_access'
     end
     
@@ -56,7 +55,7 @@ class FormsController < ApplicationController
   
   def destroy
     @form = Form.find(params[:id])
-    if @form.id_user != @currentUser.to_s
+    if @form.id_user != current_user.id.to_s
       return redirect_to '/messages/no_access'
     end
     
@@ -71,7 +70,7 @@ class FormsController < ApplicationController
   
   def edit
     @form = Form.find(params[:id])
-    if @form.id_user != @currentUser.to_s
+    if @form.id_user != current_user.id.to_s
       return redirect_to '/messages/no_access'
     end
   end

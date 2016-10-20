@@ -14,9 +14,13 @@
         %td= form.birth_date
         %td= form.form_type
         %td= link_to "more", form_path(form)
+%br
+%h2 Create Forms
 
-%p for elders with disorders like alzheimer's
+%h4 For elders with disorders like alzheimer's:
 = link_to 'New At-Risk Form', new_form_path
 
-%p for children with autism
+%h3   
+
+%h4 For children with autism:
 = link_to 'New Autism Alert Form', new_form_path

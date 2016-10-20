@@ -157,5 +157,5 @@
     = @form.updated_at
 
 = link_to 'Edit Form', edit_form_path(@form)
-= button_to 'Delete Form', form_path(@form), :method => :delete, :confirm => 'Are you sure to delete this form?'
+= link_to 'Delete Form', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this form?' }
 = link_to 'Back to Dashboard', forms_path
