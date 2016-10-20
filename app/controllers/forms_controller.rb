@@ -16,7 +16,7 @@ class FormsController < ApplicationController
   end
   
   def create
-    @movie = Movie.create!(form_params)
+    @form = Form.create!(form_params)
     flash[:notice] = "form was successfully create for #{@form.name}"
     redirect_to forms_path
   end
