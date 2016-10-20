@@ -3,8 +3,8 @@ class AtRiskController < ApplicationController
   
   def index
     if user_signed_in?
-      redirect_to user_dashboard_path(current_user.id) # todo: routes user_dashboard
+      redirect_to forms_path # we are doing this for now, in the future may use good style (actual controller)
     end
   end
-
+  
 end
