@@ -24,5 +24,18 @@ class FormsController < ApplicationController
     
     # will render app/views/forms/show.<extension> by default if user is valid
   end
+  
+  def create
+    @form = Form.create!(form_params)
+    flash[:notice] = "form was successfully create for #{@form.name}"
+    redirect_to forms_path
+  end
+  
+  def destroy
+    @form = Form.find(params[:id])
+    @form.form_activeness = false
+    flash[:notice] = "Form was deleted."
+    redirect_to forms_path
+  end
 
 end
