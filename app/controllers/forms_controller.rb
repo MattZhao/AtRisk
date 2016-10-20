@@ -27,10 +27,14 @@ class FormsController < ApplicationController
     # will render app/views/forms/show.<extension> by default if user is valid
   end
 
+  def new
+    # default: render 'new' template
+  end
+  
   def create
     @form = Form.create!(form_params)
     flash[:notice] = "form was successfully create for #{@form.name}"
-    redirect_to form_path
+    redirect_to forms_path
   end
   
   def update
