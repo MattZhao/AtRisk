@@ -20,5 +20,12 @@ class FormsController < ApplicationController
     flash[:notice] = "form was successfully create for #{@form.name}"
     redirect_to forms_path
   end
+  
+  def destroy
+    @form = Form.find(params[:id])
+    @form.form_activeness = false
+    flash[:notice] = "Form was deleted."
+    redirect_to forms_path
+  end
 
 end
