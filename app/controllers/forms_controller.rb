@@ -35,7 +35,7 @@ class FormsController < ApplicationController
     @form.id_user = current_user.id.to_s
     @form.form_activeness = true
     if @form.save!
-      flash[:notice] = "Created form for #{@form.name}"
+      flash[:notice] = "Successfully Created Form for #{@form.name}"
     else
       flash[:warning] = "Error: cannot create form"
     end
