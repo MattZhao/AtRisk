@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+   add_filter "/coverage/" # Ignores any file containing "/coverage/" in its path to raise GPA
+end
 # at TOP of spec/spec_helper.rb:
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
