@@ -1,0 +1,4 @@
+<% if current_user %>
+  <%= 'User: ' + current_user.email + " | "%>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% end %>
