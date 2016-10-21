@@ -6,14 +6,12 @@
       %th name
       %th date of birth
       %th type
-      %th more info
   %tbody
     - @my_forms.each do |form|
       %tr
-        %td= form.name 
+        %td= link_to form.name, form_path(form)
         %td= form.birth_date
         %td= form.form_type
-        %td= link_to "more", form_path(form)
 %br
 %h2 Create Forms
 

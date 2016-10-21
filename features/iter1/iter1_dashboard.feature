@@ -4,7 +4,7 @@ Feature: log in and see the dashboard
   I want to  see my dashboard
 
   Background:
-    Given I am logged in as "MattZhao"
+    Given I am logged in
     
   Scenario: Successfully see dashboard
     Given I am on the user dashboard page

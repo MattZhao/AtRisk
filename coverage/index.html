@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-10-21T04:15:08+00:00">2016-10-21T04:15:08+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-10-21T05:40:03+00:00">2016-10-21T05:40:03+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">65.56%</span></span>
+    (<span class="covered_percent"><span class="red">65.32%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.61
+         1.63
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>27</b> files in total.
-    <b>392</b> relevant lines. 
-    <span class="green"><b>257</b> lines covered</span> and
-    <span class="red"><b>135</b> lines missed </span>
+    <b>395</b> relevant lines. 
+    <span class="green"><b>258</b> lines covered</span> and
+    <span class="red"><b>137</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -57,7 +57,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>18.0</td>
+        <td>18.7</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>6.8</td>
+        <td>7.2</td>
       </tr>
       
       <tr>
@@ -261,13 +261,13 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#c9d3be27dd6248bde030a91e13e482805c51857f" class="src_link" title="features/step_definitions/iter1_steps.rb">features/step_definitions/iter1_steps.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>4</td>
+        <td class="strong"><a href="#b79d3ea52a902fb9747de940b4640bb478cff1ef" class="src_link" title="features/step_definitions/form_steps.rb">features/step_definitions/form_steps.rb</a></td>
+        <td class="red strong">40.0 %</td>
+        <td>18</td>
+        <td>5</td>
         <td>2</td>
-        <td>2</td>
-        <td>0</td>
-        <td>5.0</td>
+        <td>3</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -277,7 +277,7 @@
         <td>135</td>
         <td>127</td>
         <td>8</td>
-        <td>2.5</td>
+        <td>2.6</td>
       </tr>
       
       <tr>
@@ -292,12 +292,12 @@
       
       <tr>
         <td class="strong"><a href="#47dfbfa6c016c293fd4938e1998e83792b9a2921" class="src_link" title="features/support/paths.rb">features/support/paths.rb</a></td>
-        <td class="red strong">33.33 %</td>
-        <td>50</td>
+        <td class="red strong">40.0 %</td>
+        <td>51</td>
         <td>15</td>
-        <td>5</td>
-        <td>10</td>
-        <td>0.3</td>
+        <td>6</td>
+        <td>9</td>
+        <td>0.5</td>
       </tr>
       
       <tr>
@@ -392,14 +392,14 @@
           <code class="ruby">  def configure_permitted_parameters</code>
         </li>
       
-        <li class="covered" data-hits="52" data-linenumber="8">
-          <span class="hits">52</span>
+        <li class="covered" data-hits="54" data-linenumber="8">
+          <span class="hits">54</span>
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation, :name])</code>
         </li>
       
-        <li class="covered" data-hits="52" data-linenumber="9">
-          <span class="hits">52</span>
+        <li class="covered" data-hits="54" data-linenumber="9">
+          <span class="hits">54</span>
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :name])</code>
         </li>
@@ -464,14 +464,14 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="5">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="5">
+          <span class="hits">18</span>
           
           <code class="ruby">    if user_signed_in?</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="6">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="15" data-linenumber="6">
+          <span class="hits">15</span>
           
           <code class="ruby">      redirect_to forms_path # we are doing this for now, in the future may use good style (actual controller)</code>
         </li>
@@ -584,8 +584,8 @@
           <code class="ruby">    # this functinos as the user dashboard for now</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="12">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="16" data-linenumber="12">
+          <span class="hits">16</span>
           
           <code class="ruby">    @my_forms = Form.where(:id_user =&gt; current_user.id.to_s, :form_activeness =&gt; true)</code>
         </li>
@@ -4254,14 +4254,14 @@
   </pre>
 </div>
       
-        <div class="source_table" id="c9d3be27dd6248bde030a91e13e482805c51857f">
+        <div class="source_table" id="b79d3ea52a902fb9747de940b4640bb478cff1ef">
   <div class="header">
-    <h3>features/step_definitions/iter1_steps.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h3>features/step_definitions/form_steps.rb</h3>
+    <h4><span class="red">40.0 %</span> covered</h4>
     <div>
-      <b>2</b> relevant lines. 
+      <b>5</b> relevant lines. 
       <span class="green"><b>2</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -4271,25 +4271,109 @@
         <li class="never" data-hits="" data-linenumber="1">
           
           
-          <code class="ruby">#haha</code>
+          <code class="ruby"># Add a declarative step here for populating the DB with forms.</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">When /^I am logged in as &quot;([^&quot;]*)&quot;$/ do |uid|</code>
+          <code class="ruby">Given /the following forms exist/ do |forms_table|</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="3">
-          <span class="hits">9</span>
+        <li class="missed" data-hits="0" data-linenumber="3">
           
-          <code class="ruby">  pending</code>
+          
+          <code class="ruby">  forms_table.hashes.each do |form|</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
           
           
+          <code class="ruby">    # each returned element will be a hash whose key is the table header.</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">    # you should arrange to add that movie to the database here.</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="6">
+          
+          
+          <code class="ruby">    Form.create form </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
           <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"># click link in table does not work</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">When(/^I goooo to info page for the first item in database$/) do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">  visit &#39;forms/1&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"># # confirm delete form</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"># When(/^I accept the alart$/) do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">#   page.accept_confirm</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby"># end</code>
         </li>
       
     </ol>
@@ -4334,8 +4418,8 @@
           <code class="ruby">  @visitor ||= { :name =&gt; &quot;Testy McUserton&quot;, :email =&gt; &quot;example@example.com&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="5">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="5">
+          <span class="hits">20</span>
           
           <code class="ruby">    :password =&gt; &quot;password&quot;, :password_confirmation =&gt; &quot;password&quot; }</code>
         </li>
@@ -4424,20 +4508,20 @@
           <code class="ruby">def create_user</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="20">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="12" data-linenumber="20">
+          <span class="hits">12</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="21">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="12" data-linenumber="21">
+          <span class="hits">12</span>
           
           <code class="ruby">  delete_user</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="22">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="12" data-linenumber="22">
+          <span class="hits">12</span>
           
           <code class="ruby">  @user = FactoryGirl.create(:user, @visitor)</code>
         </li>
@@ -4460,14 +4544,14 @@
           <code class="ruby">def delete_user</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="26">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="26">
+          <span class="hits">18</span>
           
           <code class="ruby">  @user ||= User.where(:email =&gt; @visitor[:email]).first</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="27">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="27">
+          <span class="hits">18</span>
           
           <code class="ruby">  @user.destroy unless @user.nil?</code>
         </li>
@@ -4556,26 +4640,26 @@
           <code class="ruby">def sign_in</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="42">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="42">
+          <span class="hits">13</span>
           
           <code class="ruby">  visit &#39;/users/sign_in&#39;</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="43">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="43">
+          <span class="hits">13</span>
           
           <code class="ruby">  fill_in &quot;user_email&quot;, :with =&gt; @visitor[:email]</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="44">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="44">
+          <span class="hits">13</span>
           
           <code class="ruby">  fill_in &quot;user_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="45">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="45">
+          <span class="hits">13</span>
           
           <code class="ruby">  click_button &quot;Log in&quot;</code>
         </li>
@@ -4604,8 +4688,8 @@
           <code class="ruby">Given /^I am not logged in$/ do</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="50">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="50">
+          <span class="hits">9</span>
           
           <code class="ruby">  page.driver.delete(&#39;/users/sign_out&#39;)</code>
         </li>
@@ -4628,14 +4712,14 @@
           <code class="ruby">Given /^I am logged in$/ do</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="54">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="54">
+          <span class="hits">9</span>
           
           <code class="ruby">  create_user</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="55">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="9" data-linenumber="55">
+          <span class="hits">9</span>
           
           <code class="ruby">  sign_in</code>
         </li>
@@ -5960,8 +6044,8 @@
           <code class="ruby">Given /^(?:|I )am on (.+)$/ do |page_name|</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="45">
+          <span class="hits">2</span>
           
           <code class="ruby">  visit path_to(page_name)</code>
         </li>
@@ -6326,14 +6410,14 @@
           <code class="ruby">Then /^(?:|I )should see &quot;([^&quot;]*)&quot;$/ do |text|</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="106">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="106">
+          <span class="hits">6</span>
           
           <code class="ruby">  if page.respond_to? :should</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="107">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="107">
+          <span class="hits">6</span>
           
           <code class="ruby">    page.should have_content(text)</code>
         </li>
@@ -7227,11 +7311,11 @@
         <div class="source_table" id="47dfbfa6c016c293fd4938e1998e83792b9a2921">
   <div class="header">
     <h3>features/support/paths.rb</h3>
-    <h4><span class="red">33.33 %</span> covered</h4>
+    <h4><span class="red">40.0 %</span> covered</h4>
     <div>
       <b>15</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
-      <span class="red"><b>10</b> lines missed.</span>
+      <span class="green"><b>6</b> lines covered</span> and
+      <span class="red"><b>9</b> lines missed.</span>
     </div>
   </div>
   
@@ -7316,8 +7400,8 @@
           <code class="ruby">  def path_to(page_name)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
           
           <code class="ruby">    case page_name</code>
         </li>
@@ -7424,8 +7508,8 @@
           <code class="ruby">    when /^the user dashboard page$/</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
           
           <code class="ruby">      &#39;/forms&#39;</code>
         </li>
@@ -7433,106 +7517,112 @@
         <li class="never" data-hits="" data-linenumber="33">
           
           
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
           <code class="ruby">    when /^the new form page$/</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
           <code class="ruby">      &#39;/forms/new&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">    # original codes</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby">    # original codes</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">      begin</code>
+          <code class="ruby">    else</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">        page_name =~ /^the (.*) page$/</code>
+          <code class="ruby">      begin</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="40">
           
           
-          <code class="ruby">        path_components = $1.split(/\s+/)</code>
+          <code class="ruby">        page_name =~ /^the (.*) page$/</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="41">
           
           
-          <code class="ruby">        self.send(path_components.push(&#39;path&#39;).join(&#39;_&#39;).to_sym)</code>
+          <code class="ruby">        path_components = $1.split(/\s+/)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="42">
           
           
-          <code class="ruby">      rescue NoMethodError, ArgumentError</code>
+          <code class="ruby">        self.send(path_components.push(&#39;path&#39;).join(&#39;_&#39;).to_sym)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="43">
           
           
-          <code class="ruby">        raise &quot;Can&#39;t find mapping from \&quot;#{page_name}\&quot; to a path.\n&quot; +</code>
+          <code class="ruby">      rescue NoMethodError, ArgumentError</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="missed" data-hits="0" data-linenumber="44">
           
           
-          <code class="ruby">          &quot;Now, go and add a mapping in #{__FILE__}&quot;</code>
+          <code class="ruby">        raise &quot;Can&#39;t find mapping from \&quot;#{page_name}\&quot; to a path.\n&quot; +</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">          &quot;Now, go and add a mapping in #{__FILE__}&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
           <code class="ruby">World(NavigationHelpers)</code>

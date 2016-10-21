@@ -30,6 +30,7 @@ module NavigationHelpers
 
     when /^the user dashboard page$/
       '/forms'
+      
     when /^the new form page$/
       '/forms/new'
 
