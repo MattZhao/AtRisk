@@ -59,3 +59,6 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+# For Cucumber, add at the end of features/support/env.rb:
+require 'cucumber'
+World(FactoryGirl::Syntax::Methods)
