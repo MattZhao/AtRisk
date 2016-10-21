@@ -10,3 +10,6 @@ script:
   - bundle exec cucumber
 after_script:
   - bundle exec rake send_to_codeclimate
+addons:
+  code_climate:
+    repo_token: 422efe10
