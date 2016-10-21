@@ -21,15 +21,17 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+    
+    when /the sign up page/
+      '/users/sign_up'
+
+    when /the sign in page/
+      '/users/sign_in'
 
     when /^the user dashboard page$/
       '/forms'
-    when /^the New AtRisk form page$/
-      '/'
-    when /^the Edit Form page$/
-      '/'
-    when /^the Detailed Form page$/
-      '/'
+    when /^the new form page$/
+      '/forms/new'
 
     # original codes
     else

@@ -9,10 +9,10 @@ Feature: create new form
   Scenario: navigate to create form
     Given I am on the user dashboard page
     When I press "New At-Risk Form"
-    Then I should be on the New AtRisk form page
+    Then I should be on the new form page
 
   Scenario: create new form
-    Given I am on the New AtRisk form page
+    Given I am on the new form page
     When I fill in "name" with “Matthew”
     And I press "submit"
     Then I should see “Your form is submitted”
