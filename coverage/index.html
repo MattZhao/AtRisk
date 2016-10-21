@@ -14,18 +14,18 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-10-21T23:52:21+00:00">2016-10-21T23:52:21+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-10-21T23:57:33+00:00">2016-10-21T23:57:33+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">50.13%</span></span>
+    (<span class="covered_percent"><span class="red">68.86%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.58
+       <span class="green">
+         1.77
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>27</b> files in total.
     <b>395</b> relevant lines. 
-    <span class="green"><b>198</b> lines covered</span> and
-    <span class="red"><b>197</b> lines missed </span>
+    <span class="green"><b>272</b> lines covered</span> and
+    <span class="red"><b>123</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -57,7 +57,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>2.0</td>
+        <td>20.0</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>1.4</td>
+        <td>8.0</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>41</td>
         <td>18</td>
         <td>23</td>
-        <td>0.5</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -272,32 +272,32 @@
       
       <tr>
         <td class="strong"><a href="#8ab251182b7cacb35c0f55b7dc4f0cf5c66ecf37" class="src_link" title="features/step_definitions/user_steps.rb">features/step_definitions/user_steps.rb</a></td>
-        <td class="red strong">41.48 %</td>
+        <td class="green strong">94.07 %</td>
         <td>228</td>
         <td>135</td>
-        <td>56</td>
-        <td>79</td>
-        <td>0.5</td>
+        <td>127</td>
+        <td>8</td>
+        <td>2.7</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#d21b012287b7f261b0667359f66d7b3632e66935" class="src_link" title="features/step_definitions/web_steps.rb">features/step_definitions/web_steps.rb</a></td>
-        <td class="red strong">35.25 %</td>
+        <td class="red strong">36.89 %</td>
         <td>254</td>
         <td>122</td>
-        <td>43</td>
-        <td>79</td>
-        <td>0.4</td>
+        <td>45</td>
+        <td>77</td>
+        <td>0.5</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#355bcc1ffa63baed2f91b8e88b675ed63f7d88eb" class="src_link" title="features/support/paths.rb">features/support/paths.rb</a></td>
-        <td class="red strong">40.0 %</td>
+        <td class="red strong">46.67 %</td>
         <td>51</td>
         <td>15</td>
-        <td>6</td>
-        <td>9</td>
-        <td>0.6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -392,14 +392,14 @@
           <code class="ruby">  def configure_permitted_parameters</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="8">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="58" data-linenumber="8">
+          <span class="hits">58</span>
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation, :name])</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="9">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="58" data-linenumber="9">
+          <span class="hits">58</span>
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :name])</code>
         </li>
@@ -464,14 +464,14 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="20" data-linenumber="5">
+          <span class="hits">20</span>
           
           <code class="ruby">    if user_signed_in?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="6">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="17" data-linenumber="6">
+          <span class="hits">17</span>
           
           <code class="ruby">      redirect_to forms_path # we are doing this for now, in the future may use good style (actual controller)</code>
         </li>
@@ -584,8 +584,8 @@
           <code class="ruby">    # this functinos as the user dashboard for now</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="12">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="20" data-linenumber="12">
+          <span class="hits">20</span>
           
           <code class="ruby">    @my_forms = Form.where(:id_user =&gt; current_user.id.to_s, :form_activeness =&gt; true)</code>
         </li>
@@ -4383,11 +4383,11 @@
         <div class="source_table" id="8ab251182b7cacb35c0f55b7dc4f0cf5c66ecf37">
   <div class="header">
     <h3>features/step_definitions/user_steps.rb</h3>
-    <h4><span class="red">41.48 %</span> covered</h4>
+    <h4><span class="green">94.07 %</span> covered</h4>
     <div>
       <b>135</b> relevant lines. 
-      <span class="green"><b>56</b> lines covered</span> and
-      <span class="red"><b>79</b> lines missed.</span>
+      <span class="green"><b>127</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -4418,8 +4418,8 @@
           <code class="ruby">  @visitor ||= { :name =&gt; &quot;Testy McUserton&quot;, :email =&gt; &quot;example@example.com&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="22" data-linenumber="5">
+          <span class="hits">22</span>
           
           <code class="ruby">    :password =&gt; &quot;password&quot;, :password_confirmation =&gt; &quot;password&quot; }</code>
         </li>
@@ -4442,8 +4442,8 @@
           <code class="ruby">def find_user</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
-          
+        <li class="covered" data-hits="5" data-linenumber="9">
+          <span class="hits">5</span>
           
           <code class="ruby">  @user ||= User.where(:email =&gt; @visitor[:email]).first</code>
         </li>
@@ -4508,20 +4508,20 @@
           <code class="ruby">def create_user</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="14" data-linenumber="20">
+          <span class="hits">14</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="14" data-linenumber="21">
+          <span class="hits">14</span>
           
           <code class="ruby">  delete_user</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="14" data-linenumber="22">
+          <span class="hits">14</span>
           
           <code class="ruby">  @user = FactoryGirl.create(:user, @visitor)</code>
         </li>
@@ -4544,14 +4544,14 @@
           <code class="ruby">def delete_user</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="26">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="20" data-linenumber="26">
+          <span class="hits">20</span>
           
           <code class="ruby">  @user ||= User.where(:email =&gt; @visitor[:email]).first</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="27">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="20" data-linenumber="27">
+          <span class="hits">20</span>
           
           <code class="ruby">  @user.destroy unless @user.nil?</code>
         </li>
@@ -4574,50 +4574,50 @@
           <code class="ruby">def sign_up</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
-          
+        <li class="covered" data-hits="5" data-linenumber="31">
+          <span class="hits">5</span>
           
           <code class="ruby">  delete_user</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
+        <li class="covered" data-hits="5" data-linenumber="32">
+          <span class="hits">5</span>
           
           <code class="ruby">  visit &#39;/users/sign_up&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
-          
+        <li class="covered" data-hits="5" data-linenumber="33">
+          <span class="hits">5</span>
           
           <code class="ruby">  fill_in &quot;user_name&quot;, :with =&gt; @visitor[:name]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
-          
+        <li class="covered" data-hits="5" data-linenumber="34">
+          <span class="hits">5</span>
           
           <code class="ruby">  fill_in &quot;user_email&quot;, :with =&gt; @visitor[:email]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="35">
-          
+        <li class="covered" data-hits="5" data-linenumber="35">
+          <span class="hits">5</span>
           
           <code class="ruby">  fill_in &quot;user_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
-          
+        <li class="covered" data-hits="5" data-linenumber="36">
+          <span class="hits">5</span>
           
           <code class="ruby">  fill_in &quot;user_password_confirmation&quot;, :with =&gt; @visitor[:password_confirmation]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="37">
-          
+        <li class="covered" data-hits="5" data-linenumber="37">
+          <span class="hits">5</span>
           
           <code class="ruby">  click_button &quot;Sign up&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
+        <li class="covered" data-hits="5" data-linenumber="38">
+          <span class="hits">5</span>
           
           <code class="ruby">  find_user</code>
         </li>
@@ -4640,26 +4640,26 @@
           <code class="ruby">def sign_in</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="42">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="15" data-linenumber="42">
+          <span class="hits">15</span>
           
           <code class="ruby">  visit &#39;/users/sign_in&#39;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="43">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="15" data-linenumber="43">
+          <span class="hits">15</span>
           
           <code class="ruby">  fill_in &quot;user_email&quot;, :with =&gt; @visitor[:email]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="44">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="15" data-linenumber="44">
+          <span class="hits">15</span>
           
           <code class="ruby">  fill_in &quot;user_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="45">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="15" data-linenumber="45">
+          <span class="hits">15</span>
           
           <code class="ruby">  click_button &quot;Log in&quot;</code>
         </li>
@@ -4688,8 +4688,8 @@
           <code class="ruby">Given /^I am not logged in$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
+        <li class="covered" data-hits="9" data-linenumber="50">
+          <span class="hits">9</span>
           
           <code class="ruby">  page.driver.delete(&#39;/users/sign_out&#39;)</code>
         </li>
@@ -4712,14 +4712,14 @@
           <code class="ruby">Given /^I am logged in$/ do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="54">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="11" data-linenumber="54">
+          <span class="hits">11</span>
           
           <code class="ruby">  create_user</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="55">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="11" data-linenumber="55">
+          <span class="hits">11</span>
           
           <code class="ruby">  sign_in</code>
         </li>
@@ -4742,8 +4742,8 @@
           <code class="ruby">Given /^I exist as a user$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="59">
-          
+        <li class="covered" data-hits="3" data-linenumber="59">
+          <span class="hits">3</span>
           
           <code class="ruby">  create_user</code>
         </li>
@@ -4766,14 +4766,14 @@
           <code class="ruby">Given /^I do not exist as a user$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="63">
-          
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="64">
-          
+        <li class="covered" data-hits="1" data-linenumber="64">
+          <span class="hits">1</span>
           
           <code class="ruby">  delete_user</code>
         </li>
@@ -4826,14 +4826,14 @@
           <code class="ruby">When /^I sign in with valid credentials$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
+        <li class="covered" data-hits="2" data-linenumber="73">
+          <span class="hits">2</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
+        <li class="covered" data-hits="2" data-linenumber="74">
+          <span class="hits">2</span>
           
           <code class="ruby">  sign_in</code>
         </li>
@@ -4856,8 +4856,8 @@
           <code class="ruby">When /^I sign out$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="78">
-          
+        <li class="covered" data-hits="1" data-linenumber="78">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.driver.delete(&#39;/users/sign_out&#39;)</code>
         </li>
@@ -4880,14 +4880,14 @@
           <code class="ruby">When /^I sign up with valid user data$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="82">
-          
+        <li class="covered" data-hits="1" data-linenumber="82">
+          <span class="hits">1</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="83">
-          
+        <li class="covered" data-hits="1" data-linenumber="83">
+          <span class="hits">1</span>
           
           <code class="ruby">  sign_up</code>
         </li>
@@ -4910,20 +4910,20 @@
           <code class="ruby">When /^I sign up with an invalid email$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="87">
-          
+        <li class="covered" data-hits="1" data-linenumber="87">
+          <span class="hits">1</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="88">
-          
+        <li class="covered" data-hits="1" data-linenumber="88">
+          <span class="hits">1</span>
           
           <code class="ruby">  @visitor = @visitor.merge(:email =&gt; &quot;notanemail&quot;)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="89">
-          
+        <li class="covered" data-hits="1" data-linenumber="89">
+          <span class="hits">1</span>
           
           <code class="ruby">  sign_up</code>
         </li>
@@ -4946,20 +4946,20 @@
           <code class="ruby">When /^I sign up without a password confirmation$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="93">
-          
+        <li class="covered" data-hits="1" data-linenumber="93">
+          <span class="hits">1</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="94">
-          
+        <li class="covered" data-hits="1" data-linenumber="94">
+          <span class="hits">1</span>
           
           <code class="ruby">  @visitor = @visitor.merge(:password_confirmation =&gt; &quot;&quot;)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
+        <li class="covered" data-hits="1" data-linenumber="95">
+          <span class="hits">1</span>
           
           <code class="ruby">  sign_up</code>
         </li>
@@ -4982,20 +4982,20 @@
           <code class="ruby">When /^I sign up without a password$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="99">
-          
+        <li class="covered" data-hits="1" data-linenumber="99">
+          <span class="hits">1</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="100">
-          
+        <li class="covered" data-hits="1" data-linenumber="100">
+          <span class="hits">1</span>
           
           <code class="ruby">  @visitor = @visitor.merge(:password =&gt; &quot;&quot;)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="101">
-          
+        <li class="covered" data-hits="1" data-linenumber="101">
+          <span class="hits">1</span>
           
           <code class="ruby">  sign_up</code>
         </li>
@@ -5018,20 +5018,20 @@
           <code class="ruby">When /^I sign up with a mismatched password confirmation$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="105">
-          
+        <li class="covered" data-hits="1" data-linenumber="105">
+          <span class="hits">1</span>
           
           <code class="ruby">  create_visitor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="106">
-          
+        <li class="covered" data-hits="1" data-linenumber="106">
+          <span class="hits">1</span>
           
           <code class="ruby">  @visitor = @visitor.merge(:password_confirmation =&gt; &quot;changeme123&quot;)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="107">
-          
+        <li class="covered" data-hits="1" data-linenumber="107">
+          <span class="hits">1</span>
           
           <code class="ruby">  sign_up</code>
         </li>
@@ -5054,8 +5054,8 @@
           <code class="ruby">When /^I return to the site$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="111">
-          
+        <li class="covered" data-hits="3" data-linenumber="111">
+          <span class="hits">3</span>
           
           <code class="ruby">  visit &#39;/&#39;</code>
         </li>
@@ -5078,14 +5078,14 @@
           <code class="ruby">When /^I sign in with a wrong email$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="115">
-          
+        <li class="covered" data-hits="1" data-linenumber="115">
+          <span class="hits">1</span>
           
           <code class="ruby">  @visitor = @visitor.merge(:email =&gt; &quot;wrong@example.com&quot;)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="116">
-          
+        <li class="covered" data-hits="1" data-linenumber="116">
+          <span class="hits">1</span>
           
           <code class="ruby">  sign_in</code>
         </li>
@@ -5108,14 +5108,14 @@
           <code class="ruby">When /^I sign in with a wrong password$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="120">
-          
+        <li class="covered" data-hits="1" data-linenumber="120">
+          <span class="hits">1</span>
           
           <code class="ruby">  @visitor = @visitor.merge(:password =&gt; &quot;wrongpass&quot;)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="121">
-          
+        <li class="covered" data-hits="1" data-linenumber="121">
+          <span class="hits">1</span>
           
           <code class="ruby">  sign_in</code>
         </li>
@@ -5138,8 +5138,8 @@
           <code class="ruby">When(/^I save the edit form$/) do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="125">
-          
+        <li class="covered" data-hits="7" data-linenumber="125">
+          <span class="hits">7</span>
           
           <code class="ruby">  click_button &quot;Update&quot;</code>
         </li>
@@ -5162,20 +5162,20 @@
           <code class="ruby">When /^I edit my account name$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="129">
-          
+        <li class="covered" data-hits="1" data-linenumber="129">
+          <span class="hits">1</span>
           
           <code class="ruby">  click_link &quot;Edit Account&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="130">
-          
+        <li class="covered" data-hits="1" data-linenumber="130">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_name&quot;, :with =&gt; &quot;newname&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="131">
-          
+        <li class="covered" data-hits="1" data-linenumber="131">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_current_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
@@ -5198,20 +5198,20 @@
           <code class="ruby">When /^I edit my email address$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="135">
-          
+        <li class="covered" data-hits="2" data-linenumber="135">
+          <span class="hits">2</span>
           
           <code class="ruby">  click_link &quot;Edit Account&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="136">
-          
+        <li class="covered" data-hits="2" data-linenumber="136">
+          <span class="hits">2</span>
           
           <code class="ruby">  fill_in &quot;user_email&quot;, :with =&gt; &quot;newemail@example.com&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="137">
-          
+        <li class="covered" data-hits="2" data-linenumber="137">
+          <span class="hits">2</span>
           
           <code class="ruby">  fill_in &quot;user_current_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
@@ -5234,8 +5234,8 @@
           <code class="ruby">When(/^I don&#39;t enter my current password$/) do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="141">
-          
+        <li class="covered" data-hits="1" data-linenumber="141">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_current_password&quot;, :with =&gt; &quot;&quot;</code>
         </li>
@@ -5258,20 +5258,20 @@
           <code class="ruby">When(/^I edit my email address with an invalid email$/) do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="145">
-          
+        <li class="covered" data-hits="1" data-linenumber="145">
+          <span class="hits">1</span>
           
           <code class="ruby">  click_link &quot;Edit Account&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="146">
-          
+        <li class="covered" data-hits="1" data-linenumber="146">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_email&quot;, :with =&gt; &quot;notanemail&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="147">
-          
+        <li class="covered" data-hits="1" data-linenumber="147">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_current_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
@@ -5294,26 +5294,26 @@
           <code class="ruby">When(/^I edit my password$/) do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="151">
-          
+        <li class="covered" data-hits="1" data-linenumber="151">
+          <span class="hits">1</span>
           
           <code class="ruby">  click_link &quot;Edit Account&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="152">
-          
+        <li class="covered" data-hits="1" data-linenumber="152">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_password&quot;, :with =&gt; &quot;newpassword&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="153">
-          
+        <li class="covered" data-hits="1" data-linenumber="153">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_password_confirmation&quot;, :with =&gt; &quot;newpassword&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="154">
-          
+        <li class="covered" data-hits="1" data-linenumber="154">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_current_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
@@ -5336,20 +5336,20 @@
           <code class="ruby">When(/^I edit my password with missing confirmation$/) do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="158">
-          
+        <li class="covered" data-hits="1" data-linenumber="158">
+          <span class="hits">1</span>
           
           <code class="ruby">  click_link &quot;Edit Account&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="159">
-          
+        <li class="covered" data-hits="1" data-linenumber="159">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_password&quot;, :with =&gt; &quot;newpassword&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="160">
-          
+        <li class="covered" data-hits="1" data-linenumber="160">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_current_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
@@ -5372,26 +5372,26 @@
           <code class="ruby">When(/^I edit my password with missmatched confirmation$/) do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="164">
-          
+        <li class="covered" data-hits="1" data-linenumber="164">
+          <span class="hits">1</span>
           
           <code class="ruby">  click_link &quot;Edit Account&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="165">
-          
+        <li class="covered" data-hits="1" data-linenumber="165">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_password&quot;, :with =&gt; &quot;newpassword&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="166">
-          
+        <li class="covered" data-hits="1" data-linenumber="166">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_password_confirmation&quot;, :with =&gt; &quot;newpassword123&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="167">
-          
+        <li class="covered" data-hits="1" data-linenumber="167">
+          <span class="hits">1</span>
           
           <code class="ruby">  fill_in &quot;user_current_password&quot;, :with =&gt; @visitor[:password]</code>
         </li>
@@ -5420,20 +5420,20 @@
           <code class="ruby">Then /^I should be signed in$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="172">
-          
+        <li class="covered" data-hits="1" data-linenumber="172">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should have_content &quot;Logout&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="173">
-          
+        <li class="covered" data-hits="1" data-linenumber="173">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should_not have_content &quot;Register&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="174">
-          
+        <li class="covered" data-hits="1" data-linenumber="174">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should_not have_content &quot;Log In&quot;</code>
         </li>
@@ -5456,8 +5456,8 @@
           <code class="ruby">Then /^I should be signed out$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="178">
-          
+        <li class="covered" data-hits="3" data-linenumber="178">
+          <span class="hits">3</span>
           
           <code class="ruby">  page.should_not have_content &quot;Logout&quot;</code>
         </li>
@@ -5504,8 +5504,8 @@
           <code class="ruby">Then /^I see a successful sign in message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="186">
-          
+        <li class="covered" data-hits="1" data-linenumber="186">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should have_content &quot;Signed in successfully.&quot;</code>
         </li>
@@ -5528,8 +5528,8 @@
           <code class="ruby">Then /^I should see a successful sign up message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="190">
-          
+        <li class="covered" data-hits="1" data-linenumber="190">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should have_content &quot;Welcome! You have signed up successfully.&quot;</code>
         </li>
@@ -5552,8 +5552,8 @@
           <code class="ruby">Then /^I should see an invalid email message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="194">
-          
+        <li class="covered" data-hits="2" data-linenumber="194">
+          <span class="hits">2</span>
           
           <code class="ruby">  page.should have_content &quot;Email is invalid&quot;</code>
         </li>
@@ -5576,8 +5576,8 @@
           <code class="ruby">Then /^I should see a missing password message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="198">
-          
+        <li class="covered" data-hits="1" data-linenumber="198">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should have_content &quot;Password can&#39;t be blank&quot;</code>
         </li>
@@ -5600,8 +5600,8 @@
           <code class="ruby">Then /^I should see a missing password confirmation message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="202">
-          
+        <li class="covered" data-hits="1" data-linenumber="202">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should have_content &quot;Password confirmation doesn&#39;t match&quot;</code>
         </li>
@@ -5624,8 +5624,8 @@
           <code class="ruby">Then /^I should see a mismatched password message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="206">
-          
+        <li class="covered" data-hits="3" data-linenumber="206">
+          <span class="hits">3</span>
           
           <code class="ruby">  page.should have_content &quot;Password confirmation doesn&#39;t match&quot;</code>
         </li>
@@ -5648,8 +5648,8 @@
           <code class="ruby">Then /^I should see a signed out message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="210">
-          
+        <li class="covered" data-hits="1" data-linenumber="210">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should have_content &quot;Signed out successfully.&quot;</code>
         </li>
@@ -5672,8 +5672,8 @@
           <code class="ruby">Then /^I see an invalid login message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="214">
-          
+        <li class="covered" data-hits="3" data-linenumber="214">
+          <span class="hits">3</span>
           
           <code class="ruby">  page.should have_content &quot;Invalid Email or password.&quot;</code>
         </li>
@@ -5696,8 +5696,8 @@
           <code class="ruby">Then /^I should see an account edited message$/ do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="218">
-          
+        <li class="covered" data-hits="3" data-linenumber="218">
+          <span class="hits">3</span>
           
           <code class="ruby">  page.should have_content &quot;Your account has been updated successfully.&quot;</code>
         </li>
@@ -5720,8 +5720,8 @@
           <code class="ruby">Then(/^I should see a current password missing message$/) do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="222">
-          
+        <li class="covered" data-hits="1" data-linenumber="222">
+          <span class="hits">1</span>
           
           <code class="ruby">  page.should have_content &quot;Current password can&#39;t be blank&quot;</code>
         </li>
@@ -5769,11 +5769,11 @@
         <div class="source_table" id="d21b012287b7f261b0667359f66d7b3632e66935">
   <div class="header">
     <h3>features/step_definitions/web_steps.rb</h3>
-    <h4><span class="red">35.25 %</span> covered</h4>
+    <h4><span class="red">36.89 %</span> covered</h4>
     <div>
       <b>122</b> relevant lines. 
-      <span class="green"><b>43</b> lines covered</span> and
-      <span class="red"><b>79</b> lines missed.</span>
+      <span class="green"><b>45</b> lines covered</span> and
+      <span class="red"><b>77</b> lines missed.</span>
     </div>
   </div>
   
@@ -6044,8 +6044,8 @@
           <code class="ruby">Given /^(?:|I )am on (.+)$/ do |page_name|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="45">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="45">
+          <span class="hits">4</span>
           
           <code class="ruby">  visit path_to(page_name)</code>
         </li>
@@ -6410,14 +6410,14 @@
           <code class="ruby">Then /^(?:|I )should see &quot;([^&quot;]*)&quot;$/ do |text|</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="106">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="7" data-linenumber="106">
+          <span class="hits">7</span>
           
           <code class="ruby">  if page.respond_to? :should</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="7" data-linenumber="107">
+          <span class="hits">7</span>
           
           <code class="ruby">    page.should have_content(text)</code>
         </li>
@@ -6518,14 +6518,14 @@
           <code class="ruby">Then /^(?:|I )should not see &quot;([^&quot;]*)&quot;$/ do |text|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="124">
-          
+        <li class="covered" data-hits="1" data-linenumber="124">
+          <span class="hits">1</span>
           
           <code class="ruby">  if page.respond_to? :should</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="125">
-          
+        <li class="covered" data-hits="1" data-linenumber="125">
+          <span class="hits">1</span>
           
           <code class="ruby">    page.should have_no_content(text)</code>
         </li>
@@ -7311,11 +7311,11 @@
         <div class="source_table" id="355bcc1ffa63baed2f91b8e88b675ed63f7d88eb">
   <div class="header">
     <h3>features/support/paths.rb</h3>
-    <h4><span class="red">40.0 %</span> covered</h4>
+    <h4><span class="red">46.67 %</span> covered</h4>
     <div>
       <b>15</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
-      <span class="red"><b>9</b> lines missed.</span>
+      <span class="green"><b>7</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -7400,8 +7400,8 @@
           <code class="ruby">  def path_to(page_name)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="14">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="14">
+          <span class="hits">5</span>
           
           <code class="ruby">    case page_name</code>
         </li>
@@ -7418,8 +7418,8 @@
           <code class="ruby">    when /^the home\s?page$/</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
           
           <code class="ruby">      &#39;/&#39;</code>
         </li>
@@ -7508,8 +7508,8 @@
           <code class="ruby">    when /^the user dashboard page$/</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="32">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="32">
+          <span class="hits">2</span>
           
           <code class="ruby">      &#39;/forms&#39;</code>
         </li>
