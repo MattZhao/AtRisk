@@ -1,14 +1,24 @@
 {
+<<<<<<< HEAD
   "Cucumber Features": {
     "coverage": {
       "/home/ubuntu/workspace/AtRisk/config/environment.rb": [
+=======
+  "RSpec": {
+    "coverage": {
+      "/home/ubuntu/workspace/config/environment.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         1,
         null,
         null,
         1
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/application.rb": [
+=======
+      "/home/ubuntu/workspace/config/application.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         1,
         null,
         1,
@@ -36,12 +46,20 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/boot.rb": [
+=======
+      "/home/ubuntu/workspace/config/boot.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         1,
         null,
         1
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/environments/test.rb": [
+=======
+      "/home/ubuntu/workspace/config/environments/test.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         1,
         null,
         null,
@@ -85,7 +103,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/assets.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/assets.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
@@ -98,7 +120,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/backtrace_silencers.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/backtrace_silencers.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
@@ -107,12 +133,20 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/cookies_serializer.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/cookies_serializer.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         1
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/devise.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/devise.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         1,
@@ -388,13 +422,21 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/filter_parameter_logging.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/filter_parameter_logging.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
         1
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/inflections.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/inflections.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
@@ -412,18 +454,30 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/mime_types.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/mime_types.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/session_store.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/session_store.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         1
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/config/initializers/wrap_parameters.rb": [
+=======
+      "/home/ubuntu/workspace/config/initializers/wrap_parameters.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
@@ -431,6 +485,7 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         1,
         null,
         null,
@@ -514,6 +569,9 @@
         null,
         null,
         null,
+=======
+        0,
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
@@ -521,6 +579,7 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/app/models/user.rb": [
         1,
         null,
@@ -545,10 +604,18 @@
         1,
         2,
         null,
+=======
+      "/home/ubuntu/workspace/config/routes.rb": [
+        1,
+        1,
+        1,
+        1,
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         1,
         null,
         null,
+<<<<<<< HEAD
         null,
         null,
         null,
@@ -575,31 +642,47 @@
         0,
         0,
         null,
+=======
+        1,
+        null,
+        null,
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
         null,
         null,
+<<<<<<< HEAD
         1
       ],
       "/home/ubuntu/workspace/AtRisk/features/support/selectors.rb": [
+=======
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
         null,
         null,
+<<<<<<< HEAD
         1,
+=======
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
         null,
         null,
         null,
+<<<<<<< HEAD
         1,
         0,
         null,
         null,
         0,
+=======
+        null,
+        null,
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
@@ -617,15 +700,21 @@
         null,
         null,
         null,
+<<<<<<< HEAD
         0,
         null,
         null,
         0,
+=======
+        null,
+        null,
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
         null,
         null,
+<<<<<<< HEAD
         1
       ],
       "/home/ubuntu/workspace/AtRisk/features/step_definitions/form_steps.rb": [
@@ -635,12 +724,20 @@
         null,
         null,
         0,
+=======
+        null,
+        null,
+        null,
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
         null,
+<<<<<<< HEAD
         1,
         0,
+=======
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         null,
         null,
         null,
@@ -648,6 +745,7 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/AtRisk/features/step_definitions/user_steps.rb": [
         null,
         null,
@@ -779,10 +877,14 @@
         1,
         1,
         1,
+=======
+      "/home/ubuntu/workspace/app/models/user.rb": [
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
         1,
         null,
         null,
         1,
+<<<<<<< HEAD
         2,
         2,
         2,
@@ -1254,5 +1356,12 @@
       ]
     },
     "timestamp": 1477028403
+=======
+        null,
+        null
+      ]
+    },
+    "timestamp": 1476941904
+>>>>>>> b3fddeca595ae4c7973050c12c810c22f835e52d
   }
 }
