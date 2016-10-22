@@ -1,15 +1,11 @@
 # At Risk
 Application for Orinda PD
 
-***IMPORTANT***
-Since we have made a great amount of modifications and improvments on our original design, all of the initial tests we wrote will not work and the github build will fail (however our app on Heroku is up and running very well: https://lit-chamber-44256.herokuapp.com/). We have proudly completed all of the features we planned for this iteration!
-
-
 [![Code Climate](https://codeclimate.com/github/MattZhao/AtRisk/badges/gpa.svg)](https://codeclimate.com/github/MattZhao/AtRisk)
 [![Build Status](https://travis-ci.org/MattZhao/AtRisk.svg?branch=master)](https://travis-ci.org/MattZhao/AtRisk)
 [![Test Coverage](https://codeclimate.com/github/MattZhao/AtRisk/badges/coverage.svg)](https://codeclimate.com/github/MattZhao/AtRisk/coverage)
 
-Link to deployed app on Heroku: https://lit-chamber-44256.herokuapp.com/  
+Link to deployed app on Heroku: https://lit-chamber-44256.herokuapp.com/
 Link to Pivotal Tracker: https://www.pivotaltracker.com/projects/1886649
 
 **Background/Problem:**
