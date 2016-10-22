@@ -34,6 +34,9 @@ module NavigationHelpers
     when /^the new form page$/
       '/forms/new'
 
+    when /^the info page for "(.*)"$/i
+      form_path(Form.find_by_name($1))
+
     when /^the edit page for "(.*)"$/i
       edit_form_path(Form.find_by_name($1))
 

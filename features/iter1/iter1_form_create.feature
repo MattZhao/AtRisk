@@ -16,4 +16,6 @@ Scenario: create new form
   When I fill in "Individuals Name" with "Matthew"
   And I press "Submit Form"
   Then I should see "Successfully Created Form for Matthew"
+  When I am on the new form page
+  When I am on the user dashboard page
   And I should find that form table contains "Matthew"

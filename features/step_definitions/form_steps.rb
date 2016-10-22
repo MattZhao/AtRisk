@@ -19,6 +19,13 @@ Then(/^I should find that form table contains "([^"]*)"$/) do |value|
   page.should have_content(value)
 end
 
+# test if from table not contains a name
+Then(/^I should not find that form table contains "([^"]*)"$/) do |value|
+  # rodent_ids = page.all('table#forms td:nth-child(1)').map{|td| td.name}
+  # rodent_ids.should include(value)
+  page.should_not have_content(value)
+end
+
 # # confirm delete form
 # When(/^I accept the alart$/) do
 #   page.accept_confirm

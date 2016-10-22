@@ -6,8 +6,8 @@ Feature: Edit form
   Background:
     Given I am logged in
     And the following forms exist:
-    | name | form_type | id_user |address|
-    | Matthew | Autism | 1 |Telegraph Ave|
+    | name | form_type | id_user | address |
+    | Matthew | Autism | 1 | Telegraph Ave |
 
   Scenario: The user should be able to access the edit page
     Given I am on the user dashboard page
