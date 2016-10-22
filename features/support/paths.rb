@@ -34,6 +34,10 @@ module NavigationHelpers
     when /^the new form page$/
       '/forms/new'
 
+    when /^the edit page for "(.*)"$/i
+      edit_form_path(Form.find_by_name($1))
+
+
     # original codes
     else
       begin
