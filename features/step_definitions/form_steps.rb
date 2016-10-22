@@ -8,8 +8,15 @@ Given /the following forms exist/ do |forms_table|
 end
 
 # click link in table does not work
-When(/^I goooo to info page for the first item in database$/) do
+When /^I goooo to info page for the first item in database$/ do
   visit 'forms/1'
+end
+
+# test if from table contains a name
+Then(/^I should find that form table contains "([^"]*)"$/) do |value|
+  # rodent_ids = page.all('table#forms td:nth-child(1)').map{|td| td.name}
+  # rodent_ids.should include(value)
+  page.should have_content(value)
 end
 
 # # confirm delete form
