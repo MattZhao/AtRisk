@@ -22,6 +22,12 @@ def create_user
   @user = FactoryGirl.create(:user, @visitor)
 end
 
+def create_user_2
+  @visitor2 = { :name => "Holy Cow", :email => "aaa@example.com",
+    :password => "ppppppppp", :password_confirmation => "ppppppppp", :id => "2" }
+  @user2 = FactoryGirl.create(:user, @visitor2)
+end
+
 def delete_user
   @user ||= User.where(:email => @visitor[:email]).first
   @user.destroy unless @user.nil?
@@ -45,6 +51,13 @@ def sign_in
   click_button "Log in"
 end
 
+def sign_in_2
+  visit '/users/sign_in'
+  fill_in "user_email", :with => @visitor2[:email]
+  fill_in "user_password", :with => @visitor2[:password]
+  click_button "Log in"
+end
+
 ### GIVEN ###
 Given /^I am not logged in$/ do
   page.driver.delete('/users/sign_out')
@@ -54,6 +67,23 @@ Given /^I am logged in$/ do
   create_user
   sign_in
 end
+
+Given /^I am loggedin as user_two$/ do
+  create_user_2
+  sign_in_2
+end
+
+
+# And /^there are two users$/ do
+#   create_user_1
+#   create_user_2
+# end
+
+# And /^I am loggedin as the first_user$/ do
+#   sign_up
+#   sign_in
+# end
+  
 
 Given /^I exist as a user$/ do
   create_user
