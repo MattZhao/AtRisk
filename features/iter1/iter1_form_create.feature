@@ -13,8 +13,7 @@ Scenario: navigate to create form
 
 Scenario: create new form
   Given I am on the new form page
-  When I fill in "name" with "Matthew"
+  When I fill in "Individuals Name" with "Matthew"
   And I press "Submit Form"
-  Then I should see "Successfully Created Form"
-#     And I should see "Matthew"
-    
+  Then I should see "Successfully Created Form for Matthew"
+  And I should find that form table contains "Matthew"
