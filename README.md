@@ -5,7 +5,7 @@ Application for Orinda PD
 [![Build Status](https://travis-ci.org/MattZhao/AtRisk.svg?branch=master)](https://travis-ci.org/MattZhao/AtRisk)
 [![Test Coverage](https://codeclimate.com/github/MattZhao/AtRisk/badges/coverage.svg)](https://codeclimate.com/github/MattZhao/AtRisk/coverage)
 
-Link to deployed app on Heroku: https://lit-chamber-44256.herokuapp.com/
+Link to deployed app on Heroku: https://lit-chamber-44256.herokuapp.com/    
 Link to Pivotal Tracker: https://www.pivotaltracker.com/projects/1886649
 
 **Background/Problem:**
