@@ -34,6 +34,14 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# support haml
+gem 'haml'
+
+# wicked_pdf converts html to pdf files
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -69,6 +77,3 @@ end
 group :production do
   gem 'pg' 
 end
-
-# support haml
-gem 'haml'
