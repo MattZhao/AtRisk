@@ -58,6 +58,38 @@ def sign_in_2
   click_button "Log in"
 end
 
+
+### Iter 2 UPDATE ###
+def create_visitor_with_mandatory_data
+  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
+    :password => "password", :password_confirmation => "password",
+    :phone => "1234567890"}
+end
+
+def sign_up_with_mandatory_data
+  delete_user
+  visit '/users/sign_up'
+  fill_in "user_name", :with => @visitor[:name]
+  fill_in "user_email", :with => @visitor[:email]
+  fill_in "user_password", :with => @visitor[:password]
+  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  fill_in "phone_number", :with => @visitor[:phone]
+  click_button "Sign up"
+  find_user
+end
+
+When /^I sign up with mandatory user data$/ do
+  create_visitor_with_mandatory_data
+  sign_up_with_mandatory_data
+end
+
+When /^I edit my phone number$/ do
+  click_link "Edit Account"
+  fill_in "phone_number", :with => "0987654321"
+  fill_in "user_current_password", :with => @visitor[:password]
+end
+
+
 ### GIVEN ###
 Given /^I am not logged in$/ do
   page.driver.delete('/users/sign_out')
