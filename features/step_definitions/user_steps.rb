@@ -2,7 +2,7 @@
 
 def create_visitor
   @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
-    :password => "password", :password_confirmation => "password" }
+    :password => "password", :password_confirmation => "password", :phone => "1234567890" }
 end
 
 def find_user
@@ -23,8 +23,8 @@ def create_user
 end
 
 def create_user_2
-  @visitor2 = { :name => "Holy Cow", :email => "aaa@example.com",
-    :password => "ppppppppp", :password_confirmation => "ppppppppp", :id => "2" }
+  @visitor2 = { :name => "Holy Cow", :email => "aaa@example.com", :phone => "1234567890",
+    :password => "ppppppppp", :password_confirmation => "ppppppppp", :id => "2"}
   @user2 = FactoryGirl.create(:user, @visitor2)
 end
 
@@ -40,6 +40,7 @@ def sign_up
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
   fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  fill_in "user_phone", :with => @visitor[:phone]
   click_button "Sign up"
   find_user
 end
@@ -73,7 +74,7 @@ def sign_up_with_mandatory_data
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
   fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
-  fill_in "phone_number", :with => @visitor[:phone]
+  fill_in "user_phone", :with => @visitor[:phone]
   click_button "Sign up"
   find_user
 end
