@@ -10,7 +10,7 @@ Feature: Upload file
     Then I should see "choose the file you want to upload"
     When I choose to upload file at "~/tmp/image.png"
     And I press "upload"
-    Then I should be see the image "image.png"
+    Then I should see the image "image.png"
     
   Scenario: User must log in to upload file
     Given I am not logged in 

@@ -39,6 +39,9 @@ module NavigationHelpers
 
     when /^the edit page for "(.*)"$/i
       edit_form_path(Form.find_by_name($1))
+      
+    when /^the file uploading test page$/i
+      pending
 
 
     # original codes
