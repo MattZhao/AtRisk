@@ -4,8 +4,13 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :name %> <i>(your full legal name)</i><br />
+    <%= f.label :name %> <i>(Your full legal name or the name of the organization that you represent)</i><br />
     <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :phone %> <i>(Your or the organization's phone number)</i><br />
+    <%= f.text_field :phone %>
   </div>
   
   <div class="field">
