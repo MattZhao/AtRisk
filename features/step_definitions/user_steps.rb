@@ -22,6 +22,12 @@ def create_user
   @user = FactoryGirl.create(:user, @visitor)
 end
 
+def create_user_2
+  @visitor2 = { :name => "Holy Cow", :email => "aaa@example.com",
+    :password => "ppppppppp", :password_confirmation => "ppppppppp", :id => "2" }
+  @user2 = FactoryGirl.create(:user, @visitor2)
+end
+
 def delete_user
   @user ||= User.where(:email => @visitor[:email]).first
   @user.destroy unless @user.nil?
@@ -45,6 +51,45 @@ def sign_in
   click_button "Log in"
 end
 
+def sign_in_2
+  visit '/users/sign_in'
+  fill_in "user_email", :with => @visitor2[:email]
+  fill_in "user_password", :with => @visitor2[:password]
+  click_button "Log in"
+end
+
+
+### Iter 2 UPDATE ###
+def create_visitor_with_mandatory_data
+  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
+    :password => "password", :password_confirmation => "password",
+    :phone => "1234567890"}
+end
+
+def sign_up_with_mandatory_data
+  delete_user
+  visit '/users/sign_up'
+  fill_in "user_name", :with => @visitor[:name]
+  fill_in "user_email", :with => @visitor[:email]
+  fill_in "user_password", :with => @visitor[:password]
+  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  fill_in "phone_number", :with => @visitor[:phone]
+  click_button "Sign up"
+  find_user
+end
+
+When /^I sign up with mandatory user data$/ do
+  create_visitor_with_mandatory_data
+  sign_up_with_mandatory_data
+end
+
+When /^I edit my phone number$/ do
+  click_link "Edit Account"
+  fill_in "phone_number", :with => "0987654321"
+  fill_in "user_current_password", :with => @visitor[:password]
+end
+
+
 ### GIVEN ###
 Given /^I am not logged in$/ do
   page.driver.delete('/users/sign_out')
@@ -54,6 +99,23 @@ Given /^I am logged in$/ do
   create_user
   sign_in
 end
+
+Given /^I am loggedin as user_two$/ do
+  create_user_2
+  sign_in_2
+end
+
+
+# And /^there are two users$/ do
+#   create_user_1
+#   create_user_2
+# end
+
+# And /^I am loggedin as the first_user$/ do
+#   sign_up
+#   sign_in
+# end
+  
 
 Given /^I exist as a user$/ do
   create_user
