@@ -16,7 +16,7 @@
 %h2 Create Forms
 
 %h4 For elders with disorders like Alzheimer's:
-= link_to 'New At-Risk Form', new_form_path
+= link_to 'New At-Risk Form', new_form_path(:form_type => "AtRisk")
 
 %h4 For children with autism:
-= link_to 'New Autism Alert Form', new_form_path
+= link_to 'New Autism Alert Form', new_form_path(:form_type => "Autism")

@@ -27,7 +27,11 @@ class FormsController < ApplicationController
   end
 
   def new
-    # default: render 'new' template
+    if params[:form_type] == 'AtRisk'
+      render 'new_atrisk'
+    elsif params[:form_type] == 'Autism'
+      render 'new_autism'
+    end
   end
   
   def create
@@ -70,6 +74,11 @@ class FormsController < ApplicationController
   
   def edit
     @form = Form.find(params[:id])
+    if @form.form_type == 'AtRisk'
+      render 'edit_atrisk'
+    else
+      render 'edit_autism'
+    end
     if @form.id_user != current_user.id.to_s
       return redirect_to '/messages/no_access'
     end
