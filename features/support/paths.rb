@@ -30,9 +30,12 @@ module NavigationHelpers
 
     when /^the user dashboard page$/
       '/forms'
-      
-    when /^the new form page$/
-      '/forms/new'
+    
+    when /^the new At-Risk form page/
+      '/forms/new?form_type=AtRisk'
+    
+    when /^the new Autism form page/
+      '/forms/new?form_type=Autism'
 
     when /^the info page for "(.*)"$/i
       form_path(Form.find_by_name($1))
