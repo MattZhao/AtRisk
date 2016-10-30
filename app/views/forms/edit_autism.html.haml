@@ -12,16 +12,19 @@
   = text_field :form, "address"
   
   = label :form, :live_alone, 'Lives Alone'
-  = number_field :form, "live_alone"
-  
+  = check_box :form, "live_alone"
+
   = label :form, :birth_date, 'Date of Birth'
   = date_field :form, "birth_date"
   
   = label :form, :nickname, 'Preferred Name, Nickname'
   = text_field :form, "nickname"
   
-  = label :form, :sex, 'Sex'
-  = number_field :form, "sex"
+  = label :form, :sex, 'Male'
+  = radio_button :form, "sex", "male"
+  
+  = label :form, :sex, 'Female'
+  = radio_button :form, "sex", "female"
   
   = label :form, :height, 'Height'
   = text_field :form, "height"
@@ -83,10 +86,10 @@
   = label :form, :ec2_phone_home, 'Alternative Emergency Contacts Home Phone'
   = number_field :form, "ec2_phone_home"
   
-  = label :form, :ec1_phone_work, 'Alternative Emergency Contacts Work Phone'
+  = label :form, :ec2_phone_work, 'Alternative Emergency Contacts Work Phone'
   = number_field :form, "ec2_phone_work"
   
-  = label :form, :ec1_phone_cell, 'Alternative Emergency Contacts Cell Phone'
+  = label :form, :ec2_phone_cell, 'Alternative Emergency Contacts Cell Phone'
   = number_field :form, "ec2_phone_cell"
 
   = label :form, :attractions_locations, 'Nearby water sources & favorite attractions or locations where the individual may be found'
