@@ -3,10 +3,10 @@
 = form_tag form_path(@form), :method => :put do
 
   = label :form, :photo_path, 'Photo of the Individual'
-  = text_field :form, "photo_path"
+  = text_field :form, "photo_path", required: true
   
   = label :form, :name, "Individuals Name"
-  = text_field :form, "name"
+  = text_field :form, "name", required: true
   
   = label :form, :address, 'Address'
   = text_field :form, "address"
@@ -15,7 +15,7 @@
   = check_box :form, "live_alone"
 
   = label :form, :birth_date, 'Date of Birth'
-  = date_field :form, "birth_date"
+  = date_field :form, "birth_date", required: true
   
   = label :form, :nickname, 'Preferred Name, Nickname'
   = text_field :form, "nickname"
