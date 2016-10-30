@@ -6,16 +6,16 @@
   = text_field :form, "photo_path"
   
   = label :form, :has_alzheimers, "This person has Alzheimer"
-  = number_field :form, "has_alzheimers"
+  = check_box :form, "has_alzheimers"
   
   = label :form, :has_dementia, "This person has Dementia"
-  = number_field :form, "has_dementia"
+  = check_box :form, "has_dementia"
   
   = label :form, :has_down_syndrome, "This person has Down Syndrome"
-  = number_field :form, "has_down_syndrome"
+  = check_box :form, "has_down_syndrome"
   
   = label :form, :has_other_disorders, "This person has Other Related Disorder"
-  = number_field :form, "has_other_disorders"
+  = text_field :form, "has_other_disorders"
   
   = label :form, :name, "Individuals Name"
   = text_field :form, "name"
@@ -24,7 +24,7 @@
   = text_field :form, "address"
   
   = label :form, :live_alone, 'Lives Alone'
-  = number_field :form, "live_alone"
+  = check_box :form, "live_alone"
   
   = label :form, :birth_date, 'Date of Birth'
   = date_field :form, "birth_date"
@@ -32,8 +32,11 @@
   = label :form, :nickname, 'Preferred Name, Nickname'
   = text_field :form, "nickname"
   
-  = label :form, :sex, 'Sex'
-  = number_field :form, "sex"
+  = label :form, :sex, 'Male'
+  = radio_button :form, "sex", "male"
+  
+  = label :form, :sex, 'Female'
+  = radio_button :form, "sex", "female"
   
   = label :form, :height, 'Height'
   = text_field :form, "height"

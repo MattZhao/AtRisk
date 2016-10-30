@@ -11,17 +11,20 @@
   = label :form, :address, 'Address'
   = text_field :form, "address"
   
-  = label :form, :live_alone, 'Lives Alone OH YEAH'
-  = number_field :form, "live_alone"
-  
+  = label :form, :live_alone, 'Lives Alone'
+  = check_box :form, "live_alone"
+
   = label :form, :birth_date, 'Date of Birth'
   = date_field :form, "birth_date"
   
   = label :form, :nickname, 'Preferred Name, Nickname'
   = text_field :form, "nickname"
   
-  = label :form, :sex, 'Sex'
-  = number_field :form, "sex"
+  = label :form, :sex, 'Male'
+  = radio_button :form, "sex", "male"
+  
+  = label :form, :sex, 'Female'
+  = radio_button :form, "sex", "female"
   
   = label :form, :height, 'Height'
   = text_field :form, "height"
