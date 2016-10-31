@@ -1,10 +1,13 @@
-%h2 Form Details for #{@form.form_type}: #{@form.name}
+-# = This form is not actively in use anymore! DO NOT DELETE though
+
+
+
+
+%h2 General Form Details for #{@form.form_type}: #{@form.name}
+%h4 Note that this form contains the common fields form both At Risk and Autism Alert forms.
 
 %h3 General Information
 %ul#general
-  %li
-    Form Type:
-    = @form.form_type
   %li
     Name:
     = @form.name
@@ -18,7 +21,7 @@
     Birthday:
     = @form.birth_date
   %li
-    Photo Path:
+    Photo Path in system (to be implemented):
     = @form.photo_path
   %li
     Address:
@@ -50,21 +53,6 @@
     
 %h3 Medical Information
 %ul#medical
-  %li
-    Individual Has Alzheimer's?:
-    = @form.has_alzheimers
-  %li
-    Individual Has Dementia?:
-    = @form.has_dementia
-  %li
-    Individual Has Down Syndrome?:
-    = @form.has_down_syndrome
-  %li
-    Individual Has Other Related Disorders?:
-    = @form.has_other_disorders
-  %li
-    Specification of Other Related Disorders:
-    = @form.other_disorders
   %li
     Other Medical Conditions:
     = @form.other_medical_conds
@@ -117,37 +105,10 @@
     Tracking Information:
     = @form.info_tracking
 
-%h3 Autism Form Information
-%ul#autism
-  %li
-    Sensory Dietary Issues:
-    = @form.sensory_dietary_issues
-  %li
-    Calming Methods:
-    = @form.calming_methods
-  %li
-    First Responders' Notes:
-    = @form.info_other_first_resp
-  %li
-    Attractions and Special Locations:
-    = @form.attractions_locations
-  %li
-    Atypical Behaviors:
-    = @form.atypical_behaviors
-  %li
-    Favorite Topics:
-    = @form.favorite_topics
-  %li
-    First Calming Method:
-    = @form.communication_method_1
-  %li
-    Second Calming Method:
-    = @form.communication_method_2
-
 %h3 Meta Information
 %ul#meta
   %li
-    This form is available to the user:
+    This form is active in the record:
     = @form.form_activeness
   %li
     This from is created at:
