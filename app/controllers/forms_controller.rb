@@ -14,18 +14,23 @@ class FormsController < ApplicationController
   
   def show
     id = params[:id] # retrieve form ID from URI route
-    @get_form = Form.find(id) # look up form by unique ID
+    @form = Form.find(id) # look up form by unique ID
     
     # check user validaty
-    if @get_form.id_user == current_user.id.to_s
-      @form = @get_form
-    else
-      redirect_to '/messages/no_access'
+    if @form.id_user != current_user.id.to_s
+      return redirect_to '/messages/no_access'
+    end
+
+    if @form.form_type == 'AtRisk'
+      return render 'show_atrisk'
+    elsif @form.form_type == 'Autism'
+      return render 'show_autism'
     end
     
-    # will render app/views/forms/show.<extension> by default if user is valid
+    # form type doesn't match
+    redirect_to '/messages/something_wrong'
   end
-
+  
   def new
     if params[:form_type] == 'AtRisk'
       render 'new_atrisk'
@@ -74,14 +79,18 @@ class FormsController < ApplicationController
   
   def edit
     @form = Form.find(params[:id])
-    if @form.form_type == 'AtRisk'
-      render 'edit_atrisk'
-    else
-      render 'edit_autism'
-    end
     if @form.id_user != current_user.id.to_s
       return redirect_to '/messages/no_access'
     end
+    
+    if @form.form_type == 'AtRisk'
+      return render 'edit_atrisk'
+    elsif @form.form_type == 'Autism'
+      return render 'edit_autism'
+    end
+    
+    # form type doesn't match
+    redirect_to '/messages/something_wrong'
   end
 
 end
