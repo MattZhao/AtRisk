@@ -2,7 +2,13 @@
 
 = form_tag forms_path do
   
-  = label :form, :photo_path, 'Photo of the Individual'
+  = label :form, :name, "Individuals Name*(required)"
+  = text_field :form, "name", required: true
+  
+  = label :form, :birth_date, "Date of Birth*(required)"
+  = date_select :form, "birth_date", required: true
+
+  = label :form, :photo_path, 'Photo of the Individual*(required)'
   = text_field :form, "photo_path", required: true
   
   = label :form, :has_alzheimers, "This person has Alzheimer"
@@ -17,17 +23,11 @@
   = label :form, :has_other_disorders, "This person has Other Related Disorder"
   = text_field :form, "has_other_disorders"
   
-  = label :form, :name, "Individuals Name"
-  = text_field :form, "name", required: true
-  
   = label :form, :address, 'Address'
   = text_field :form, "address"
   
   = label :form, :live_alone, 'Lives Alone'
   = check_box :form, "live_alone"
-  
-  = label :form, :birth_date, 'Date of Birth'
-  = date_field :form, "birth_date", required: true
   
   = label :form, :nickname, 'Preferred Name, Nickname'
   = text_field :form, "nickname"
