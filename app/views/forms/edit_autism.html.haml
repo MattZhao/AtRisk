@@ -2,11 +2,16 @@
 
 = form_tag form_path(@form), :method => :put do
 
-  = label :form, :photo_path, 'Photo of the Individual'
-  = text_field :form, "photo_path", required: true
+  = hidden_field :form, "form_type", value: "Autism"
   
-  = label :form, :name, "Individuals Name"
+  = label :form, :name, "Individuals Name*(required)"
   = text_field :form, "name", required: true
+  
+  = label :form, :birth_date, "Date of Birth*(required)"
+  = date_select :form, "birth_date", required: true
+
+  = label :form, :photo_path, 'Photo of the Individual*(required)'
+  = text_field :form, "photo_path", required: true
   
   = label :form, :address, 'Address'
   = text_field :form, "address"
@@ -14,9 +19,6 @@
   = label :form, :live_alone, 'Lives Alone'
   = check_box :form, "live_alone"
 
-  = label :form, :birth_date, 'Date of Birth'
-  = date_field :form, "birth_date", required: true
-  
   = label :form, :nickname, 'Preferred Name, Nickname'
   = text_field :form, "nickname"
   
@@ -39,22 +41,22 @@
   = text_field :form, "color_hair"
   
   = label :form, :body_marks, 'Scars, Tattoos, or Other Identifying Marks'
-  = text_field :form, "body_marks"
+  = text_area :form, "body_marks", size: "60x4"
   
   = label :form, :other_medical_conds, 'Other Reverent Medical Conditions'
-  = text_field :form, "other_medical_conds"
+  = text_area :form, "other_medical_conds", size: "60x4"
 
   = label :form, :meds_needed, 'Prescription Medicines Needed'
-  = text_field :form, "meds_needed"
+  = text_area :form, "meds_needed", size: "60x4"
   
   = label :form, :sensory_dietary_issues, 'Sensory or Dietary Issues'
-  = text_field :form, "sensory_dietary_issues"
+  = text_area :form, "sensory_dietary_issues", size: "60x4"
   
   = label :form, :calming_methods, 'Calming Methods'
-  = text_field :form, "calming_methods"
+  = text_area :form, "calming_methods", size: "60x4"
   
   = label :form, :info_other_first_resp, 'Any Other Information First Responders May Need'
-  = text_field :form, "info_other_first_resp"
+  = text_area :form, "info_other_first_resp", size:"60x4"
   
   = label :form, :phone_number, "Individuals Cell Phone Number"
   = number_field :form, "phone_number"
@@ -92,29 +94,29 @@
   = label :form, :ec2_phone_cell, 'Alternative Emergency Contacts Cell Phone'
   = number_field :form, "ec2_phone_cell"
 
-  = label :form, :attractions_locations, 'Nearby water sources & favorite attractions or locations where the individual may be found'
-  = text_field :form, "attractions_locations"
-
-  = label :form, :atypical_behaviors, 'Atypical behaviors or characteristics of the individual that may affect the attention of responders'
-  = text_field :form, "atypical_behaviors"
-  
-  = label :form, :favorite_topics, 'Individuals favorite toys, objects, music, discussion topics, likes, and dislikes'
-  = text_field :form, "favorite_topics"
-  
   = label :form, :preferred_language, 'Individuals Preferred Spoken Language'
   = text_field :form, "preferred_language"
 
+  = label :form, :attractions_locations, 'Nearby water sources & favorite attractions or locations where the individual may be found'
+  = text_area :form, "attractions_locations", size: "60x4"
+
+  = label :form, :atypical_behaviors, 'Atypical behaviors or characteristics of the individual that may affect the attention of responders'
+  = text_area :form, "atypical_behaviors", size: "60x4"
+  
+  = label :form, :favorite_topics, 'Individuals favorite toys, objects, music, discussion topics, likes, and dislikes'
+  = text_area :form, "favorite_topics", size: "60x4"
+
   = label :form, :communication_method_1, 'Method of Preferred Communication'
-  = text_field :form, "communication_method_1"
+  = text_area :form, "communication_method_1", size: "60x4"
 
   = label :form, :communication_method_2, 'Method of Preferred Communication II'
-  = text_field :form, "communication_method_2"
+  = text_area :form, "communication_method_2", size: "60x4"
   
   = label :form, :info_id, 'Individuals Identification Information'
-  = text_field :form, "info_id"
+  = text_area :form, "info_id", size: "60x4"
   
   = label :form, :info_tracking, 'Individuals Tracking Information'
-  = text_field :form, "info_tracking"
+  = text_area :form, "info_tracking", size: "60x4"
   
   %h3 
   

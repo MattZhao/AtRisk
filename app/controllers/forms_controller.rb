@@ -65,6 +65,13 @@ class FormsController < ApplicationController
     @form = Form.create(form_params)
     @form.id_user = current_user.id.to_s
     @form.form_activeness = true
+    
+    if @form.form_type == "AtRisk" and @form.other_disorders != ""
+      @form.has_other_disorders = true
+    else
+      @form.has_other_disorders = false
+    end
+    
     if @form.save!
       flash[:notice] = "Successfully Created Form for #{@form.name}"
     else
