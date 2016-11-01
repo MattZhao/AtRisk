@@ -252,3 +252,24 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+
+Then(/^the form_type of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).form_type.should == arg2
+end
+
+Then(/^the address of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).address.should == arg2
+end
+
+Then(/^the address of "([^"]*)" should not be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).address.should_not == arg2
+end
+
+When /^I choose to upload file at "(.*)"$/ do |file_path|
+  pending
+end
+
+Then /^I should see the image "(.*)"$/ do |image|
+  pending
+end

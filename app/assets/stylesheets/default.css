@@ -12,24 +12,24 @@ div#main {
 }
 a {
   background: transparent;
-  color: maroon;
+  color: Black;
   text-decoration: underline;
   font-weight: bold;
 }
 h1 {
-  color: maroon;
+  color: Black;
   font-size: 150%;
   font-style: italic;
   display: block;
   width: 100%;
-  border-bottom: 1px solid DarkSlateGrey;
+  border-bottom: 1px solid black;
 }
 h1.title {
   margin: 0 0 1em;
   padding: 10px;
-  background-color: orange;
-  color: white;
-  border-bottom: 4px solid gold;
+  background-color: black;
+  color: wheat;
+  border-bottom: 4px solid wheat;
   font-size: 2em;
   font-style: normal;
 }
@@ -40,7 +40,7 @@ table#forms {
   margin: 10px;
   border-collapse: collapse;
   width: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid wheat;
 }
 table#forms th {
   border: 2px solid white;
@@ -60,5 +60,5 @@ form label {
   display: block;
   line-height: 25px;
   font-weight: bold;
-  color: maroon;
+  color: gray;
 }

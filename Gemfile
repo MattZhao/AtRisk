@@ -34,6 +34,14 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# support haml
+gem 'haml'
+
+# wicked_pdf converts html to pdf files
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -54,6 +62,7 @@ end
 # setup Cucumber, RSpec, autotest support
 group :test do
   gem 'rspec-rails', '2.14'
+  gem 'cucumber' # trying to fix "World" bug
   gem 'simplecov', :require => false
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels' # basic imperative step defs
@@ -61,11 +70,10 @@ group :test do
   gem 'autotest-rails'
   gem 'factory_girl_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
+  gem 'codeclimate-test-reporter', require: nil # test coverage
+  gem 'test-unit' # fix the bug "`require': cannot load such file -- test/unit/assertions (LoadError)"
 end
 
 group :production do
   gem 'pg' 
 end
-
-# support haml
-gem 'haml'

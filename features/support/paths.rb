@@ -21,15 +21,31 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+    
+    when /the sign up page/
+      '/users/sign_up'
+
+    when /the sign in page/
+      '/users/sign_in'
 
     when /^the user dashboard page$/
-      '/'
-    when /^the New AtRisk form page$/
-      '/'
-    when /^the Edit Form page$/
-      '/'
-    when /^the Detailed Form page$/
-      '/'
+      '/forms'
+    
+    when /^the new At-Risk form page/
+      '/forms/new?form_type=AtRisk'
+    
+    when /^the new Autism form page/
+      '/forms/new?form_type=Autism'
+
+    when /^the info page for "(.*)"$/i
+      form_path(Form.find_by_name($1))
+
+    when /^the edit page for "(.*)"$/i
+      edit_form_path(Form.find_by_name($1))
+      
+    when /^the file uploading test page$/i
+      pending
+
 
     # original codes
     else

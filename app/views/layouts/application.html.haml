@@ -1,16 +1,17 @@
 !!!
 %html
   %head
-    %title At-Risk App by Orinda PD!
+    %title AtRisk | Orinda Police Depertment
     = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
-    %h1.title Rotten Potatoes!
+    = render 'devise/sessions/loginstat'
+    - if flash[:notice]
+      #notice.message= flash[:notice]
+    - elsif flash[:warning]
+      #warning.message= flash[:warning]
+    %h1.title At Risk | Orinda Police Depertment
     #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
       = yield

@@ -1,2 +1,5 @@
+# removed (misplaced?) factory girl
+
 # For Cucumber, add at the end of features/support/env.rb:
-World(FactoryGirl::Syntax::Methods)
+# require 'cucumber'
+# World(FactoryGirl::Syntax::Methods)

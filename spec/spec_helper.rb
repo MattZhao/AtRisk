@@ -1,12 +1,17 @@
-# at TOP of spec/spec_helper.rb:
 require 'simplecov'
+require "codeclimate-test-reporter"
 SimpleCov.start
+# at TOP of spec/spec_helper.rb:
+CodeClimate::TestReporter.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+
+# bug fix?
+require 'support/factory_girl'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
