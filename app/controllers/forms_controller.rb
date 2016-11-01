@@ -8,10 +8,32 @@ class FormsController < ApplicationController
   end
 
   def index
-    # this functinos as the user dashboard for now
-    @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true)
+    # this functions as the user dashboard for now
+    @order = params[:order]
+    @form_filter = params[:filter]
+    if @order == "name"
+      session[:order] = @order
+      if @form_filter == "autism"
+        @my_forms = Form.order(:name).select { |form| @form_filter.key?(form.form_type) }
+      elsif @form_filter == "atrisk"
+        @my_forms = Form.order(:name).select { |form| @form_filter.key?(form.form_type) }
+      else
+        @my_forms = Form.order(:name)
+      end
+    elsif @order == "birth_date"
+      session[:order] = @order
+      if @form_filter == "autism"
+        @my_forms = Form.order(:birth_date).select { |form| @form_filter.key?(form.form_type) }
+      elsif @form_filter == "atrisk"
+        @my_forms = Form.order(:birth_date).select { |form| @form_filter.key?(form.form_type) }
+      else
+        @my_forms = Form.order(:birth_date)
+      end
+    else
+      @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true)
+    end
   end
-  
+
   def show
     id = params[:id] # retrieve form ID from URI route
     @form = Form.find(id) # look up form by unique ID
