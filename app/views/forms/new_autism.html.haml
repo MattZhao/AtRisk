@@ -2,6 +2,8 @@
 
 = form_tag forms_path do
 
+  = hidden_field :form, "form_type", value: "Autism"
+  
   = label :form, :name, "Individuals Name*(required)"
   = text_field :form, "name", required: true
   
