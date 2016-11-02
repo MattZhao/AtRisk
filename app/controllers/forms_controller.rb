@@ -11,15 +11,6 @@ class FormsController < ApplicationController
     end
   end
 
-  def check_for_submittion
-    if params[:commit] == "Submit Form"
-        @form = Form.find( params[:id] )
-        if @form.name == "" || @form.name == null
-
-    end
-  end
-
-
   def form_params
     params.require(:form).permit! # permit all form attributes
   end
