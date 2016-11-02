@@ -5,13 +5,14 @@
   = hidden_field :form, "form_type", value: "AtRisk"
   
   = label :form, :name, "Individuals Name*(required)"
-  = text_field :form, "name", placeholder: "required"
+  = text_field :form, "name", placeholder: "required", required: true
 
   = label :form, :birth_date, "Date of Birth*(required)"
-  = date_select :form, "birth_date", placeholder: "required"
+  = date_select :form, "birth_date", placeholder: "required", required: true
 
   = label :form, :photo_path, 'Photo of the Individual*(required)'
-  = text_field :form, "photo_path", placeholder: "required"
+  = text_field :form, "photo_path", placeholder: "required", required: true
+  
   
   = label :form, :has_alzheimers, "This person has Alzheimer?"
   = check_box :form, "has_alzheimers"
