@@ -2,14 +2,16 @@
 
 = form_tag form_path(@form), :method => :put do
 
+  = hidden_field :form, "form_type", value: "AtRisk"
+
   = label :form, :name, "Individuals Name*(required)"
-  = text_field :form, "name", required: true
-  
+  = text_field :form, "name", placeholder: "required", required: true
+
   = label :form, :birth_date, "Date of Birth*(required)"
-  = date_select :form, "birth_date", required: true
+  = date_select :form, "birth_date", placeholder: "required", required: true
 
   = label :form, :photo_path, 'Photo of the Individual*(required)'
-  = text_field :form, "photo_path", required: true
+  = text_field :form, "photo_path", placeholder: "required", required: true
   
   = label :form, :has_alzheimers, "This person has Alzheimer"
   = check_box :form, "has_alzheimers"
@@ -107,4 +109,4 @@
   %h3 
   
   = submit_tag 'Update Form'
-  = link_to 'Cancel', form_path(@form)
+  = submit_tag "Cancel"
