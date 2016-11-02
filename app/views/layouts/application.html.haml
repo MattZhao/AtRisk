@@ -6,7 +6,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  %body
+  %body{:class => "validate-form"}
     = render 'devise/sessions/loginstat'
     - if flash[:notice]
       #notice.message= flash[:notice]

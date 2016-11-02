@@ -2,7 +2,24 @@ class FormsController < ApplicationController
   
   # check request validaty
   before_action :authenticate_user!
-  
+  before_filter :check_for_cancel, :only => [:create, :update]
+  before_filter :check_for_submittion, :only => [:create, :update]
+
+  def check_for_cancel
+    if params[:commit] == "Cancel"
+      redirect_to forms_path
+    end
+  end
+
+  def check_for_submittion
+    if params[:commit] == "Submit Form"
+        @form = Form.find( params[:id] )
+        if @form.name == "" || @form.name == null
+
+    end
+  end
+
+
   def form_params
     params.require(:form).permit! # permit all form attributes
   end
