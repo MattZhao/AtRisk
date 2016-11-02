@@ -1,5 +1,5 @@
 # Add a declarative step here for populating the DB with forms.
-Given /the following forms exist/ do |forms_table|
+Given /the following [^"]* forms exist/ do |forms_table|
   forms_table.hashes.each do |form|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
@@ -25,6 +25,7 @@ Then(/^I should not find that form table contains "([^"]*)"$/) do |value|
   # rodent_ids.should include(value)
   page.should_not have_content(value)
 end
+
 
 # # confirm delete form
 # When(/^I accept the alart$/) do
