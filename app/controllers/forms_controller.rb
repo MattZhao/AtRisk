@@ -9,28 +9,33 @@ class FormsController < ApplicationController
 
   def index
     # this functions as the user dashboard for now
+    
     @order = params[:order]
-    @form_filter = params[:filter]
+    @form_filter = params[:type]
+    puts params
     if @order == "name"
       session[:order] = @order
-      if @form_filter == "autism"
-        @my_forms = Form.order(:name).select { |form| @form_filter.key?(form.form_type) }
-      elsif @form_filter == "atrisk"
-        @my_forms = Form.order(:name).select { |form| @form_filter.key?(form.form_type) }
+      if @form_filter != nil
+        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
+        @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
       else
-        @my_forms = Form.order(:name)
+        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
       end
     elsif @order == "birth_date"
       session[:order] = @order
-      if @form_filter == "autism"
-        @my_forms = Form.order(:birth_date).select { |form| @form_filter.key?(form.form_type) }
-      elsif @form_filter == "atrisk"
-        @my_forms = Form.order(:birth_date).select { |form| @form_filter.key?(form.form_type) }
+      if @form_filter != nil
+        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
+        @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
       else
-        @my_forms = Form.order(:birth_date)
+        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
       end
     else
       @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true)
+      if @form_filter != nil
+        @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
+      #elsif @form_filter == nil
+        #@my_forms = {}
+      end
     end
   end
 

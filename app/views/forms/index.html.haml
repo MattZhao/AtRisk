@@ -2,19 +2,19 @@
 
 = form_tag forms_path, :method => :get, :id => "type_form" do
   Include:
-  - ["autism", "atrisk"].each do |type|
+  - ["Autism", "AtRisk"].each do |type|
     = type
-    = check_box_tag "type[#{type}]", 1, ((@form_filter.nil? or @form_filter.include?(type))? true : false), :id => "type_#{type}"
+    = check_box_tag "type[#{type}]", 1, ((@selected_types.nil? or @selected_types.include?(type))? true : false), :id => "type_#{type}"
   = submit_tag 'Refresh', :id => "type_submit"
 
 
 %table#forms
   %thead
     %tr
-      %th{:class => ("hilite" if @order == "name")}= link_to('name', forms_path({:order => "name"}), :id => "name_header")
+      %th{:class => @name_header}= link_to 'Name', forms_path(:order => 'name', :types => @selected_types), :id => 'name_header'
       <!-- %th name -->
       <!-- %th date of birth -->
-      %th{:class => ("hilite" if @order == "birth_date")}= link_to('date of birth', forms_path({:order => "birth_date"}), :id => "name_header")
+      %th{:class => @birth_date_header}= link_to 'Birth Date', forms_path(:order => 'birth_date', :types => @selected_types), :id => 'birth_date_header'
       %th type
   %tbody
     - @my_forms.each do |form|
