@@ -3,7 +3,6 @@ class FormsController < ApplicationController
   # check request validaty
   before_action :authenticate_user!
   before_filter :check_for_cancel, :only => [:create, :update]
-  before_filter :check_for_submittion, :only => [:create, :update]
 
   def check_for_cancel
     if params[:commit] == "Cancel"
