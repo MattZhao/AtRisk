@@ -19,29 +19,34 @@ class FormsController < ApplicationController
     
     @order = params[:order]
     @form_filter = params[:type]
-    puts params
-    if @order == "name"
-      session[:order] = @order
-      if @form_filter != nil
-        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
-        @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
-      else
-        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
-      end
-    elsif @order == "birth_date"
-      session[:order] = @order
-      if @form_filter != nil
-        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
-        @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
-      else
-        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
-      end
+    if params[:search]
+      print("searching!")
+      print(params[:search])
+      @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).search(params[:search])
     else
-      @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true)
-      if @form_filter != nil
-        @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
-      #elsif @form_filter == nil
-        #@my_forms = {}
+      if @order == "name"
+        session[:order] = @order
+        if @form_filter != nil
+          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
+          @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
+        else
+          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
+        end
+      elsif @order == "birth_date"
+        session[:order] = @order
+        if @form_filter != nil
+          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
+          @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
+        else
+          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
+        end
+      else
+        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true)
+        if @form_filter != nil
+          @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
+        #elsif @form_filter == nil
+          #@my_forms = {}
+        end
       end
     end
   end

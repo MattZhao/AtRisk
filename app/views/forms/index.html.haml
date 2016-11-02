@@ -7,6 +7,9 @@
     = check_box_tag "type[#{type}]", 1, ((@selected_types.nil? or @selected_types.include?(type))? true : false), :id => "type_#{type}"
   = submit_tag 'Refresh', :id => "type_submit"
 
+= form_tag forms_path, :method => "get", id: "search_form" do
+  = text_field_tag :search, params[:search], placeholder: "Search Forms"
+  = submit_tag "Search"
 
 %table#forms
   %thead
