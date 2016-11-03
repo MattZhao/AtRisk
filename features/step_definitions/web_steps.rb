@@ -304,5 +304,5 @@ Then /^I should see the image "(.*)"$/ do |image|
 end
 
 Then /"(.*)" should appear before "(.*)"/ do |first_example, second_example|
-    page.body.should =~ /#{first_example}.*#{second_example}/
+  expect(page.body.index(second_example) > page.body.index(first_example)).to be true
  end
