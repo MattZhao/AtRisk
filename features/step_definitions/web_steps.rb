@@ -303,7 +303,6 @@ Then /^I should see the image "(.*)"$/ do |image|
   pending
 end
 
-Then /"(.*)" should appear before "(.*)"/ do |first_example,
-> second_example|
->    response.body.should =~ /#{first_example}.*#{second_example}/
-> end
+Then /"(.*)" should appear before "(.*)"/ do |first_example, second_example|
+    page.body.should =~ /#{first_example}.*#{second_example}/
+ end

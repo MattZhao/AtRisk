@@ -12,11 +12,11 @@ Feature: Sort forms
     
     And the following autism forms exist:
     | name | birth_date | photo_path | id_user | address | favorite_topics | form_type |
-    | Matthew, Jr. | 01/01/1990 | ~/pic.jpg | 1 | Telegraph Ave | GTX TITAN 4-Way SLI | Autism |
+    | Matthew, Jr | 01/01/1990 | ~/pic.jpg | 1 | Telegraph Ave | GTX TITAN 4-Way SLI | Autism |
   
   Scenario: Sort by name
     Given I am on the user dashboard page
     When I follow "Name"
-    Then I should see /.*"Matthew, Jr.".*"Milton".*"Steve".*/
+    Then "Matthew, Jr" should appear before "Steve"
     
     
