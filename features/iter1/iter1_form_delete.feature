@@ -7,7 +7,8 @@
 #     Given I am logged in
 
 #   Scenario: Delete form
-#     Given I am on the new form page
+#     Given I am on the user dashboard page
+#     When I follow "New Autism Alert Form"
 #     When I fill in "Individuals Name" with "Matthew"
 #     And I press "Submit Form"
 #     Then I should see "Successfully Created Form for Matthew"
