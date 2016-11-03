@@ -7,8 +7,8 @@ describe FormsController do
       form = double('form', :type => "Autism")
       Form.should_receive(:find).with('1').and_return(form)
       get :show, {:id => '1'}
-      response.should redirect_to(forms#show_atrisk)
-     end
+      response.should redirect_to(forms_path)
+    end
   end
   
   describe "A successful create" do
