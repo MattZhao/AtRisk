@@ -48,11 +48,20 @@ class FormsController < ApplicationController
 
   def show
     id = params[:id] # retrieve form ID from URI route
+    if not Form.exists?(id)
+      return redirect_to '/messages/invalid_page'
+    end
     @form = Form.find(id) # look up form by unique ID
     
     # check user validaty
     if @form.id_user != current_user.id.to_s
-      return redirect_to '/messages/no_access'
+      flash[:warning] = "Error: you are not the owner of this form."
+      return redirect_to forms_path
+    end
+    
+    if not @form.form_activeness
+      flash[:warning] = "Error: invalid address."
+      return redirect_to forms_path
     end
 
     if @form.form_type == 'AtRisk'
@@ -119,6 +128,23 @@ class FormsController < ApplicationController
   end
   
   def edit
+    id = params[:id] # retrieve form ID from URI route
+    if not Form.exists?(id)
+      return redirect_to '/messages/invalid_page'
+    end
+    @form = Form.find(id) # look up form by unique ID
+    
+    # check user validaty
+    if @form.id_user != current_user.id.to_s
+      flash[:warning] = "Error: you are not the owner of this form."
+      return redirect_to forms_path
+    end
+    
+    if not @form.form_activeness
+      flash[:warning] = "Error: invalid address."
+      return redirect_to forms_path
+    end
+
     @form = Form.find(params[:id])
     if @form.id_user != current_user.id.to_s
       return redirect_to '/messages/no_access'
