@@ -6,15 +6,14 @@
   
   = hidden_field :form, "form_type", value: "AtRisk"
   
-  = label :form, :name, "Individuals Name*(required)"
+  = label :form, :name, "Individuals Name"
   = text_field :form, "name", placeholder: "required", required: true
 
-  = label :form, :birth_date, "Date of Birth*(required)"
-  = date_select :form, "birth_date", placeholder: "required", required: true,
-  :start_year => 1900, :end_year => 2016
+  = label :form, :birth_date, "Date of Birth"
+  = date_select :form, "birth_date", :start_year => 1900, :end_year => 2016, required: true
 
-  = label :form, :photo_path, 'Photo of the Individual*(required)'
-  = text_field :form, "photo_path", placeholder: "required", required: true
+  = label :form, :photo_path, 'Photo of the Individual'
+  = text_field :form, "photo_path", placeholder: "UNDER DEVELOPMENT"
   
   
   = label :form, :has_alzheimers, "This person has Alzheimer?"
@@ -112,47 +111,12 @@
   
   %h3 
   
-  = submit_tag 'Submit Form'
-  
-//   = submit_tag, :onclick => "myFunction()"
-  
-//   = submit_tag 'Submit Form', :onclick => 'alert("Please no!")'
+  = submit_tag 'Submit Form', :onclick => "validateName()"
+  = link_to  "Cancel", forms_path
 
-//   = link_to  "Cancel", forms_path
-  
-//   // = link_to  "Cancel", forms_path,
-//   //         :onclick => 'alert("Your Information Was Not Saved!")'
-  
-
-//   = link_to "Hello1", '#', :onclick => "myFunction()"
-
-//   = link_to "Hello2", '#', :onclick => 'alert("Please no!")'
-
-
-// :javascript
-//   function myFunction() {
-//     alert("alert1");
-//     var v = "Hey"
-//     alert(v);
-
-//     alert("alert2");
-    
-//     var x = $("name");
-//     alert("alert3");
-
-//     alert(x);
-
-//     if(1 > 0){
-//       alert("if is called");
-//     }
-//     alert("is called");
-//     alert("is called again")
-//   }
-//   //   if (:form.name.length == 0){
-//   //     alert("message");        
-//   //     return false;}
-//   //   alert("really");
-//   //   return true;   
-//   // }
-
-
+:javascript
+  function validateName() {
+    if (String(document.getElementById("form_name").value) == "" ) {
+      alert("Please provide the individual's name.");
+    }
+  }
