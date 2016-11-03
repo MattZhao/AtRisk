@@ -18,5 +18,10 @@ Feature: Sort forms
     Given I am on the user dashboard page
     When I follow "Name"
     Then "Matthew, Jr" should appear before "Steve"
-    
+  
+  Scenario: Sort by birth_date
+    Given I am on the user dashboard page
+    When I follow "Birth Date"
+    Then "Steve" should appear before "Milton"
+    And "Milton" should appear before "Matthew, Jr"
     
