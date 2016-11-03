@@ -2,8 +2,6 @@
 
 = form_tag forms_path do
 
-  = javascript_include_tag "application.js"
-  
   = hidden_field :form, "form_type", value: "AtRisk"
   
   = label :form, :name, "Individuals Name"
@@ -25,7 +23,7 @@
   = check_box :form, "has_down_syndrome"
   
   = label :form, :has_other_disorders, "Any Other Related Disorder?"
-  = text_field :form, "other_disorders"
+  = text_area :form, "other_disorders"
   
   = label :form, :address, 'Address'
   = text_field :form, "address"
@@ -55,13 +53,13 @@
   = text_field :form, "color_hair"
   
   = label :form, :body_marks, 'Scars, Tattoos, or Other Identifying Marks'
-  = text_field :form, "body_marks"
+  = text_area :form, "body_marks"
   
   = label :form, :other_medical_conds, 'Other Reverent Medical Conditions'
-  = text_field :form, "other_medical_conds"
+  = text_area :form, "other_medical_conds"
 
   = label :form, :meds_needed, 'Prescription Medicines Needed'
-  = text_field :form, "meds_needed"
+  = text_area :form, "meds_needed"
   
   = label :form, :phone_number, "Individuals Cell Phone Number"
   = number_field :form, "phone_number"
@@ -103,10 +101,10 @@
   = text_field :form, "preferred_language"
   
   = label :form, :info_id, 'Individuals Identification Information'
-  = text_field :form, "info_id"
+  = text_area :form, "info_id"
   
   = label :form, :info_tracking, 'Individuals Tracking Information'
-  = text_field :form, "info_tracking"
+  = text_area :form, "info_tracking"
   
   %h3 
   

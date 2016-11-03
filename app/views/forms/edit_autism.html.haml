@@ -2,8 +2,6 @@
 
 = form_tag form_path(@form), :method => :put do
 
-  = hidden_field :form, "form_type", value: "Autism"
-  
   = label :form, :name, "Individuals Name"
   = text_field :form, "name", placeholder: "required", required: true
 
@@ -12,7 +10,7 @@
 
   = label :form, :photo_path, 'Photo of the Individual'
   = text_field :form, "photo_path", placeholder: "UNDER DEVELOPMENT"
-
+  
   = label :form, :address, 'Address'
   = text_field :form, "address"
   
