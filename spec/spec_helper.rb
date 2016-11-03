@@ -10,6 +10,9 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
+end
 # bug fix?
 require 'support/factory_girl'
 
