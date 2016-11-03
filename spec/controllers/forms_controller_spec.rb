@@ -11,6 +11,8 @@ describe FormsController do
     # end
     
   end
+
+  describe
   
   describe "A successful create" do
     # it 'should create a form' do
@@ -22,6 +24,12 @@ describe FormsController do
   end
   
   describe "A successful update" do
+    # it 'should update a form' do
+    #   formU = double("formu", :id => '1')
+    #   expect(Form).to receive(:find).with('1')
+    #   get :edit, {:id => '1'}
+    #   get :update, {:id => '1'}
+    # end
   end
   
   describe "A successful destroy" do
