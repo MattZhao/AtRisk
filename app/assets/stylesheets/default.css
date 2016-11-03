@@ -51,6 +51,9 @@ table#forms th, table#forms td {
   padding: 4px;
   text-align: left;
 }
+table#forms th.hilite {
+  background-color: orange;
+}
 #notice #warning {
   background: rosybrown;
   margin: 1em 0;
