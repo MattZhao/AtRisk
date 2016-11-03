@@ -2,13 +2,16 @@
 
 = form_tag forms_path do
 
+  = javascript_include_tag "application.js"
+  
   = hidden_field :form, "form_type", value: "AtRisk"
   
   = label :form, :name, "Individuals Name*(required)"
   = text_field :form, "name", placeholder: "required", required: true
 
   = label :form, :birth_date, "Date of Birth*(required)"
-  = date_select :form, "birth_date", placeholder: "required", required: true
+  = date_select :form, "birth_date", placeholder: "required", required: true,
+  :start_year => 1900, :end_year => 2016
 
   = label :form, :photo_path, 'Photo of the Individual*(required)'
   = text_field :form, "photo_path", placeholder: "required", required: true
@@ -111,26 +114,45 @@
   
   = submit_tag 'Submit Form'
   
-  = link_to  "Cancel" , forms_path, method: :get
-
+//   = submit_tag, :onclick => "myFunction()"
   
-  // = submit_tag "Cancel"
+//   = submit_tag 'Submit Form', :onclick => 'alert("Please no!")'
+
+//   = link_to  "Cancel", forms_path
   
-//   :javascript
-//   (function() {
-//     $('form > input').keyup(function() {
+//   // = link_to  "Cancel", forms_path,
+//   //         :onclick => 'alert("Your Information Was Not Saved!")'
+  
 
-//         var empty = false;
-//         $('form > input').each(function() {
-//             if ($(this).val() == '') {
-//                 empty = true;
-//             }
-//         });
+//   = link_to "Hello1", '#', :onclick => "myFunction()"
 
-//         if (empty) {
-//             $('#register').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
-//         } else {
-//             $('#register').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
-//         }
-//     });
-// })()
+//   = link_to "Hello2", '#', :onclick => 'alert("Please no!")'
+
+
+// :javascript
+//   function myFunction() {
+//     alert("alert1");
+//     var v = "Hey"
+//     alert(v);
+
+//     alert("alert2");
+    
+//     var x = $("name");
+//     alert("alert3");
+
+//     alert(x);
+
+//     if(1 > 0){
+//       alert("if is called");
+//     }
+//     alert("is called");
+//     alert("is called again")
+//   }
+//   //   if (:form.name.length == 0){
+//   //     alert("message");        
+//   //     return false;}
+//   //   alert("really");
+//   //   return true;   
+//   // }
+
+
