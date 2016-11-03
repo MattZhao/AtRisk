@@ -16,7 +16,7 @@ Scenario: navigate to create At-Risk form
 Scenario: navigate to create Autism form
   Given I am on the user dashboard page
   When I follow "New Autism Alert Form"
-  Then I should see "Create New Autism Form"
+  Then I should see "Create New Autism Alert Form"
   And I should see "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes"
   And I should not see "This person has Alzheimer's"
 
