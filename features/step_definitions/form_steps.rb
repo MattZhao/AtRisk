@@ -1,9 +1,12 @@
 # Add a declarative step here for populating the DB with forms.
 Given /the following [^"]* forms exist/ do |forms_table|
-  forms_table.hashes.each do |form|
+  forms_table.hashes.each do |form_params|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    Form.create form 
+    form = Form.create form_params
+    form.id_user = find_user.id.to_s
+    form.form_activeness = true
+    form.save!
   end
 end
 

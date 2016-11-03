@@ -17,9 +17,20 @@ Feature: Filter forms
     Given I am on the user dashboard page
     Then I should see "Include"
     And I should see "Milton"
-    And I should not see "Matthew, Jr."
+    And I should see "Matthew, Jr."
     When I uncheck "type_AtRisk"
     And I press "Refresh"
     Then I should see "Matthew, Jr."
     And I should not see "Milton"
+  
+  Scenario: The user should be able to filter autism and see only atrisk forms
+    Given I am on the user dashboard page
+    Then I should see "Include"
+    And I should see "Milton"
+    And I should see "Matthew, Jr."
+    When I uncheck "type_Autism"
+    And I press "Refresh"
+    Then I should see "Milton"
+    And I should not see "Matthew, Jr."
+
   
