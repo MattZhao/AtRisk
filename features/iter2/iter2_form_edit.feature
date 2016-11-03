@@ -85,7 +85,7 @@ Feature: Edit rigorous form
     When I go to the edit page for "Matthew"
     Then I should be on the edit page for "Matthew"
     And I fill in "Address" with "Shattuck Ave"
-    And I press "Cancel"
+    And I follow "Cancel"
     Then the address of "Matthew" should be "Telegraph Ave"
 
   Scenario: The user should be able to cancel autism form
@@ -98,7 +98,7 @@ Feature: Edit rigorous form
     Then I should be on the edit page for "Matthew, Jr."
     And I fill in "Address" with "Shattuck Ave"
     And I fill in "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes" with "NVIDIA GeForce GTX 1080 SLI"
-    And I press "Cancel"
+    And I follow "Cancel"
     And the address of "Matthew, Jr." should be "Telegraph Ave"
     And the favorite_topics of "Matthew, Jr." should be "GTX TITAN 4-Way SLI"
     

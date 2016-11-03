@@ -1,24 +1,26 @@
 %h2 My Forms
 
-= form_tag forms_path, :method => :get, :id => "type_form" do
-  Include:
-  - ["Autism", "AtRisk"].each do |type|
+= form_tag forms_path, :method => :get, :id => "types_form" do
+  = hidden_field_tag "name_sort", true if @name_header
+  = hidden_field_tag "birth_date_sort", true if @birth_date_header
+  Show forms for:
+  - @all_types.each do |type|
     = type
-    = check_box_tag "type[#{type}]", 1, ((@selected_types.nil? or @selected_types.include?(type))? true : false), :id => "type_#{type}"
-  = submit_tag 'Refresh', :id => "type_submit"
+    = check_box_tag "types[#{type}]", 1, @selected_types.include?(type), :id => "types_#{type}"
+  = submit_tag "Reload", :id => "types_submit"
+  
+= form_tag forms_path, :method => "get", :id => "search_form" do
+  = text_field_tag :search, params[:search], placeholder: "Search by names"
+  = submit_tag "Search", :id => "search_submit"
 
-= form_tag forms_path, :method => "get", id: "search_form" do
-  = text_field_tag :search, params[:search], placeholder: "Search Forms"
-  = submit_tag "Search"
+%h3 #{@search_active_msg}
 
 %table#forms
   %thead
     %tr
       %th{:class => @name_header}= link_to 'Name', forms_path(:order => 'name', :types => @selected_types), :id => 'name_header'
-      <!-- %th name -->
-      <!-- %th date of birth -->
       %th{:class => @birth_date_header}= link_to 'Birth Date', forms_path(:order => 'birth_date', :types => @selected_types), :id => 'birth_date_header'
-      %th type
+      %th Form Type
   %tbody
     - @my_forms.each do |form|
       %tr
@@ -26,6 +28,7 @@
         %td= form.birth_date
         %td= form.form_type
 %br
+
 %h2 Create Forms
 
 %h4 For elders with disorders like Alzheimer's:

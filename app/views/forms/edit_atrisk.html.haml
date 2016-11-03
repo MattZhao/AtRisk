@@ -3,27 +3,27 @@
 = form_tag form_path(@form), :method => :put do
 
   = hidden_field :form, "form_type", value: "AtRisk"
-
-  = label :form, :name, "Individuals Name*(required)"
+  
+  = label :form, :name, "Individuals Name"
   = text_field :form, "name", placeholder: "required", required: true
 
-  = label :form, :birth_date, "Date of Birth*(required)"
-  = date_select :form, "birth_date", placeholder: "required", required: true
+  = label :form, :birth_date, "Date of Birth"
+  = date_select :form, "birth_date", :start_year => 1900, :end_year => 2016, required: true
 
-  = label :form, :photo_path, 'Photo of the Individual*(required)'
-  = text_field :form, "photo_path", placeholder: "required", required: true
+  = label :form, :photo_path, 'Photo of the Individual'
+  = text_field :form, "photo_path", placeholder: "UNDER DEVELOPMENT"
   
-  = label :form, :has_alzheimers, "This person has Alzheimer"
+  = label :form, :has_alzheimers, "This person has Alzheimer?"
   = check_box :form, "has_alzheimers"
   
-  = label :form, :has_dementia, "This person has Dementia"
+  = label :form, :has_dementia, "This person has Dementia?"
   = check_box :form, "has_dementia"
   
-  = label :form, :has_down_syndrome, "This person has Down Syndrome"
+  = label :form, :has_down_syndrome, "This person has Down Syndrome?"
   = check_box :form, "has_down_syndrome"
   
-  = label :form, :has_other_disorders, "This person has Other Related Disorder"
-  = text_field :form, "has_other_disorders"
+  = label :form, :has_other_disorders, "Any Other Related Disorder?"
+  = text_area :form, "other_disorders", size: "60x4"
   
   = label :form, :address, 'Address'
   = text_field :form, "address"
@@ -53,13 +53,13 @@
   = text_field :form, "color_hair"
   
   = label :form, :body_marks, 'Scars, Tattoos, or Other Identifying Marks'
-  = text_field :form, "body_marks"
+  = text_area :form, "body_marks", size: "60x4"
   
   = label :form, :other_medical_conds, 'Other Reverent Medical Conditions'
-  = text_field :form, "other_medical_conds"
+  = text_area :form, "other_medical_conds", size: "60x4"
 
   = label :form, :meds_needed, 'Prescription Medicines Needed'
-  = text_field :form, "meds_needed"
+  = text_area :form, "meds_needed", size: "60x4"
   
   = label :form, :phone_number, "Individuals Cell Phone Number"
   = number_field :form, "phone_number"
@@ -101,12 +101,19 @@
   = text_field :form, "preferred_language"
   
   = label :form, :info_id, 'Individuals Identification Information'
-  = text_field :form, "info_id"
+  = text_area :form, "info_id", size: "60x4"
   
   = label :form, :info_tracking, 'Individuals Tracking Information'
-  = text_field :form, "info_tracking"
+  = text_area :form, "info_tracking", size: "60x4"
   
   %h3 
-  
-  = submit_tag 'Update Form'
-  = submit_tag "Cancel"
+
+  = submit_tag 'Update Form', :onclick => "validateName()"
+  = link_to  "Cancel" , form_path, method: :get
+
+:javascript
+  function validateName() {
+    if (String(document.getElementById("form_name").value) == "" ) {
+      alert("Please provide the individual's name.");
+    }
+  }

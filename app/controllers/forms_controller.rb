@@ -15,40 +15,35 @@ class FormsController < ApplicationController
   end
 
   def index
-    # this functions as the user dashboard for now
+    @search_active_msg = ""
+    @all_types = Form.all_types
+    @selected_types = params[:types] || session[:types] || {}
     
-    @order = params[:order]
-    @form_filter = params[:type]
-    if params[:search]
-      print("searching!")
-      print(params[:search])
+    # search overrules all
+    if params[:search] != nil and params[:search] != ""
       @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).search(params[:search])
-    else
-      if @order == "name"
-        session[:order] = @order
-        if @form_filter != nil
-          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
-          @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
-        else
-          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:name)
-        end
-      elsif @order == "birth_date"
-        session[:order] = @order
-        if @form_filter != nil
-          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
-          @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
-        else
-          @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).order(:birth_date)
-        end
-      else
-        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true)
-        if @form_filter != nil
-          @my_forms = @my_forms.select { |form| @form_filter.key?(form.form_type) }
-        #elsif @form_filter == nil
-          #@my_forms = {}
-        end
-      end
+      @search_active_msg = "Search Results (press reload to go back)"
+      return
     end
+    
+    sort = params[:order] || session[:order]
+    case sort
+      when 'name'
+        ordering, @name_header = {:name => :asc}, 'hilite'
+      when 'birth_date'
+        ordering, @birth_date_header = {:birth_date => :asc}, 'hilite'
+    end
+    
+    if @selected_types == {}
+      @selected_types = Hash[@all_types.map {|type| [type, type]}]
+    end
+    
+    if params[:order] != session[:order] or params[:types] != session[:types]
+      session[:order] = sort
+      session[:types] = @selected_types
+      redirect_to :order => sort, :types => @selected_types and return
+    end
+    @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
   end
 
   def show
@@ -163,13 +158,6 @@ class FormsController < ApplicationController
     
     # form type doesn't match
     redirect_to '/messages/something_wrong'
-  end
-
-  def destroy
-    @form = Form.find(params[:id])
-    @form.form_activeness = false
-    flash[:notice] = "Form was deleted."
-    redirect_to forms_path
   end
 
 end
