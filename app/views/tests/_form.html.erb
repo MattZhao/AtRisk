@@ -13,8 +13,8 @@
 
   <%= f.fields_for :test_attachments do |p| %>
     <div class="field">
-      <%= f.label :attachment %><br>
-      <%= f.file_field :attachment, multiple: true, name: "test_attachments[attachment][]" %>
+      <%= p.label :attachment %><br>
+      <%= p.file_field :attachment, multiple: true, name: "test_attachments[attachment][]" %>
     </div>
   <% end %>
   

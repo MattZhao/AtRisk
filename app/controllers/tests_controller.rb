@@ -31,7 +31,7 @@ class TestsController < ApplicationController
     respond_to do |format|
       if @test.save
         params[:test_attachments]['attachment'].each do |a|
-          @test_attachment = @test.test_attachments.creat!(:attachment => a)
+          @test_attachment = @test.test_attachments.create!(:attachment => a)
         end
         format.html { redirect_to @test, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
@@ -74,7 +74,6 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(test_attachments_attributes: [:id, :attachment])
-      # params.fetch(:test, {})
+      params.permit(:test, test_attachments_attributes: [:id, :test_id, :attachment])
     end
 end

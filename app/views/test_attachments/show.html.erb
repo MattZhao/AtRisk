@@ -3,6 +3,7 @@
 <p>
   <strong>Attachment:</strong>
   <%= @test_attachment.attachment %>
+  <%= image_tag @test_attachment.attachment.url %>
 </p>
 
 <%= link_to 'Edit', edit_test_attachment_path(@test_attachment) %> |
