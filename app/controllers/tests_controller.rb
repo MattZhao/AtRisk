@@ -74,7 +74,7 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(test_attachments_attributes: [:id, :attachments])
+      params.require(:test).permit(test_attachments_attributes: [:id, :attachment])
       # params.fetch(:test, {})
     end
 end

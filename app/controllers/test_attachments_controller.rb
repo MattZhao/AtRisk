@@ -42,7 +42,7 @@ class TestAttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @test_attachment.update(test_attachment_params)
-        format.html { redirect_to @test_attachment, notice: 'Test attachment was successfully updated.' }
+        format.html { redirect_to @test_attachment.test, notice: 'Test attachment was successfully updated.' }
         format.json { render :show, status: :ok, location: @test_attachment }
       else
         format.html { render :edit }
