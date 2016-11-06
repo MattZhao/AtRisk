@@ -2,7 +2,7 @@
 
 <p>
   <strong>Attachments:</strong>
-  <%= @test.test_attachments.each do |p| %>
+  <% @test.test_attachments.each do |p| %>
     <div>
       <%= image_tag p.attachment_url %>
     </div>
