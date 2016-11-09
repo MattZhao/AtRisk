@@ -10,3 +10,6 @@ forms = [{:name => 'Aladdin', :form_type => 'atrisk', :sex => 'Male', :birth_dat
 forms.each do |form|
   Form.create!(form)
 end
+
+default_user = {:email => 'default@user.com', :name => 'anonymous', :phone => '666', :password => '111111', :password_confirmation => '111111'}
+User.create! default_user

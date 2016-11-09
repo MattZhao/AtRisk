@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :test_attachments
+  resources :tests
   resources :news
   resources :forms
   devise_for :users
