@@ -21,7 +21,11 @@ class FormsController < ApplicationController
     
     # search overrules all
     if params[:search] != nil and params[:search] != ""
-      @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).search(params[:search])
+      if current_user.admin
+        @my_forms = Form.search(params[:search])
+      else
+        @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true).search(params[:search])
+      end
       @search_active_msg = "Search Results (press reload to go back)"
       return
     end
@@ -32,6 +36,10 @@ class FormsController < ApplicationController
         ordering, @name_header = {:name => :asc}, 'hilite'
       when 'birth_date'
         ordering, @birth_date_header = {:birth_date => :asc}, 'hilite'
+      when 'created_at'
+        ordering, @created_at_header = {:created_at => :asc}, 'hilite'
+      when 'updated_at'
+        ordering, @updated_at_header = {:updated_at => :asc}, 'hilite'
     end
     
     if @selected_types == {}
@@ -43,7 +51,11 @@ class FormsController < ApplicationController
       session[:types] = @selected_types
       redirect_to :order => sort, :types => @selected_types and return
     end
-    @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
+    if current_user.admin
+      @my_forms = Form.where(form_type: @selected_types.keys).order(ordering)
+    else
+      @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
+    end
   end
 
   def show
@@ -54,12 +66,12 @@ class FormsController < ApplicationController
     @form = Form.find(id) # look up form by unique ID
     
     # check user validaty
-    if @form.id_user != current_user.id.to_s
+    if @form.id_user != current_user.id.to_s and !current_user.admin
       flash[:warning] = "Error: you are not the owner of this form."
       return redirect_to forms_path
     end
     
-    if not @form.form_activeness
+    if not @form.form_activeness and !current_user.admin
       flash[:warning] = "Error: invalid address."
       return redirect_to forms_path
     end
@@ -103,7 +115,7 @@ class FormsController < ApplicationController
   
   def update
     @form = Form.find(params[:id])
-    if @form.id_user != current_user.id.to_s
+    if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
     
@@ -114,7 +126,7 @@ class FormsController < ApplicationController
   
   def destroy
     @form = Form.find(params[:id])
-    if @form.id_user != current_user.id.to_s
+    if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
     
@@ -135,18 +147,18 @@ class FormsController < ApplicationController
     @form = Form.find(id) # look up form by unique ID
     
     # check user validaty
-    if @form.id_user != current_user.id.to_s
+    if @form.id_user != current_user.id.to_s and !current_user.admin
       flash[:warning] = "Error: you are not the owner of this form."
       return redirect_to forms_path
     end
     
-    if not @form.form_activeness
+    if not @form.form_activeness and !current_user.admin
       flash[:warning] = "Error: invalid address."
       return redirect_to forms_path
     end
 
     @form = Form.find(params[:id])
-    if @form.id_user != current_user.id.to_s
+    if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
     

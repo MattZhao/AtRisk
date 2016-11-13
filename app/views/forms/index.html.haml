@@ -1,4 +1,24 @@
-%h2 My Forms
+- if current_user.admin
+  %h1 Admin Dashboard
+  %p Viewing all forms in database
+  %p Total Forms: #{Form.count('id')}
+  %p Total Users: #{User.count('id')}
+  = link_to 'Manage Users', '/messages/invalid_page'
+- else
+  %h1 User Dashboard
+  %p You may create, view, or edit your forms here
+
+%hr
+%h2 Create Forms
+
+%p For elders with disorders like Alzheimer's:
+= link_to 'New At-Risk Form', new_form_path(:form_type => "AtRisk")
+
+%p For children with autism:
+= link_to 'New Autism Alert Form', new_form_path(:form_type => "Autism")
+
+%hr
+%h2 View Forms
 
 = form_tag forms_path, :method => :get, :id => "types_form" do
   = hidden_field_tag "name_sort", true if @name_header
@@ -15,24 +35,52 @@
 
 %h3 #{@search_active_msg}
 
-%table#forms
-  %thead
-    %tr
-      %th{:class => @name_header}= link_to 'Name', forms_path(:order => 'name', :types => @selected_types), :id => 'name_header'
-      %th{:class => @birth_date_header}= link_to 'Birth Date', forms_path(:order => 'birth_date', :types => @selected_types), :id => 'birth_date_header'
-      %th Form Type
-  %tbody
-    - @my_forms.each do |form|
+- content_for :admin_table do
+  %table#forms
+    %thead
       %tr
-        %td= link_to form.name, form_path(form)
-        %td= form.birth_date
-        %td= form.form_type
-%br
+        %th Form ID
+        %th{:class => @name_header}= link_to 'Name', forms_path(:order => 'name', :types => @selected_types), :id => 'name_header'
+        %th{:class => @birth_date_header}= link_to 'Birth Date', forms_path(:order => 'birth_date', :types => @selected_types), :id => 'birth_date_header'
+        %th Sex
+        %th Form Type
+        %th User ID
+        %th Visible To User?
+        %th{:class => @created_at_header}= link_to 'Created At', forms_path(:order => 'created_at', :types => @selected_types), :id => 'created_at_header'
+        %th{:class => @updated_at_header}= link_to 'Updated At', forms_path(:order => 'updated_at', :types => @selected_types), :id => 'updated_at_header'
+    %tbody
+      - @my_forms.each do |form|
+        %tr
+          %td= form.id
+          %td= link_to form.name, form_path(form)
+          %td= form.birth_date
+          %td= form.sex
+          %td= form.form_type
+          %td= form.id_user
+          %td= form.form_activeness
+          %td= form.created_at
+          %td= form.updated_at
 
-%h2 Create Forms
+- content_for :user_table do
+  %table#forms
+    %thead
+      %tr
+        %th{:class => @name_header}= link_to 'Name', forms_path(:order => 'name', :types => @selected_types), :id => 'name_header'
+        %th{:class => @birth_date_header}= link_to 'Birth Date', forms_path(:order => 'birth_date', :types => @selected_types), :id => 'birth_date_header'
+        %th Sex
+        %th Form Type
+    %tbody
+      - @my_forms.each do |form|
+        %tr
+          %td= link_to form.name, form_path(form)
+          %td= form.birth_date
+          %td= form.sex
+          %td= form.form_type
+  
+- if current_user.admin
+  = content_for :admin_table
+- else
+  = content_for :user_table
 
-%h4 For elders with disorders like Alzheimer's:
-= link_to 'New At-Risk Form', new_form_path(:form_type => "AtRisk")
 
-%h4 For children with autism:
-= link_to 'New Autism Alert Form', new_form_path(:form_type => "Autism")
+
