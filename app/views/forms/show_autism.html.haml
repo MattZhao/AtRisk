@@ -139,10 +139,10 @@
     = @form.form_activeness
   %li
     <b>This from is created at:&nbsp</b>
-    = @form.created_at
+    = convert_time(@form.created_at)
   %li
     <b>This form is updated at:&nbsp</b>
-    = @form.updated_at
+    = convert_time(@form.updated_at)
 
 %hr
 = link_to 'Edit Form', edit_form_path(@form)
