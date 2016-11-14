@@ -46,6 +46,7 @@ class FormsController < ApplicationController
     
     if @selected_types == {}
       @selected_types = Hash[@all_types.map {|type| [type, type]}]
+      @selected_activeness = Hash[@all_active.map {|activeness| [activeness, activeness]}]
     end
     
     if params[:order] != session[:order] or params[:types] != session[:types] or params[:activeness] != session[:activeness]
