@@ -139,6 +139,33 @@ class FormsController < ApplicationController
     redirect_to forms_path
   end
   
+  def revive
+    @form = Form.find(params[:id])
+    if !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
+    
+    @form.form_activeness = true
+    if @form.save!
+      flash[:notice] = "Form for #{@form.name} is now visible to the owner"
+    else
+      flash[:warning] = "Error: form could not be revived"
+    end
+    redirect_to form_path(@form.id)
+  end
+  
+  def hard_delete
+    @form = Form.find(params[:id])
+    if !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
+    
+    last_glimpse = @form.name
+    Form.destroy(params[:id])
+    flash[:notice] = "Form for #{last_glimpse} is permanently deleted"
+    redirect_to forms_path
+  end
+  
   def edit
     id = params[:id] # retrieve form ID from URI route
     if not Form.exists?(id)

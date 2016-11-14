@@ -65,3 +65,6 @@ form label {
   font-weight: bold;
   color: gray;
 }
+table#forms tr:hover {
+  background-color: #ffff99;
+}
