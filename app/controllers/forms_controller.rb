@@ -62,6 +62,9 @@ class FormsController < ApplicationController
         @my_forms = Form.where(form_type: @selected_types.keys, :form_activeness => true).order(ordering)
       elsif !@selected_activeness.keys.include?('Active') && @selected_activeness.keys.include?('Inactive')
         @my_forms = Form.where(form_type: @selected_types.keys, :form_activeness => false).order(ordering)
+      else
+        @my_forms = Form.where(form_type: @selected_types.keys).order(ordering)
+        session[:activeness] = {'Active' => 1, 'Inactive' => 1}
       end
     else
       @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
