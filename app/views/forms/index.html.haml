@@ -63,8 +63,8 @@
           %td= form.form_type
           %td= form.id_user
           %td= form.form_activeness
-          %td= form.created_at
-          %td= form.updated_at
+          %td= convert_time(form.created_at)
+          %td= convert_time(form.updated_at)
 
 - content_for :user_table do
   %table#forms
