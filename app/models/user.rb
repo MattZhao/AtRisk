@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   # make sure they are not blank
-  validates_presence_of :name, :phone
+  validates_presence_of :name, :phone, :email
+  
+  def getFormsCount(user_id)
+    Form.where(:id_user => id).count()
+  end
 end

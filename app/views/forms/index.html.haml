@@ -3,7 +3,7 @@
   %p Viewing all forms in database
   %p Total Forms: #{Form.count('id')}
   %p Total Users: #{User.count('id')}
-  = link_to 'Manage Users', '/messages/invalid_page'
+  = link_to 'Manage Users', 'users'
 - else
   %h1 User Dashboard
   %p You may create, view, or edit your forms here

@@ -1,0 +1,28 @@
+- if current_user.admin
+  %h1 User Accounts Management Dashboard
+  %p Total Users: #{User.count('id')}
+- else
+  flash[:warning] = "Error: you are not an administrator of the site."
+  redirect_to forms_path
+
+%h2 View Users
+
+%table#forms
+  %thead
+    %tr
+      %th{:class => @id_header}= link_to 'User ID', users_path(:order => 'id'), :id => 'id_header'
+      %th{:class => @name_header}= link_to 'Name', users_path(:order => 'name'), :id => 'name_header'
+      %th{:class => @phone_header}= link_to 'Phone', users_path(:order => 'phone'), :id => 'phone_header'
+      %th{:class => @email_header}= link_to 'Email', users_path(:order => 'email'), :id => 'email_header'
+      %th{:class => @last_sign_in_at_header}= link_to 'Last Sign In', users_path(:order => 'last_sign_in_at'), :id => 'last_sign_in_at_header'
+      %th Number Of Forms
+      
+  %tbody
+    - @selected_users.each do |user|
+      %tr
+        %td= user.id
+        %td= user.name
+        %td= user.phone
+        %td= user.email
+        %td= user.last_sign_in_at
+        %td= user.getFormsCount(user.id)
