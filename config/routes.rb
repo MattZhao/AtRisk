@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   # static messages pages route
   get "/messages/:page" => "messages#show"
   
+  get "forms/:id/hard_delete" => "forms#hard_delete", :as => :hard_delete
+  get "forms/:id/revive" => "forms#revive", :as => :revive
   
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

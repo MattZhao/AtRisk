@@ -1,4 +1,13 @@
 %h2 AUTISM ALERT Form Details for #{@form.name}
+- if current_user.admin
+  - if !@form.form_activeness
+    %p This form is deleted by the owner/admin and will only be visible to admin. You may:
+    = link_to 'Make this form visible to the owner', revive_path(@form), data: { confirm: 'Are you sure you want to make this form visible to the owner?' }
+    %br
+  - else
+    You may set the form invisible to the owner using the "Delete Form" link on the bottom of the page, or
+  = link_to 'Permanently remove this from from the database', hard_delete_path(@form), data: { confirm: 'Are you sure you want to PERMANENTLY delete this form?' }
+%hr
 
 %h3 General Information
 %ul#general
@@ -135,6 +144,7 @@
     <b>This form is updated at:&nbsp</b>
     = @form.updated_at
 
+%hr
 = link_to 'Edit Form', edit_form_path(@form)
 = link_to 'Delete Form', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this Autism Alert form?' }
 = link_to 'Back to Dashboard', forms_path
