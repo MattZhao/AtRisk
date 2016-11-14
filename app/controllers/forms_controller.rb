@@ -17,7 +17,9 @@ class FormsController < ApplicationController
   def index
     @search_active_msg = ""
     @all_types = Form.all_types
+    @all_active = Form.all_active
     @selected_types = params[:types] || session[:types] || {}
+    @selected_activeness = params[:activeness] || session[:activeness] || {}
     
     # search overrules all
     if params[:search] != nil and params[:search] != ""
@@ -46,13 +48,20 @@ class FormsController < ApplicationController
       @selected_types = Hash[@all_types.map {|type| [type, type]}]
     end
     
-    if params[:order] != session[:order] or params[:types] != session[:types]
+    if params[:order] != session[:order] or params[:types] != session[:types] or params[:activeness] != session[:activeness]
       session[:order] = sort
       session[:types] = @selected_types
-      redirect_to :order => sort, :types => @selected_types and return
+      session[:activeness] = @selected_activeness
+      redirect_to :order => sort, :types => @selected_types, :activeness => @selected_activeness and return
     end
     if current_user.admin
-      @my_forms = Form.where(form_type: @selected_types.keys).order(ordering)
+      if @selected_activeness.keys.include?('Active') && @selected_activeness.keys.include?('Inactive')
+        @my_forms = Form.where(form_type: @selected_types.keys).order(ordering)
+      elsif @selected_activeness.keys.include?('Active') && !@selected_activeness.keys.include?('Inactive')
+        @my_forms = Form.where(form_type: @selected_types.keys, :form_activeness => true).order(ordering)
+      elsif !@selected_activeness.keys.include?('Active') && @selected_activeness.keys.include?('Inactive')
+        @my_forms = Form.where(form_type: @selected_types.keys, :form_activeness => false).order(ordering)
+      end
     else
       @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
     end

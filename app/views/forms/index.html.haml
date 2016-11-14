@@ -27,6 +27,10 @@
   - @all_types.each do |type|
     = type
     = check_box_tag "types[#{type}]", 1, @selected_types.include?(type), :id => "types_#{type}"
+  //- if current_user.admin
+  - @all_active.each do |form_activeness|
+    = form_activeness
+    = check_box_tag "activeness[#{form_activeness}]", 1, @selected_activeness.include?(form_activeness)
   = submit_tag "Reload", :id => "types_submit"
   
 = form_tag forms_path, :method => "get", :id => "search_form" do
