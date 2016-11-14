@@ -49,10 +49,10 @@ class FormsController < ApplicationController
       @selected_activeness = Hash[@all_active.map {|activeness| [activeness, activeness]}]
     end
     
-    if params[:order] != session[:order] or params[:types] != session[:types] or params[:activeness] != session[:activeness]
+    if params[:order] != session[:order] or params[:types] != session[:types]
       session[:order] = sort
       session[:types] = @selected_types
-      session[:activeness] = @selected_activeness
+      session[:activeness] = params[:activeness]
       redirect_to :order => sort, :types => @selected_types, :activeness => @selected_activeness and return
     end
     if current_user.admin
