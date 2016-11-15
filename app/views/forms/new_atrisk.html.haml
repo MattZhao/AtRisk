@@ -106,14 +106,23 @@
   = label :form, :info_tracking, 'Individuals Tracking Information'
   = text_area :form, "info_tracking", size: "60x4"
   
+  = hidden_field_tag :form_terms_of_service, false
+  = label :form_terms_of_service, "Agree to terms of service?"
+  = check_box :form, "terms_of_service"
+
+  
   %h3 
   
-  = submit_tag 'Submit Form', :onclick => "validateName()"
+  = submit_tag 'Submit Form', :onclick => "validateName();"
   = link_to  "Cancel", forms_path
 
 :javascript
   function validateName() {
+  
     if (String(document.getElementById("form_name").value) == "" ) {
       alert("Please provide the individual's name.");
+    }
+    if (String(document.getElementById("form_terms_of_service").value) == false) {
+      alert("Please agree to the Terms of Service.");
     }
   }
