@@ -1,5 +1,5 @@
 - if current_user.admin
-  %h1 User Accounts Management Dashboard
+  %h1 Admin Dashboard
   %p Total Users: #{User.count('id')}
 - else
   flash[:warning] = "Error: you are not an administrator of the site."
@@ -24,5 +24,7 @@
         %td= user.name
         %td= user.phone
         %td= user.email
-        %td= user.last_sign_in_at
-        %td= user.getFormsCount(user.id)
+        %td= convert_time(user.last_sign_in_at)
+        %td= user.getFormsCount
+
+= link_to 'Back to Dashboard', forms_path

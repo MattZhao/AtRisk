@@ -4,10 +4,12 @@
   %p Total Forms: #{Form.count('id')}
   %p Total Users: #{User.count('id')}
   = link_to 'Manage Users', 'users'
+  %br
 - else
   %h1 User Dashboard
   %p You may create, view, or edit your forms here
   %p For professional tips on Alzheimers, click <a href="http://www.alz.org/i-have-alz/tips-for-daily-life.asp">here</a>
+= link_to 'FAQ', news_index_path
 
 %hr
 %h2 Create Forms
@@ -28,6 +30,10 @@
   - @all_types.each do |type|
     = type
     = check_box_tag "types[#{type}]", 1, @selected_types.include?(type), :id => "types_#{type}"
+  - if current_user.admin
+    - @all_active.each do |form_activeness|
+      = form_activeness
+      = check_box_tag "activeness[#{form_activeness}]", 1, @selected_activeness.include?(form_activeness)
   = submit_tag "Reload", :id => "types_submit"
   
 = form_tag forms_path, :method => "get", :id => "search_form" do
@@ -60,8 +66,8 @@
           %td= form.form_type
           %td= form.id_user
           %td= form.form_activeness
-          %td= form.created_at
-          %td= form.updated_at
+          %td= convert_time(form.created_at)
+          %td= convert_time(form.updated_at)
 
 - content_for :user_table do
   %table#forms

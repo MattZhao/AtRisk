@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_news, only: [:show, :edit, :update, :destroy]
 
   # GET /news
   # GET /news.json
@@ -14,21 +14,31 @@ class NewsController < ApplicationController
 
   # GET /news/new
   def new
+    if !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
     @news = News.new
   end
 
   # GET /news/1/edit
   def edit
+    if !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
   end
 
   # POST /news
   # POST /news.json
   def create
+    if !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
+    
     @news = News.new(news_params)
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to @news, notice: 'News was successfully created.' }
+        format.html { redirect_to @news, notice: 'New FAQ entry was successfully created.' }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }
@@ -40,9 +50,13 @@ class NewsController < ApplicationController
   # PATCH/PUT /news/1
   # PATCH/PUT /news/1.json
   def update
+    if !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
+    
     respond_to do |format|
       if @news.update(news_params)
-        format.html { redirect_to @news, notice: 'News was successfully updated.' }
+        format.html { redirect_to @news, notice: 'FAQ entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit }
@@ -54,9 +68,14 @@ class NewsController < ApplicationController
   # DELETE /news/1
   # DELETE /news/1.json
   def destroy
+    if !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
+    
     @news.destroy
+    
     respond_to do |format|
-      format.html { redirect_to news_index_url, notice: 'News was successfully destroyed.' }
+      format.html { redirect_to news_index_url, notice: 'FAQ entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
