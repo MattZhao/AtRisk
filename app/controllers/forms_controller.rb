@@ -64,19 +64,18 @@ class FormsController < ApplicationController
   end
 
   def show
-    # check user validaty
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      flash[:warning] = "Error: you are not the owner of this form."
-      return redirect_to forms_path
-    end
-    
-    if not @form.form_activeness and !current_user.admin
-      flash[:warning] = "Error: invalid address."
-      return redirect_to forms_path
-    end
+    check_owner_and_address
     render_page('show')
   end
   
+  def edit
+    check_owner_and_address
+    if @form.id_user != current_user.id.to_s and !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
+    render_page('edit')
+  end
+
   def create
     @form = Form.create(form_params)
     @form.id_user = current_user.id.to_s
@@ -102,25 +101,6 @@ class FormsController < ApplicationController
     elsif params[:form_type] == 'Autism'
       render 'new_autism'
     end
-  end
-  
-  def edit
-    # check user validaty
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      flash[:warning] = "Error: you are not the owner of this form."
-      return redirect_to forms_path
-    end
-    
-    if not @form.form_activeness and !current_user.admin
-      flash[:warning] = "Error: invalid address."
-      return redirect_to forms_path
-    end
-
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      return redirect_to '/messages/no_access'
-    end
-    
-    render_page('edit')
   end
   
   def update
@@ -204,6 +184,23 @@ class FormsController < ApplicationController
       return render flag + '_autism'
     else
       redirect_to '/messages/something_wrong'
+    end
+  end
+
+  # helper for 'show' & 'edit'
+  def check_owner_and_address
+    if @form.id_user != current_user.id.to_s and !current_user.admin
+      flash[:warning] = "Error: you are not the owner of this form."
+      return redirect_to forms_path
+    end
+    
+    if not @form.form_activeness and !current_user.admin
+      flash[:warning] = "Error: invalid address."
+      return redirect_to forms_path
+    end
+
+    if @form.id_user != current_user.id.to_s and !current_user.admin
+      return redirect_to '/messages/no_access'
     end
   end
 

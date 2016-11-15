@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # make sure they are not blank
   validates_presence_of :name, :phone, :email
   
-  def getFormsCount(user_id)
+  def getFormsCount
     Form.where(:id_user => id).count()
   end
 end
