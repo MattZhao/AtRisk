@@ -116,6 +116,9 @@
   = label :form, :info_tracking, 'Individuals Tracking Information'
   = text_area :form, "info_tracking", size: "60x4"
   
+  = label :form, :terms_of_service, "Disclaimer: All information provided is voluntary. Checking this box indicates that you agree to share your information."
+  = check_box :form, "terms_of_service"
+  
   %h3 
   
   = submit_tag 'Update Form', :onclick => "validateName()"
@@ -125,5 +128,10 @@
   function validateName() {
     if (String(document.getElementById("form_name").value) == "" ) {
       alert("Please provide the individual's name.");
+      return false;
+    }
+    if (!document.getElementById('form_terms_of_service').checked) {
+      alert("Please agree to the disclaimer.");
+      return false;
     }
   }

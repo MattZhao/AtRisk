@@ -25,6 +25,7 @@ Scenario: create new atrisk form
   When I fill in "Individuals Name" with "Matthew"
   When I select "May 2, 1950" as the form "birth_date" date
   When I fill in "Photo of the Individual" with "pic.jpg"
+  And I check "form_terms_of_service"
   And I press "Submit Form"
   Then I should see "Successfully Created Form for Matthew"
   And I should be on the user dashboard page
@@ -36,6 +37,7 @@ Scenario: create new autism form
   When I fill in "Individuals Name" with "Matthew,Jr"
   When I select "May 2, 2000" as the form "birth_date" date
   When I fill in "Photo of the Individual" with "pic.jpg"
+  And I check "form_terms_of_service"
   And I press "Submit Form"
   Then I should see "Successfully Created Form for Matthew"
   And I should be on the user dashboard page

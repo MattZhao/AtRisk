@@ -10,10 +10,17 @@ Feature: view and add to FAQ page
   Scenario: View FAQ page
     Given I am logged in
     And I am on the user dashboard page
-    When I follow "Frequently Asked Questions"
-    Then I should see "AtRisk FAQ"
-    And I should not see "Edit"
+    When I follow "FAQ"
+    Then I should see "Frequently Asked Questions"
+    And I should see "Question"
+    And I should see "Answer"
+    And I should see "Actions"
+    And I should see "Helpful"
+    And I should see "Information"
     And I should not see "Destroy"
+    And I should not see "New At-Risk Form"
+    And I should not see "New Autism Alert Form"
+    
 
   Scenario: Add to FAQ page
     Given I am logged in as admin

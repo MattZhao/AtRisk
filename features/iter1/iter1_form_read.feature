@@ -10,6 +10,7 @@ Feature: create new form
     When I follow "New Autism Alert Form"
     When I fill in "Individuals Name" with "Carrot"
     When I fill in "Eye Color" with "Purple"
+    And I check "form_terms_of_service"
     And I press "Submit Form"
     Then I should see "Successfully Created Form for Carrot"
     Then I sign out
@@ -18,6 +19,7 @@ Feature: create new form
     When I follow "New Autism Alert Form"
     When I fill in "Individuals Name" with "Matthew"
     When I fill in "Eye Color" with "Brown"
+    And I check "form_terms_of_service"
     And I press "Submit Form"
     Then I should see "Successfully Created Form for Matthew"
     And I should find that form table contains "Matthew"
@@ -25,6 +27,7 @@ Feature: create new form
     When I follow "New Autism Alert Form"
     When I fill in "Individuals Name" with "Banana"
     When I fill in "Eye Color" with "Red"
+    And I check "form_terms_of_service"
     And I press "Submit Form"
     Then I should see "Successfully Created Form for Banana"
     And I should find that form table contains "Banana"

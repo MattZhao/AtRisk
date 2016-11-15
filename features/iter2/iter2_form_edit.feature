@@ -21,6 +21,7 @@ Feature: Edit rigorous form
     Then I should see "Edit At Risk Form"
     And I should see "This person has Alzheimer"
     And I should not see "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes"
+    And I check "form_terms_of_service"
     And I press "Update Form"
     Then the birth_date of "Matthew" should be "01/01/1950"
     And the address of "Matthew" should be "Telegraph Ave"
@@ -30,6 +31,7 @@ Feature: Edit rigorous form
     Given I am on the user dashboard page
     When I go to the edit page for "Matthew"
     And I fill in "Individuals Name" with "Matt"
+    And I check "form_terms_of_service"
     And I press "Update Form"
     Then I should see "Matt"
     And I should see "The information for Matt is successfully updated"
@@ -43,6 +45,7 @@ Feature: Edit rigorous form
     Then I should see "Edit Autism Alert Form"
     And I should see "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes"
     And I should not see "This person has Alzheimer"
+    When I check "form_terms_of_service"
     And I press "Update Form"
     Then the birth_date of "Matthew, Jr." should be "01/01/1990"
     And the address of "Matthew, Jr." should be "Telegraph Ave"
@@ -52,6 +55,7 @@ Feature: Edit rigorous form
     Given I am on the user dashboard page
     When I go to the edit page for "Matthew, Jr."
     And I fill in "Individuals Name" with "Matt, Jr"
+    And I check "form_terms_of_service"
     And I press "Update Form"
     Then I should see "Matt, Jr"
     And I should see "The information for Matt, Jr is successfully updated"
@@ -64,6 +68,7 @@ Feature: Edit rigorous form
     When I go to the edit page for "Matthew"
     Then I should see "Edit At Risk Form"
     And I fill in "Individuals Name" with ""
+    And I check "form_terms_of_service"
     And I press "Update Form"
   #  Then I should see "Please fill in required fields."
 
@@ -74,6 +79,7 @@ Feature: Edit rigorous form
     When I go to the edit page for "Matthew, Jr."
     Then I should see "Edit Autism Alert Form"
     And I fill in "Individuals Name" with ""
+    And I check "form_terms_of_service"
     And I press "Update Form"
     #  Then I should see "Please fill in required fields."
 
@@ -110,6 +116,7 @@ Feature: Edit rigorous form
     When I go to the edit page for "Matthew"
     Then I should be on the edit page for "Matthew"
     And I fill in "Address" with "Shattuck Ave"
+    And I check "form_terms_of_service"
     And I press "Update Form"
     Then the address of "Matthew" should be "Shattuck Ave"
    
@@ -123,6 +130,7 @@ Feature: Edit rigorous form
     Then I should be on the edit page for "Matthew, Jr."
     And I fill in "Address" with "Shattuck Ave"
     And I fill in "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes" with "NVIDIA GeForce GTX 1080 SLI"
+    And I check "form_terms_of_service"
     And I press "Update Form"
     Then the address of "Matthew, Jr." should be "Shattuck Ave"
     And the favorite_topics of "Matthew, Jr." should be "NVIDIA GeForce GTX 1080 SLI"

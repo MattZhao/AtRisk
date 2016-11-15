@@ -8,7 +8,7 @@ Feature: log in and see the dashboard
     
   Scenario: Successfully see dashboard
     Given I am on the user dashboard page
-    Then I should see "My Forms"
+    Then I should see "View Forms"
     And I should see "New At-Risk Form"
     And I should see "New Autism Alert Form"
     
