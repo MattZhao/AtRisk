@@ -6,7 +6,7 @@ html, body {
   font-family: Tahoma, Verdana, sans-serif;
   font-size: 10pt;
 }
-div#main {
+#main {
   margin: 0;
   padding: 0 20px 20px;
 }
@@ -24,7 +24,7 @@ h1 {
   width: 100%;
   border-bottom: 1px solid black;
 }
-h1.title {
+title {
   margin: 0 0 1em;
   padding: 10px;
   background-color: black;
@@ -33,25 +33,25 @@ h1.title {
   font-size: 2em;
   font-style: normal;
 }
-table#forms th.hilite {
+#forms th.hilite {
   background-color: yellow;
 }
-table#forms {
+#forms {
   margin: 10px;
   border-collapse: collapse;
   width: 100%;
   border-bottom: 2px solid wheat;
 }
-table#forms th {
+#forms th {
   border: 2px solid white;
   font-weight: bold;
   background-color: wheat;
 }
-table#forms th, table#forms td {
+#forms th, #forms td {
   padding: 4px;
   text-align: left;
 }
-table#forms th.hilite {
+#forms th.hilite {
   background-color: orange;
 }
 #notice #warning {
@@ -64,4 +64,25 @@ form label {
   line-height: 25px;
   font-weight: bold;
   color: gray;
+}
+#forms tr:hover {
+  background-color: #ffff99;
+}
+table tr:hover {
+  background-color: #ffff99;
+}
+table {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid wheat;
+}
+table th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table th, table td {
+  padding: 4px;
+  text-align: left;
 }
