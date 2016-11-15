@@ -6,6 +6,6 @@ class Form < ActiveRecord::Base
     %w(AtRisk Autism)
   end
   #check that terms of service were accepted
-  validates :terms_of_service, :acceptance => {:accept => true}, :allow_nil => false
+  validates :terms_of_service, :acceptance => true
 
 end

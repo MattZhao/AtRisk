@@ -105,7 +105,7 @@ class FormsController < ApplicationController
       @form.has_other_disorders = false
     end
     
-    if @form.save
+    if @form.save!
       flash[:notice] = "Successfully Created Form for #{@form.name}"
     else
       flash[:warning] = "Error: cannot create form"
