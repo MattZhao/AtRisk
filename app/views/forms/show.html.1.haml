@@ -1,0 +1,122 @@
+-# = This form is not actively in use anymore! DO NOT DELETE though
+
+
+
+
+%h2 General Form Details for #{@form.form_type}: #{@form.name}
+%h4 Note that this form contains the common fields form both At Risk and Autism Alert forms.
+
+%h3 General Information
+%ul#general
+  %li
+    Name:
+    = @form.name
+  %li
+    Nickname:
+    = @form.nickname
+  %li
+    Sex:
+    = @form.sex
+  %li
+    Birthday:
+    = @form.birth_date
+  %li
+    Photo Path in system (to be implemented):
+    = @form.photo_path
+  %li
+    Address:
+    = @form.address
+  %li
+    Individual Lives Alone?:
+    = @form.live_alone
+  %li
+    Height:
+    = @form.height
+  %li
+    Weight:
+    = @form.weight
+  %li
+    Eye Color:
+    = @form.color_eye
+  %li
+    Hair Color:
+    = @form.color_hair
+  %li
+    Body Marks:
+    = @form.body_marks
+  %li
+    Phone Number:
+    = @form.phone_number
+  %li
+    Phone Provider:
+    = @form.phone_company
+    
+%h3 Medical Information
+%ul#medical
+  %li
+    Other Medical Conditions:
+    = @form.other_medical_conds
+  %li
+    Medications Needed:
+    = @form.meds_needed
+
+%h3 Emergency Contact Information
+%ul#emergency_contact
+  %li
+    First Emergency Contact:
+    = @form.ec1_name
+  %li
+    Address:
+    = @form.ec1_address
+  %li
+    Home Phone:
+    = @form.ec1_phone_home
+  %li
+    Work Phone:
+    = @form.ec1_phone_work
+  %li
+    Cell Phone:
+    = @form.ec1_phone_cell
+  %li
+    Second Emergency Contact:
+    = @form.ec2_name
+  %li
+    Address:
+    = @form.ec2_address
+  %li
+    Home Phone:
+    = @form.ec2_phone_home
+  %li
+    Work Phone:
+    = @form.ec2_phone_work
+  %li
+    Cell Phone:
+    = @form.ec2_phone_cell
+
+%h3 Other Information
+%ul#other
+  %li
+    Preferred Language:
+    = @form.preferred_language
+  %li
+    Identification Information:
+    = @form.info_id
+  %li
+    Tracking Information:
+    = @form.info_tracking
+
+%h3 Meta Information
+%ul#meta
+  %li
+    This form is active in the record:
+    = @form.form_activeness
+  %li
+    This from is created at:
+    = @form.created_at
+  %li
+    This form is updated at:
+    = @form.updated_at
+
+= link_to 'Edit Form', edit_form_path(@form)
+= link_to 'Delete Form', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this form?' }
+= link_to 'Back to Dashboard', forms_path
