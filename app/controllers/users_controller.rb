@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!, only: [] # todo: add your action here if it requires login
+    before_action :authenticate_user!
     
     def index
       if not current_user.admin?
@@ -7,7 +7,6 @@ class UsersController < ApplicationController
         redirect_to forms_path
       else
         @selected_users = User.where(admin: false)
-    
         sort = params[:order] || session[:order]
         case sort
           when 'name'
@@ -29,5 +28,4 @@ class UsersController < ApplicationController
         @selected_users = @selected_users.order(ordering)
       end
     end
-    
 end

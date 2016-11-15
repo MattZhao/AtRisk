@@ -2,18 +2,9 @@ class FormsController < ApplicationController
   
   # check request validaty
   before_action :authenticate_user!
+  before_action :find_form, :only => [:show, :update, :destroy, :revive, :hard_delete, :edit]
   before_filter :check_for_cancel, :only => [:create, :update]
-
-  def check_for_cancel
-    if params[:commit] == "Cancel"
-      redirect_to forms_path
-    end
-  end
-
-  def form_params
-    params.require(:form).permit! # permit all form attributes
-  end
-
+      
   def index
     @search_active_msg = ""
     @all_types = Form.all_types
@@ -55,6 +46,7 @@ class FormsController < ApplicationController
       session[:activeness] = params[:activeness]
       redirect_to :order => sort, :types => @selected_types, :activeness => @selected_activeness and return
     end
+    
     if current_user.admin
       if @selected_activeness.keys.include?('Active') && @selected_activeness.keys.include?('Inactive')
         @my_forms = Form.where(form_type: @selected_types.keys).order(ordering)
@@ -72,12 +64,6 @@ class FormsController < ApplicationController
   end
 
   def show
-    id = params[:id] # retrieve form ID from URI route
-    if not Form.exists?(id)
-      return redirect_to '/messages/invalid_page'
-    end
-    @form = Form.find(id) # look up form by unique ID
-    
     # check user validaty
     if @form.id_user != current_user.id.to_s and !current_user.admin
       flash[:warning] = "Error: you are not the owner of this form."
@@ -88,23 +74,7 @@ class FormsController < ApplicationController
       flash[:warning] = "Error: invalid address."
       return redirect_to forms_path
     end
-
-    if @form.form_type == 'AtRisk'
-      return render 'show_atrisk'
-    elsif @form.form_type == 'Autism'
-      return render 'show_autism'
-    end
-    
-    # form type doesn't match
-    redirect_to '/messages/something_wrong'
-  end
-  
-  def new
-    if params[:form_type] == 'AtRisk'
-      render 'new_atrisk'
-    elsif params[:form_type] == 'Autism'
-      render 'new_autism'
-    end
+    render_page('show')
   end
   
   def create
@@ -125,9 +95,35 @@ class FormsController < ApplicationController
     end
     redirect_to forms_path
   end
+
+  def new
+    if params[:form_type] == 'AtRisk'
+      render 'new_atrisk'
+    elsif params[:form_type] == 'Autism'
+      render 'new_autism'
+    end
+  end
+  
+  def edit
+    # check user validaty
+    if @form.id_user != current_user.id.to_s and !current_user.admin
+      flash[:warning] = "Error: you are not the owner of this form."
+      return redirect_to forms_path
+    end
+    
+    if not @form.form_activeness and !current_user.admin
+      flash[:warning] = "Error: invalid address."
+      return redirect_to forms_path
+    end
+
+    if @form.id_user != current_user.id.to_s and !current_user.admin
+      return redirect_to '/messages/no_access'
+    end
+    
+    render_page('edit')
+  end
   
   def update
-    @form = Form.find(params[:id])
     if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
@@ -138,7 +134,6 @@ class FormsController < ApplicationController
   end
   
   def destroy
-    @form = Form.find(params[:id])
     if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
@@ -153,11 +148,7 @@ class FormsController < ApplicationController
   end
   
   def revive
-    @form = Form.find(params[:id])
-    if !current_user.admin
-      return redirect_to '/messages/no_access'
-    end
-    
+    check_admin
     @form.form_activeness = true
     if @form.save!
       flash[:notice] = "Form for #{@form.name} is now visible to the owner"
@@ -168,48 +159,52 @@ class FormsController < ApplicationController
   end
   
   def hard_delete
-    @form = Form.find(params[:id])
-    if !current_user.admin
-      return redirect_to '/messages/no_access'
-    end
-    
+    check_admin
     last_glimpse = @form.name
     Form.destroy(params[:id])
     flash[:notice] = "Form for #{last_glimpse} is permanently deleted"
     redirect_to forms_path
   end
   
-  def edit
+  private
+  
+  # check if cancel for create & update
+  def check_for_cancel
+    if params[:commit] == "Cancel"
+      redirect_to forms_path
+    end
+  end
+  
+  def form_params
+    params.require(:form).permit! # permit all form attributes
+  end
+  
+  # validate id corresponds to valid form and assign to @form
+  def find_form
     id = params[:id] # retrieve form ID from URI route
-    if not Form.exists?(id)
+    if not Form.where("id = ?", id).exists?
       return redirect_to '/messages/invalid_page'
     end
     @form = Form.find(id) # look up form by unique ID
-    
-    # check user validaty
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      flash[:warning] = "Error: you are not the owner of this form."
-      return redirect_to forms_path
-    end
-    
-    if not @form.form_activeness and !current_user.admin
-      flash[:warning] = "Error: invalid address."
-      return redirect_to forms_path
-    end
-
-    @form = Form.find(params[:id])
-    if @form.id_user != current_user.id.to_s and !current_user.admin
+  end
+  
+  # check if current user is admin, direct to no_access page if not admin
+  # important for operations on users table
+  def check_admin
+    if !current_user.admin?
       return redirect_to '/messages/no_access'
     end
-    
+  end
+  
+  # render page for "show" or "edit" or something_wrong page
+  def render_page(flag)
     if @form.form_type == 'AtRisk'
-      return render 'edit_atrisk'
+      return render flag + '_atrisk'
     elsif @form.form_type == 'Autism'
-      return render 'edit_autism'
+      return render flag + '_autism'
+    else
+      redirect_to '/messages/something_wrong'
     end
-    
-    # form type doesn't match
-    redirect_to '/messages/something_wrong'
   end
 
 end
