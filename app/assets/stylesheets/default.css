@@ -68,3 +68,21 @@ form label {
 #forms tr:hover {
   background-color: #ffff99;
 }
+table tr:hover {
+  background-color: #ffff99;
+}
+table {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid wheat;
+}
+table th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table th, table td {
+  padding: 4px;
+  text-align: left;
+}
