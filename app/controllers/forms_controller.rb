@@ -79,7 +79,6 @@ class FormsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     id = params[:id] # retrieve form ID from URI route
     if not Form.exists?(id)
       return redirect_to '/messages/invalid_page'
