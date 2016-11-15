@@ -313,3 +313,12 @@ end
 Then /"(.*)" should appear before "(.*)"/ do |first_example, second_example|
   expect(page.body.index(second_example) > page.body.index(first_example)).to be true
  end
+
+
+Then /^I should receive a file(?: "([^"]*)")?/ do |file|
+  result = page.response_headers['Content-Type'].should == "application/pdf"
+  if result
+    result = page.response_headers['Content-Disposition'].should =~ /#{file}/
+  end
+  result
+end

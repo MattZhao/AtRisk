@@ -1,0 +1,54 @@
+.pdf_big_head {
+  margin: 0;
+  padding: 0;
+  background: White;
+  color: black;
+  /*font-family: 'Georgia';*/
+  font-family: 'Serif';
+  /*font-family: 'DejaVu Serif'; */
+  /*border-bottom: 1px solid black;*/
+}
+
+
+.pdf_head {
+  margin: 0;
+  padding: 0;
+  background: White;
+  color: black;
+  font-family: 'Serif';
+
+  /*font-size: 100pt;*/
+  border-top: 1px solid black;
+}
+
+.pdf_body {
+  margin: 0;
+  padding: 0;
+  background: White;
+  color: black;
+  font-family: 'San-Serif';
+  /*font-family: 'DejaVu Serif'; */
+
+  /*font-size: 100pt;*/
+  /*border-top: 1px solid black;*/
+}
+
+/*h2 {*/
+/*  color: Black;*/
+/*  font-family: "Times";*/
+/*  font-size: 150%;*/
+/*  display: block;*/
+/*  width: 100%;*/
+/*  border-bottom: 1px solid black;*/
+/*}*/
+
+
+/*h2 {*/
+/*  color: Black;*/
+/*  font-family: Times;*/
+/*  font-size: 150%;*/
+/*  font-style: italic;*/
+/*  display: block;*/
+/*  width: 100%;*/
+/*  border-bottom: 1px solid black;*/
+/*}*/

@@ -58,6 +58,21 @@ class FormsController < ApplicationController
     end
   end
 
+  def generate_pdf
+    id = params[:id] # retrieve form ID from URI route
+    if not Form.exists?(id)
+      return redirect_to '/messages/invalid_page'
+    end
+    @form = Form.find(id) # look up form by unique ID
+    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"   # Excluding ".pdf" extension.
+      end
+    end
+  end
+
   def show
     id = params[:id] # retrieve form ID from URI route
     if not Form.exists?(id)
@@ -77,14 +92,74 @@ class FormsController < ApplicationController
     end
 
     if @form.form_type == 'AtRisk'
-      return render 'show_atrisk'
+      respond_to do |format|
+        format.html do
+          render 'show_atrisk'
+        end
+        
+        format.pdf do
+          # render :pdf => "#{@form.name} AtRisk Form",
+          @pdf = render_to_string :pdf => "#{@form.name} AtRisk Form",
+            :encoding => "UTF-8",
+            :template => 'forms/pdf_atrisk.html.haml',
+          # :save_to_file => Rails.root.join('pdfs', "#{filename}.pdf"),
+          # :save_only: => false,
+            :show_as_html => params[:debug].present?, 
+            :title => "The AtRisk Form for #{@form.name}",
+            :font_name => 'Times',
+  
+            :header => {
+              right: 'Orinda Police Depertment',
+              font_name: 'Times',
+              # font_size: SIZE,
+            },
+            
+            :margin => {
+          		top: 20,
+          		bottom: 15, 
+          		left: 15, 
+          		right: 20
+            	}
+          send_data(@pdf, :filename => "#{@form.name} AtRisk Form.pdf",  :type=>"application/pdf")
+
+        end
+      end
+      
+      
+      
     elsif @form.form_type == 'Autism'
-      return render 'show_autism'
+      respond_to do |format|
+        format.html do
+          render 'show_autism'
+        end
+        
+        format.pdf do
+          @pdf = render_to_string :pdf => "#{@form.name} AtRisk Form",
+            :encoding => "UTF-8",
+            :template => 'forms/pdf_atrisk.html.haml',
+            :show_as_html => params[:debug].present?, 
+            :title => "The Autism Form for #{@form.name}",
+            :font_name => 'Times',
+  
+            :header => {
+              right: 'Orinda Police Depertment',
+              font_name: 'Times',
+              # font_size: SIZE,
+            },
+            
+            :margin => {
+          		top: 20,
+          		bottom: 15, 
+          		left: 15, 
+          		right: 20
+            	}
+          send_data(@pdf, :filename => "#{@form.name} Autism Form.pdf",  :type=>"application/pdf")
+        end
+      end
     end
-    
-    # form type doesn't match
-    redirect_to '/messages/something_wrong'
-  end
+  end 
+  
+  
   
   def new
     if params[:form_type] == 'AtRisk'

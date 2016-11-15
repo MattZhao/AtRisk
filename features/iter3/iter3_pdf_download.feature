@@ -13,25 +13,21 @@ Feature: download form as pdf
     | name | birth_date | photo_path | id_user | address | favorite_topics | form_type |
     | Matthew, Jr. | 01/01/1990 | ~/pic.jpg | 1 | Telegraph Ave | GTX TITAN 4-Way SLI | Autism |
 
-  # download all forms that belongs to the user when on dashboard
-  Scenario: download all forms when on dashboard
+  Scenario: download an AtRisk form in the format of pdf when on detailed view
     Given I am on the user dashboard page
     Then I should see "Show forms for:"
     Then I should find that form table contains "Matthew"
-    And I should find that form table contains "Download As PDF"
-    When I follow "Download As PDF"
-    Then I should see "All forms have been successfully downloaded!"
-    
-  # download a single form on details page
-  Scenario: download a single form when on its details page
+    When I go to the info page for "Matthew"
+    Then I should see "Download As PDF"
+    And I follow "Download As PDF"
+    Then I should receive a file "Matthew AtRisk Form.pdf"
+
+  Scenario: download an Autism form in the format of pdf when on detailed view
     Given I am on the user dashboard page
-    Then I should find that form table contains "Matthew"
-    And I should find that form table contains "Steve Jobs"
-    And I should find that form table contains "Download As PDF"
-    When I follow "Steve Jobs"
-    And I should not find that form table contains "Matthew"
-    And I should find that form table contains "GTX TITAN 4-Way SLI"
-    And I should find that form table contains "Download As PDF"
-    When I follow "Download As PDF"
-    Then I should see "Your form has been successfully downloaded!"
+    Then I should see "Show forms for:"
+    Then I should find that form table contains "Matthew, Jr."
+    When I go to the info page for "Matthew, Jr."
+    Then I should see "Download As PDF"
+    And I follow "Download As PDF"
+    Then I should receive a file "Matthew, Jr. Autism Form.pdf"
     

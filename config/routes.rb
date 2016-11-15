@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # static messages pages route
   get "/messages/:page" => "messages#show"
 
+  get 'forms/:id/generate_pdf' => 'forms#generate_pdf', as: :generate_pdf
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
