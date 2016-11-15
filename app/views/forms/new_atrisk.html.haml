@@ -106,7 +106,7 @@
   = label :form, :info_tracking, 'Individuals Tracking Information'
   = text_area :form, "info_tracking", size: "60x4"
   
-  = label :form, :terms_of_service, "Agree to terms of service?"
+  = label :form, :terms_of_service, "Disclaimer: All information provided is voluntary. Checking this box indicates that you agree to share your information."
   = check_box :form, "terms_of_service"
 
   
@@ -123,7 +123,7 @@
       return false;
     }
     if (!document.getElementById('form_terms_of_service').checked) {
-      alert("Please agree to the Terms of Service.");
+      alert("Please agree to the disclaimer.");
       return false;
     }
   }
