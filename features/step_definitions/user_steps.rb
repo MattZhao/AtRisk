@@ -59,6 +59,12 @@ def sign_in_2
   click_button "Log in"
 end
 
+def sign_in_admin
+  visit '/users/sign_in'
+  fill_in "user_email", :with => "admin@atrisk.com"
+  fill_in "user_password", :with => "admin_atrisk"
+  click_button "Log in"
+end
 
 ### Iter 2 UPDATE ###
 def create_visitor_with_mandatory_data
@@ -106,6 +112,9 @@ Given /^I am loggedin as user_two$/ do
   sign_in_2
 end
 
+Given /^I am logged in as admin$/ do
+  sign_in_admin
+end
 
 # And /^there are two users$/ do
 #   create_user_1
