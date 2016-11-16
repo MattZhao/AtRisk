@@ -115,7 +115,7 @@ class FormsController < ApplicationController
             :font_name => 'Times',
   
             :header => {
-              right: 'Orinda Police Depertment',
+              right: 'Orinda Police Department',
               font_name: 'Times',
               # font_size: SIZE,
             },
