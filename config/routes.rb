@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :form_attachments
   resources :test_attachments
   resources :tests
   resources :news

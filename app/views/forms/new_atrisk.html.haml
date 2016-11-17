@@ -106,6 +106,9 @@
   = label :form, :info_tracking, 'Individuals Tracking Information'
   = text_area :form, "info_tracking", size: "60x4"
   
+  = label :form, :attachment, 'Attachments'
+  = file_field_tag :form, "test_attachments[attachment][]", multiple: true, accept: "image/png,image/gif,image/jpeg,application/pdf"
+  
   = label :form, :terms_of_service, "Disclaimer: All information provided is voluntary. Checking this box indicates that you agree to share your information."
   = check_box :form, "terms_of_service", required: true
 

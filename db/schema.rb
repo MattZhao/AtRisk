@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115043349) do
+ActiveRecord::Schema.define(version: 20161116084141) do
+
+  create_table "form_attachments", force: :cascade do |t|
+    t.integer  "form_id"
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "forms", force: :cascade do |t|
     t.string   "id_user"

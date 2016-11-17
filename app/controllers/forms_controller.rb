@@ -84,6 +84,7 @@ class FormsController < ApplicationController
       return redirect_to '/messages/invalid_page'
     end
     @form = Form.find(id) # look up form by unique ID
+    @form_attachments = @form.form_attachments.all
     
     # check user validaty
     if @form.id_user != current_user.id.to_s and !current_user.admin
@@ -195,6 +196,8 @@ class FormsController < ApplicationController
   end
 
   def new
+    @form = Form.new
+    @form_attachment = @form.form_attachments.build
     if params[:form_type] == 'AtRisk'
       render 'new_atrisk'
     elsif params[:form_type] == 'Autism'
