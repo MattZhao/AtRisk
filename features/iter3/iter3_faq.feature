@@ -25,11 +25,11 @@ Feature: view and add to FAQ page
   Scenario: Add to FAQ page
     Given I am logged in as admin
     And I am on the user dashboard page
-    When I follow "Frequently Asked Questions"
-    Then I should see "New Question and Answer"
+    When I follow "FAQ"
+    Then I should see "New FAQ"
     And I should see "Edit"
     And I should see "Destroy"
-    When I follow "New Question and Answer"
+    When I follow "New FAQ"
     And I fill in "faq_title" with "Help"
     And I fill in "faq_content" with "Yes"
     And I press "Create FAQ"
@@ -39,7 +39,7 @@ Feature: view and add to FAQ page
   Scenario: Delete from FAQ page
     Given I am logged in as admin
     And I am on the user dashboard page
-    When I follow "Frequently Asked Questions"
+    When I follow "FAQ"
     Then I should see "Helpful"
     And I should see "Destroy"
     When I follow "Destroy"

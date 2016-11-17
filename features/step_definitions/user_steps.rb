@@ -28,6 +28,12 @@ def create_user_2
   @user2 = FactoryGirl.create(:user, @visitor2)
 end
 
+def create_user_admin
+  @visitor_admin = { :name => "ADMIN", :email => "admin@atrisk.com", :phone => "1234567890",
+    :password => "admin_atrisk", :password_confirmation => "admin_atrisk", :admin => "true"}
+  @user = FactoryGirl.create(:user, @visitor_admin)
+end
+
 def delete_user
   @user ||= User.where(:email => @visitor[:email]).first
   @user.destroy unless @user.nil?
@@ -113,6 +119,7 @@ Given /^I am loggedin as user_two$/ do
 end
 
 Given /^I am logged in as admin$/ do
+  create_user_admin
   sign_in_admin
 end
 

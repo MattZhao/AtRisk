@@ -1,16 +1,41 @@
 require 'spec_helper'
+require "rails_helper"
+
 
 describe FormsController do
-  
+  include Devise::Test::ControllerHelpers
+
+  before :each do        
+      @user=create(:user)
+      sign_in @user
+  end
+
   describe "A successful show" do
 
-    # it 'should find the form and show it' do
-    #   form = double('form')
-    #   Form.should_receive(:find).with('1').and_return(form)
-    #   get :show, {:id => '1'}
-    #   response.should render_template('show')
-    # end
+    it 'should find the form and show it' do
+      form = double(:form)
+      get :show, id: form
     end
+  end
+
+  describe "Index" do
+    it "renders the index template" do
+      get :index
+      response.should render_template("index")
+    end
+    
+    # it "populates the users forms if nothing is specified" do
+    #   Form.should_receive(:where)
+    #   get :index
+    # end
+    
+    it "calls search when necessary" do
+      Form.should_receive(:search)
+      get :index, :search => 'a'
+    end
+    
+    
+  end
 
   describe "A successful create" do
     # it 'should create a form' do
