@@ -65,4 +65,4 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 require 'cucumber'
 World(FactoryGirl::Syntax::Methods)
 
-require_relative '../../db/seeds'
+#require_relative '../../db/seeds'
