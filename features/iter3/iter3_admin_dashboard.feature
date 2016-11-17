@@ -5,7 +5,9 @@ Feature: log in and see the dashboard
 
   Background:
     Given I exist as a user
-    Given I am logged in as admin
+    Given I am logged in
+    And I am not logged in
+    And I am logged in as admin
     And the following atrisk forms exist:
     | name | birth_date | photo_path | has_alzheimers |id_user | address | form_type | created_at | updated_at |
     | Milton | 01/01/1950 | ~/pic.jpg | checked | 1 | Telegraph Ave | AtRisk | 01/01/1950 | 01/01/1950 |
