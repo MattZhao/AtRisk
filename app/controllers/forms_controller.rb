@@ -59,10 +59,7 @@ class FormsController < ApplicationController
         session[:activeness] = {'Active' => 1, 'Inactive' => 1}
       end
     else
-      @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys)
-      if @my_forms
-        @my_forms.order(ordering)
-      end
+      @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
     end
   end
 
