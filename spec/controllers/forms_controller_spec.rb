@@ -24,10 +24,10 @@ describe FormsController do
       response.should render_template("index")
     end
     
-    it "populates the users forms if nothing is specified" do
-      Form.should_receive(:where)
-      get :index
-    end
+    # it "populates the users forms if nothing is specified" do
+    #   Form.should_receive(:where)
+    #   get :index
+    # end
     
     it "calls search when necessary" do
       Form.should_receive(:search)
