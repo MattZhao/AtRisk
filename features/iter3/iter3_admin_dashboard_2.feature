@@ -14,7 +14,7 @@ Feature: log in and see counts and manipulate forms table
     | Milton | 01/01/1950 | ~/pic.jpg | checked | 1 | Telegraph Ave | Autism | true |
     And the following autism forms exist:
     | name | birth_date | photo_path | id_user | address | favorite_topics | form_type | form_activeness |
-    | Matthew, Jr. | 01/01/1990 | ~/pic2.jpg | 2 | Telegraph Ave | GTX TITAN 4-Way SLI | Autism | false |
+    | Matthew, Jr. | 01/01/1990 | ~/pic2.jpg | 2 | Telegraph Ave | GTX TITAN 4-Way SLI | Autism | true |
     And the following autism forms exist:
     | name | birth_date | photo_path | id_user | address | favorite_topics | form_type | form_activeness |
     | Donald Trump | 03/06/1940 | ~/pic3.jpg | 3 | College Ave | Melania Trump | AtRisk | true |
@@ -33,17 +33,22 @@ Feature: log in and see counts and manipulate forms table
     And I should see "Donald Trump"
     And I should see "Active"
     And I should see "Inactive"
-    When I uncheck "activeness_Inactive"
+    Then I go to the info page for "Matthew, Jr."
+    And I follow "Delete Form"
+    And I am on the user dashboard page
+    And I should see "false"
+    And I uncheck "activeness_Inactive"
     And I press "Reload"
     Then I should see "Milton"
-    Then I should see "Donald Trump"
+    And I should see "Donald Trump"
     And I should not see "Matthew, Jr."
+    And I should not see "false"
     
   Scenario: Sort by name
     Given I am on the user dashboard page
     When I follow "Name"
-    Then "Donald Trump" should appear before "Milton"
-    And "Milton" should appear before "Matthew, Jr"
+    Then "Donald Trump" should appear before "Matthew, Jr"
+    And "Matthew, Jr" should appear before "Milton"
   
   Scenario: Sort by birth_date
     Given I am on the user dashboard page
