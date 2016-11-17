@@ -23,9 +23,9 @@
   %li
     <b>Birthday:&nbsp</b>
     = @form.birth_date
-  %li
-    <b>Photo Path in system (to be implemented):&nbsp</b>
-    = @form.photo_path
+  // %li
+  //   <b>Photo Path in system (to be implemented):&nbsp</b>
+  //   = @form.photo_path
   %li
     <b>Address:&nbsp</b>
     = @form.address
@@ -131,6 +131,10 @@
   %li
     <b>Tracking Information:&nbsp</b>
     = @form.info_tracking
+
+%h3 Attachments:
+- @test.test_attachments.each do |p|
+    = image_tag p.attachment_url
 
 %h3 Meta Information
 %ul#meta

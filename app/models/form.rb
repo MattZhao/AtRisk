@@ -1,5 +1,5 @@
 class Form < ActiveRecord::Base
-  has_many :form_attachments
+  has_many :form_attachments, :dependent => :destroy
   accepts_nested_attributes_for :form_attachments
   
   def self.search(search)

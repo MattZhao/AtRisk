@@ -10,8 +10,8 @@
   = label :form, :birth_date, "Date of Birth"
   = date_select :form, "birth_date", :start_year => 1900, :end_year => 2016, required: true
 
-  = label :form, :photo_path, 'Photo of the Individual'
-  = text_field :form, "photo_path", placeholder: "UNDER DEVELOPMENT"
+  // = label :form, :photo_path, 'Photo of the Individual'
+  // = text_field :form, "photo_path", placeholder: "UNDER DEVELOPMENT"
   
   = label :form, :has_alzheimers, "This person has Alzheimer?"
   = check_box :form, "has_alzheimers"
@@ -106,8 +106,8 @@
   = label :form, :info_tracking, 'Individuals Tracking Information'
   = text_area :form, "info_tracking", size: "60x4"
   
-  = label :form, :attachment, 'Attachments'
-  = file_field_tag :form, "test_attachments[attachment][]", multiple: true, accept: "image/png,image/gif,image/jpeg,application/pdf"
+  = label :form, :attachment, 'Attachments (Photo, etc.)'
+  = file_field :form, "attachment", :multiple => true, :accept => "image/png,image/gif,image/jpeg,application/pdf", :name => "form_attachments[attachment][]"
   
   = label :form, :terms_of_service, "Disclaimer: All information provided is voluntary. Checking this box indicates that you agree to share your information."
   = check_box :form, "terms_of_service", required: true
