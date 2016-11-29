@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115043349) do
+ActiveRecord::Schema.define(version: 20161129015155) do
 
   create_table "forms", force: :cascade do |t|
     t.string   "id_user"
@@ -30,18 +30,18 @@ ActiveRecord::Schema.define(version: 20161115043349) do
     t.text     "body_marks"
     t.text     "other_medical_conds"
     t.text     "meds_needed"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.string   "phone_company"
     t.string   "ec1_name"
     t.string   "ec1_address"
-    t.integer  "ec1_phone_home"
-    t.integer  "ec1_phone_work"
-    t.integer  "ec1_phone_cell"
+    t.string   "ec1_phone_home"
+    t.string   "ec1_phone_work"
+    t.string   "ec1_phone_cell"
     t.string   "ec2_name"
     t.string   "ec2_address"
-    t.integer  "ec2_phone_home"
-    t.integer  "ec2_phone_work"
-    t.integer  "ec2_phone_cell"
+    t.string   "ec2_phone_home"
+    t.string   "ec2_phone_work"
+    t.string   "ec2_phone_cell"
     t.string   "preferred_language"
     t.text     "info_id"
     t.text     "info_tracking"
