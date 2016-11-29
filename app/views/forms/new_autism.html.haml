@@ -59,7 +59,7 @@
   = text_area :form, "info_other_first_resp", size:"60x4"
   
   = label :form, :phone_number, "Individuals Cell Phone Number"
-  = number_field :form, "phone_number"
+  = text_field :form, "phone_number"
   
   = label :form, :phone_company, 'Individuals Cell Phone Provider Company'
   = text_field :form, "phone_company"
@@ -71,13 +71,13 @@
   = text_field :form, "ec1_address"
   
   = label :form, :ec1_phone_home, 'Emergency Contacts Home Phone'
-  = number_field :form, "ec1_phone_home"
+  = text_field :form, "ec1_phone_home"
   
   = label :form, :ec1_phone_work, 'Emergency Contacts Work Phone'
-  = number_field :form, "ec1_phone_work"
+  = text_field :form, "ec1_phone_work"
   
   = label :form, :ec1_phone_cell, 'Emergency Contacts Cell Phone'
-  = number_field :form, "ec1_phone_cell"
+  = text_field :form, "ec1_phone_cell"
   
   = label :form, :ec2_name, 'Name of Alternative Emergency Contact'
   = text_field :form, "ec2_name"
@@ -86,13 +86,13 @@
   = text_field :form, "ec2_address"
   
   = label :form, :ec2_phone_home, 'Alternative Emergency Contacts Home Phone'
-  = number_field :form, "ec2_phone_home"
+  = text_field :form, "ec2_phone_home"
   
   = label :form, :ec2_phone_work, 'Alternative Emergency Contacts Work Phone'
-  = number_field :form, "ec2_phone_work"
+  = text_field :form, "ec2_phone_work"
   
   = label :form, :ec2_phone_cell, 'Alternative Emergency Contacts Cell Phone'
-  = number_field :form, "ec2_phone_cell"
+  = text_field :form, "ec2_phone_cell"
 
   = label :form, :preferred_language, 'Individuals Preferred Spoken Language'
   = text_field :form, "preferred_language"
