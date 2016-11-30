@@ -64,8 +64,10 @@ class FormsController < ApplicationController
   end
 
   def generate_pdf
-    id = params[:id] # retrieve form ID from URI route
-    if not Form.exists?(id)
+    id = params[:id]
+    id = id.to_i
+    exists = Form.exists?(id)
+    if not exists
       return redirect_to '/messages/invalid_page'
     end
     @form = Form.find(id) # look up form by unique ID
@@ -79,7 +81,8 @@ class FormsController < ApplicationController
   end
 
   def show
-    id = params[:id] # retrieve form ID from URI route
+    id = params[:id]
+    id = id.to_i
     if not Form.exists?(id)
       return redirect_to '/messages/invalid_page'
     end
