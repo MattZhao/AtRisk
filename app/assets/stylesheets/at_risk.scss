@@ -5,7 +5,8 @@
 
 .desription {
     font-size: 14px;
-    margin: 10px 300px;
+    // margin: 10px 300px;
+    margin: 10px 25%;
     text-align: left;
 }
 
@@ -18,7 +19,7 @@ a.button {
     text-decoration: none;
     color: white;
     border-radius: 4px;
-    background: rgb(66, 184, 221); 
+    background: #66ccff;
     padding: 13px 18px;
 }
 
@@ -37,4 +38,9 @@ a.button:hover {
 #elderly {
   max-height:300px;
   width: auto;
+}
+
+#logo {
+    max-height: 50px;
+    width: auto;
 }
