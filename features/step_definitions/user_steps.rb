@@ -7,7 +7,6 @@ end
 
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
-  @user.confirm
 end
 
 def create_unconfirmed_user
