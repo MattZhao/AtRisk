@@ -1,0 +1,241 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Blog Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">View Forms</h2>
+            <p class="lead blog-description">You may view or edit your forms here</p>
+              <%= form_tag forms_path, :method => :get, :id => "types_form" do %>
+                <%= hidden_field_tag "name_sort", true if @name_header %>
+                <%= hidden_field_tag "birth_date_sort", true if @birth_date_header %>
+                <% @all_types.each do |type| %>
+                  <%= type %>
+                  <%= check_box_tag "types[#{type}]", 1, @selected_types.include?(type), :id => "types_#{type}" %>
+                <% end %>
+                <% if current_user.admin %>
+                  <% @all_active.each do |form_activeness| %>
+                    <%= form_activeness %>
+                    <%= check_box_tag "activeness[#{form_activeness}]", 1, @selected_activeness.include?(form_activeness), :id => "activeness_#{form_activeness}" %>
+                  <% end %>
+                <% end %>
+                <%= submit_tag "Reload", :id => "types_submit" %>
+              <% end %>
+              <%= form_tag forms_path, :method => "get", :id => "search_form" do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search by names", :id => "search_fillin" %>
+                <%= submit_tag "Search", :id => "search_submit" %>
+              <% end %>
+              <% content_for :admin_table do %>
+                <p>Note: when user deletes one form, the form is not removed from database but the user will no longer see it. You may go to the form details page by clicking the form name and perform hard deletion.</p>
+                <table id="forms">
+                  <thead>
+                    <tr>
+                      <th>Form ID</th>
+                      <th class="<%= @name_header %>">
+                        <%= link_to 'Name', forms_path(:order => 'name', :types => @selected_types), :id => 'name_header' %>
+                      </th>
+                      <th class="<%= @birth_date_header %>">
+                        <%= link_to 'Birth Date', forms_path(:order => 'birth_date', :types => @selected_types), :id => 'birth_date_header' %>
+                      </th>
+                      <th>Sex</th>
+                      <th>Form Type</th>
+                      <th>User ID</th>
+                      <th>Visible To The Owner?</th>
+                      <th class="<%= @created_at_header %>">
+                        <%= link_to 'Created At', forms_path(:order => 'created_at', :types => @selected_types), :id => 'created_at_header' %>
+                      </th>
+                      <th class="<%= @updated_at_header %>">
+                        <%= link_to 'Updated At', forms_path(:order => 'updated_at', :types => @selected_types), :id => 'updated_at_header' %>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @my_forms.each do |form| %>
+                      <tr>
+                        <td>
+                          <%= form.id %>
+                        </td>
+                        <td>
+                          <%= link_to form.name, form_path(form) %>
+                        </td>
+                        <td>
+                          <%= form.birth_date %>
+                        </td>
+                        <td>
+                          <%= form.sex %>
+                        </td>
+                        <td>
+                          <%= form.form_type %>
+                        </td>
+                        <td>
+                          <%= form.id_user %>
+                        </td>
+                        <td>
+                          <%= form.form_activeness %>
+                        </td>
+                        <td>
+                          <%= convert_time(form.created_at) %>
+                        </td>
+                        <td>
+                          <%= convert_time(form.updated_at) %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              <% end %>
+              <% content_for :user_table do %>
+                <table id="forms">
+                  <thead>
+                    <tr>
+                      <th class="<%= @name_header %>">
+                        <%= link_to 'Name', forms_path(:order => 'name', :types => @selected_types), :id => 'name_header' %>
+                      </th>
+                      <th class="<%= @birth_date_header %>">
+                        <%= link_to 'Birth Date', forms_path(:order => 'birth_date', :types => @selected_types), :id => 'birth_date_header' %>
+                      </th>
+                      <th>Sex</th>
+                      <th>Form Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @my_forms.each do |form| %>
+                      <tr>
+                        <td>
+                          <%= link_to form.name, form_path(form) %>
+                        </td>
+                        <td>
+                          <%= form.birth_date %>
+                        </td>
+                        <td>
+                          <%= form.sex %>
+                        </td>
+                        <td>
+                          <%= form.form_type %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              <% end %>
+              <% if current_user.admin %>
+                <%= content_for :admin_table %>
+              <% else %>
+                <%= content_for :user_table %>
+              <% end %>
+            <hr/>
+            <h2 class="blog-post-title">Create Forms</h2>
+            <p class="lead blog-description">You may create a new AtRisk or Autism forms here </p>
+            <%= link_to 'New At-Risk Form', new_form_path(:form_type => "AtRisk") %>
+            <p>For elders with disorders like Alzheimer's:</p>
+            <%= link_to 'New Autism Alert Form', new_form_path(:form_type => "Autism") %>
+            <p>For children with autism:</p>
+            <hr/>
+
+          </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <% if current_user.admin %>
+              <h1>Admin Dashboard</h1>
+              <p>Viewing all forms in database</p>
+              <p>Total Forms: #{Form.count('id')}</p>
+              <p>Total Users: #{User.count('id')}</p>
+              <%= link_to 'Manage Users', 'users' %>
+              <br/>
+            <% else %>
+              <h1>Related Info: </h1>
+              <p>Visit these links for information about <a href="http://www.alz.org/what-is-dementia.asp">Dementia</a> and <a href="http://www.alz.org/alzheimers_disease_what_is_alzheimers.asp">Alzheimers</a>.</p>
+              <p>Additionally here are <a href="http://www.alz.org/i-have-alz/tips-for-daily-life.asp">tips on daily life for Alzheimers patients</a> and <a href="http://www.alz.org/care/alzheimers-dementia-wandering.asp">information about wandering patients</a>.</p>
+            <% end %>
+            <%= link_to 'FAQ', news_index_path %>
+          </div>
+          <div class="sidebar-module">
+            <h4>Contact us:</h4>
+            <p style="color:red;">In case of emergency,always call 911</li>
+            <li>Phone: (925) 254-6820</li>
+            <li>Fax: (925) 254-9158</li>
+            <li>Email: Orindatips@cityoforinda.org</li>
+            <li>22 Orinda Way, 2nd Floor</li>
+            <li>Orinda, CA  94563</li>
+          </div>
+          <div class="sidebar-module">
+            <h4>About</h4>
+            <ol class="list-unstyled">
+              <h5> <b>Team Members:</b> </h5>
+              <li>Harry Sutcliffe</li>
+              <li>Huu Pham</li>
+              <li>Milton Ren</li>
+              <li>Qingyu Wang</li>
+              <li>Xueyan Zhao</li>
+              <li>Yaqi Miao</li>
+              <h5> <b>Special Thanks To:</b> </h5>
+              <li><a href="http://cityoforinda.org/index.asp?Type=B_BASIC&SEC=%7BB7C9FC74-5440-4274-BA91-7B9206C8411F%7D">Orinda Police Department</a></li>
+              <li>Mark Nagel</li>
+              <li>GSI Liang Gong</li>
+              <li>Professor Armando Fox</li>
+
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+      
+      <p>Copyright © 2016 Orinda Police Department. All rights reserved.</p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
