@@ -16,7 +16,7 @@ Feature: Edit form
     When I go to the edit page for "Matthew"
     Then I should be on the edit page for "Matthew"
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     Then the form_type of "Matthew" should be "Autism"
     And the address of "Matthew" should be "Telegraph Ave"
 
@@ -30,7 +30,7 @@ Feature: Edit form
     Then I should be on the edit page for "Matthew"
     And I fill in "Address" with "Shattuck Ave"
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     And the address of "Matthew" should be "Shattuck Ave"
 
   

@@ -7,6 +7,7 @@ end
 
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
+  @user.confirm
 end
 
 def create_unconfirmed_user
@@ -20,6 +21,7 @@ def create_user
   create_visitor
   delete_user
   @user = FactoryGirl.create(:user, @visitor)
+  @user.confirm
 end
 
 def create_user_2
@@ -32,6 +34,8 @@ def create_user_admin
   @visitor_admin = { :name => "ADMIN", :email => "admin@atrisk.com", :phone => "1234567890",
     :password => "admin_atrisk", :password_confirmation => "admin_atrisk", :admin => "true"}
   @user = FactoryGirl.create(:user, @visitor_admin)
+  @user.confirm
+
 end
 
 def delete_user

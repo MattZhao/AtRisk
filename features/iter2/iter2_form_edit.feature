@@ -22,7 +22,7 @@ Feature: Edit rigorous form
     And I should see "This person has Alzheimer"
     And I should not see "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes"
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     Then the birth_date of "Matthew" should be "01/01/1950"
     And the address of "Matthew" should be "Telegraph Ave"
     #And the "has_alzheimers" should be checked
@@ -32,7 +32,7 @@ Feature: Edit rigorous form
     When I go to the edit page for "Matthew"
     And I fill in "Individuals Name" with "Matt"
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     Then I should see "Matt"
     And I should see "The information for Matt is successfully updated"
     And I should not see "Matthew"
@@ -46,7 +46,7 @@ Feature: Edit rigorous form
     And I should see "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes"
     And I should not see "This person has Alzheimer"
     When I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     Then the birth_date of "Matthew, Jr." should be "01/01/1990"
     And the address of "Matthew, Jr." should be "Telegraph Ave"
     And the favorite_topics of "Matthew, Jr." should be "GTX TITAN 4-Way SLI"
@@ -56,7 +56,7 @@ Feature: Edit rigorous form
     When I go to the edit page for "Matthew, Jr."
     And I fill in "Individuals Name" with "Matt, Jr"
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     Then I should see "Matt, Jr"
     And I should see "The information for Matt, Jr is successfully updated"
     And I should not see "Matthew, Jr"
@@ -69,7 +69,7 @@ Feature: Edit rigorous form
     Then I should see "Edit At Risk Form"
     And I fill in "Individuals Name" with ""
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
   #  Then I should see "Please fill in required fields."
 
   Scenario: The user should not be able to update the autism form if required fields are missing
@@ -80,7 +80,7 @@ Feature: Edit rigorous form
     Then I should see "Edit Autism Alert Form"
     And I fill in "Individuals Name" with ""
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     #  Then I should see "Please fill in required fields."
 
   Scenario: The user should be able to cancel edit atrisk form
@@ -117,7 +117,7 @@ Feature: Edit rigorous form
     Then I should be on the edit page for "Matthew"
     And I fill in "Address" with "Shattuck Ave"
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     Then the address of "Matthew" should be "Shattuck Ave"
    
   Scenario: The user should be able to edit autism form
@@ -131,7 +131,7 @@ Feature: Edit rigorous form
     And I fill in "Address" with "Shattuck Ave"
     And I fill in "Individuals favorite toys, objects, music, discussion topics, likes, and dislikes" with "NVIDIA GeForce GTX 1080 SLI"
     And I check "form_terms_of_service"
-    And I press "Update Form"
+    And I press "Submit Form"
     Then the address of "Matthew, Jr." should be "Shattuck Ave"
     And the favorite_topics of "Matthew, Jr." should be "NVIDIA GeForce GTX 1080 SLI"
 
