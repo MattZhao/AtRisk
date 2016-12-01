@@ -4,8 +4,8 @@
   <% else %>
     <% @display = current_user.email %>
   <% end %>
-  <%= 'Signed in as: ' + @display + " | "%>
-  <%= link_to "Edit Account", edit_user_registration_path %>
-  <%= " | "%>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  <%= 'signed in as: ' + @display%>
+  <!--<%= link_to "Edit Account", edit_user_registration_path %>-->
+  <!--<%= " | "%>-->
+  <!--<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>-->
 <% end %>
