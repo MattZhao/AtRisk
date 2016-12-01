@@ -121,6 +121,17 @@ ul#list-nav li a:hover {
   color:#000
 }
 
+#main_nav {
+    /*background-color: #0099CC;*/
+    background-color: steelblue;
+}
+
+#main_words {
+  color: white;
+  font-family: Georgia;
+  font-size: 25px;
+}
+
 .nav-bar {
   
 
