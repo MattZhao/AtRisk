@@ -15,7 +15,7 @@ Feature: download form as pdf
 
   Scenario: download an AtRisk form in the format of pdf when on detailed view
     Given I am on the user dashboard page
-    Then I should see "Show forms for:"
+    Then I should see "View Forms"
     Then I should find that form table contains "Matthew"
     When I go to the info page for "Matthew"
     Then I should see "Download As PDF"
@@ -24,7 +24,7 @@ Feature: download form as pdf
 
   Scenario: download an Autism form in the format of pdf when on detailed view
     Given I am on the user dashboard page
-    Then I should see "Show forms for:"
+    Then I should see "View Forms"
     Then I should find that form table contains "Matthew, Jr."
     When I go to the info page for "Matthew, Jr."
     Then I should see "Download As PDF"
