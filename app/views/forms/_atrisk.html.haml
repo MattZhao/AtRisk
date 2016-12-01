@@ -1,0 +1,132 @@
+:javascript
+  function validateName() {
+  
+    if (String(document.getElementById("form_name").value) == "" ) {
+      alert("Please provide the individual's name.");
+      return false;
+    }
+    if (!document.getElementById('form_terms_of_service').checked) {
+      alert("Please agree to the disclaimer.");
+      return false;
+    }
+  }
+
+= form_for @form, :html => {:multipart => true} do |f|
+
+  = f.hidden_field "form_type", value: "AtRisk"
+  
+  = f.label :name, "Individuals Name"
+  = f.text_field "name", placeholder: "required", required: true
+
+  = f.label :birth_date, "Date of Birth"
+  = date_select "birth_date", :start_year => 1900, :end_year => 2016, required: true
+  
+  = f.label :form_attachments, "Photos (image, pdf, etc.)"
+  = f.fields_for :form_attachments do |a|
+    .field
+      - if !a.object.file_url.nil?
+        = image_tag a.object.file_url
+        = a.check_box :remove_file
+        Remove this 
+        %br
+      = a.file_field :file, multiple: true, :accept => "image/png,image/gif,image/jpeg,application/pdf", name: "form_attachments[file][]"
+  
+  = f.label :has_alzheimers, "This person has Alzheimer?"
+  = f.check_box "has_alzheimers"
+  
+  = f.label :has_dementia, "This person has Dementia?"
+  = f.check_box "has_dementia"
+  
+  = f.label :has_down_syndrome, "This person has Down Syndrome?"
+  = f.check_box "has_down_syndrome"
+  
+  = f.label :has_other_disorders, "Any Other Related Disorder?"
+  = f.text_area "other_disorders", size: "60x4"
+  
+  = f.label :address, 'Address'
+  = f.text_field "address"
+  
+  = f.label :live_alone, 'Lives Alone'
+  = f.check_box "live_alone"
+  
+  = f.label :nickname, 'Preferred Name, Nickname'
+  = f.text_field "nickname"
+  
+  = f.label :sex, 'Male'
+  = f.radio_button "sex", "male"
+  
+  = f.label :sex, 'Female'
+  = f.radio_button "sex", "female"
+  
+  = f.label :height, 'Height'
+  = f.text_field "height"
+  
+  = f.label :weight, 'Weight'
+  = f.text_field "weight"
+
+  = f.label :color_eye, 'Eye Color'
+  = f.text_field "color_eye"
+  
+  = f.label :color_hair, 'Hair Color'
+  = f.text_field "color_hair"
+  
+  = f.label :body_marks, 'Scars, Tattoos, or Other Identifying Marks'
+  = f.text_area "body_marks", size: "60x4"
+  
+  = f.label :other_medical_conds, 'Other Reverent Medical Conditions'
+  = f.text_area "other_medical_conds", size: "60x4"
+
+  = f.label :meds_needed, 'Prescription Medicines Needed'
+  = f.text_area "meds_needed", size: "60x4"
+  
+  = f.label :phone_number, "Individuals Cell Phone Number"
+  = f.number_field "phone_number"
+  
+  = f.label :phone_company, 'Individuals Cell Phone Provider Company'
+  = f.text_field "phone_company"
+  
+  = f.label :ec1_name, 'Name of Emergency Contact'
+  = f.text_field "ec1_name"
+  
+  = f.label :ec1_address, 'Emergency Contacts Address'
+  = f.text_field "ec1_address"
+  
+  = f.label :ec1_phone_home, 'Emergency Contacts Home Phone'
+  = f.number_field "ec1_phone_home"
+  
+  = f.label :ec1_phone_work, 'Emergency Contacts Work Phone'
+  = f.number_field "ec1_phone_work"
+  
+  = f.label :ec1_phone_cell, 'Emergency Contacts Cell Phone'
+  = f.number_field "ec1_phone_cell"
+  
+  = f.label :ec2_name, 'Name of Alternative Emergency Contact'
+  = f.text_field "ec2_name"
+  
+  = f.label :ec2_address, 'Alternative Emergency Contacts Address'
+  = f.text_field "ec2_address"
+  
+  = f.label :ec2_phone_home, 'Alternative Emergency Contacts Home Phone'
+  = f.number_field "ec2_phone_home"
+  
+  = f.label :ec2_phone_work, 'Alternative Emergency Contacts Work Phone'
+  = f.number_field "ec2_phone_work"
+  
+  = f.label :ec2_phone_cell, 'Alternative Emergency Contacts Cell Phone'
+  = f.number_field "ec2_phone_cell"
+  
+  = f.label :preferred_language, 'Individuals Preferred Spoken Language'
+  = f.text_field "preferred_language"
+  
+  = f.label :info_id, 'Individuals Identification Information'
+  = f.text_area "info_id", size: "60x4"
+  
+  = f.label :info_tracking, 'Individuals Tracking Information'
+  = f.text_area "info_tracking", size: "60x4"
+      
+  = f.label :terms_of_service, "Disclaimer: All information provided is voluntary. Checking this box indicates that you agree to share your information."
+  = f.check_box "terms_of_service", required: true
+  
+  %h3 
+  
+  = f.submit 'Submit Form', :onclick => "return validateName();"
