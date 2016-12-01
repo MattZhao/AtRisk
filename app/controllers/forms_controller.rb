@@ -132,9 +132,7 @@ class FormsController < ApplicationController
 
   def edit
     check_owner_and_address
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      return redirect_to '/messages/no_access'
-    end
+    check_access
     render_page('edit')
   end
 
@@ -253,7 +251,10 @@ class FormsController < ApplicationController
   def check_owner_and_address
     check_owner
     check_address
-    
+    check_access
+  end
+  
+  def check_access
     if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
