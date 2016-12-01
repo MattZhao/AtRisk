@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161116084141) do
+ActiveRecord::Schema.define(version: 20161129015155) do
 
   create_table "form_attachments", force: :cascade do |t|
     t.integer  "form_id"
@@ -20,9 +19,6 @@ ActiveRecord::Schema.define(version: 20161116084141) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-=======
-ActiveRecord::Schema.define(version: 20161129015155) do
->>>>>>> qy
 
   create_table "forms", force: :cascade do |t|
     t.string   "id_user"

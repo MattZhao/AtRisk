@@ -157,8 +157,10 @@ class FormsController < ApplicationController
     end
     
     if @form.save!
-        params[:form_attachments]['file'].each do |a|
-          @form_attachment = @form.form_attachments.create!(:file => a)
+        unless params[:form_attachments].nil?
+          params[:form_attachments]['file'].each do |a|
+            @form_attachment = @form.form_attachments.create!(:file => a)
+          end
         end
       flash[:notice] = "Successfully Created Form for #{@form.name}"
     else
