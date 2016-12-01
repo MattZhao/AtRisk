@@ -291,19 +291,25 @@ class FormsController < ApplicationController
 
   # helper for 'show' & 'edit'
   def check_owner_and_address
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      flash[:warning] = "Error: you are not the owner of this form."
-      return redirect_to forms_path
-    end
+    check_owner
+    check_address
     
-    if not @form.form_activeness and !current_user.admin
-      flash[:warning] = "Error: invalid address."
-      return redirect_to forms_path
-    end
-
     if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
   end
-
+  
+  def check_owner
+    if @form.id_user != current_user.id.to_s and !current_user.admin
+      flash[:warning] = "Error: you are not the owner of this form."
+      return redirect_to forms_path
+    end
+  end
+  
+  def check_address
+    if not @form.form_activeness and !current_user.admin
+      flash[:warning] = "Error: invalid address."
+      return redirect_to forms_path
+    end
+  end
 end
