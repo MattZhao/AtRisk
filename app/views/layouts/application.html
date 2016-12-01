@@ -25,19 +25,34 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="validate-form">
-    <%= render 'devise/sessions/loginstat' %>
-    <% if flash[:notice] %>
-      <div class="message" id="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% elsif flash[:warning] %>
-      <div class="message" id="warning">
-        <%= flash[:warning] %>
-      </div>
-    <% end %>
-    <h1 class="title"><a href="/forms">At Risk | Orinda PD</a></h1>
     <div id="main">
+      <div class="nav-bar">
+        <ul id="list-nav">
+          <li><a href="/forms">At Risk | Orinda PD</a></li>
+          <li><% if user_signed_in? %>
+    			  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
+    		  <% end %></li>
+    		  
+    		  <li><% if user_signed_in? %>
+    			 <%= link_to('Edit Account', edit_user_registration_path) %> 
+    		  <% end %></li>
+        </ul>
+      </div>
       <%= yield %>
+      
+      <div class="center">
+        <%= render 'devise/sessions/loginstat' %>
+        <% if flash[:notice] %>
+        <div class="message" id="notice">
+          <%= flash[:notice] %>
+        </div>
+        <% elsif flash[:warning] %>
+        <div class="message" id="warning">
+          <%= flash[:warning] %>
+        </div>
+      </div>
+      
+    <% end %>
     </div>
   </body>
 </html>
