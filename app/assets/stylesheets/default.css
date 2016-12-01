@@ -93,3 +93,46 @@ table th, table td {
     max-height: 50px;
     width: auto;
 }
+
+ul#list-nav {
+  list-style:none;
+  margin: 0px;
+  padding:0;
+  clear: bottom;
+  float: left;
+}
+
+ul#list-nav li {
+  display:inline;
+}
+
+ul#list-nav li a {
+  text-decoration:none;
+  padding:10px 20px;
+  background: black;
+  color:#eee;
+  float:left;
+  text-align:center;
+  border-left:1px solid #fff;
+}
+
+ul#list-nav li a:hover {
+  background: wheat;
+  color:#000
+}
+
+#main_nav {
+    /*background-color: #0099CC;*/
+    background-color: steelblue;
+}
+
+#main_words {
+  color: white;
+  font-family: Georgia;
+  font-size: 25px;
+}
+
+.nav-bar {
+  
+
+}

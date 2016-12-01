@@ -87,6 +87,7 @@ class FormsController < ApplicationController
       return redirect_to '/messages/invalid_page'
     end
     @form = Form.find(id) # look up form by unique ID
+    @form_attachments = @form.form_attachments.all
     
     # check user validity
     check_owner_and_address
@@ -132,7 +133,14 @@ class FormsController < ApplicationController
 
   def edit
     check_owner_and_address
+    id = params[:id]
+    id.to_i
+    @form = Form.find(id)
     check_access
+    @form_attachments = @form.form_attachments.all
+    if @form_attachments.empty?
+      @form_attachment = @form.form_attachments.build
+    end
     render_page('edit')
   end
 
@@ -148,6 +156,9 @@ class FormsController < ApplicationController
     end
     
     if @form.save!
+        params[:form_attachments]['file'].each do |a|
+          @form_attachment = @form.form_attachments.create!(:file => a)
+        end
       flash[:notice] = "Successfully Created Form for #{@form.name}"
     else
       flash[:warning] = "Error: cannot create form"
@@ -156,6 +167,8 @@ class FormsController < ApplicationController
   end
 
   def new
+    @form = Form.new
+    @form_attachment = @form.form_attachments.build
     if params[:form_type] == 'AtRisk'
       render 'new_atrisk'
     elsif params[:form_type] == 'Autism'
@@ -164,11 +177,24 @@ class FormsController < ApplicationController
   end
   
   def update
+    @form = Form.find(params[:id])
     if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
     
     @form.update_attributes!(form_params)
+    unless params["form"][:form_attachments_attributes].nil?
+      params["form"]["form_attachments_attributes"].values.each do |remove_file|
+        if remove_file["remove_file"] == "1"
+          @form.form_attachments.delete(remove_file["id"])
+        end
+      end
+    end
+    unless params[:form_attachments].nil?
+      params[:form_attachments]['file'].each do |a|
+        @form_attachment = @form.form_attachments.create!(:file => a)
+      end
+    end
     flash[:notice] = "The information for #{@form.name} is successfully updated"
     redirect_to form_path(@form.id)
   end

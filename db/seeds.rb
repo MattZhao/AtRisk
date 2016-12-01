@@ -11,5 +11,10 @@
 #   Form.create!(form)
 # end
 
-admin_user = {:email => 'admin@atrisk.com', :name => 'admin', :phone => '1234567890', :password => 'admin_atrisk', :password_confirmation => 'admin_atrisk', :admin => true}
-User.create! admin_user
+users= [{:email => 'admin@atrisk.com', :name => 'admin', :phone => '1234567890', :password => 'admin_atrisk', :password_confirmation => 'admin_atrisk', :admin => true},
+        {:email => 'default@user.com', :name => 'anonymous', :phone => '666', :password => '111111', :password_confirmation => '111111'},
+        ]
+
+users.each do |user|
+  User.create! user
+end
