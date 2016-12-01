@@ -7,4 +7,4 @@ Feature: Visit the landing page
     Given I am not logged in
     And I am on the home page
     Then I should see "Log In"
-    And I should see "Register"
+    And I should see "Sign Up"

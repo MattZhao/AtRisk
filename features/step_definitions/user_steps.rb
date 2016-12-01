@@ -47,7 +47,7 @@ def sign_up
   fill_in "user_password", :with => @visitor[:password]
   fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
   fill_in "user_phone", :with => @visitor[:phone]
-  click_button "Sign up"
+  click_button "Sign Up"
   find_user
 end
 
@@ -55,21 +55,21 @@ def sign_in
   visit '/users/sign_in'
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
-  click_button "Log in"
+  click_button "Log In"
 end
 
 def sign_in_2
   visit '/users/sign_in'
   fill_in "user_email", :with => @visitor2[:email]
   fill_in "user_password", :with => @visitor2[:password]
-  click_button "Log in"
+  click_button "Log In"
 end
 
 def sign_in_admin
   visit '/users/sign_in'
   fill_in "user_email", :with => "admin@atrisk.com"
   fill_in "user_password", :with => "admin_atrisk"
-  click_button "Log in"
+  click_button "Log In"
 end
 
 ### Iter 2 UPDATE ###
@@ -87,7 +87,7 @@ def sign_up_with_mandatory_data
   fill_in "user_password", :with => @visitor[:password]
   fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
   fill_in "user_phone", :with => @visitor[:phone]
-  click_button "Sign up"
+  click_button "Sign Up"
   find_user
 end
 
