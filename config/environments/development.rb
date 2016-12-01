@@ -16,7 +16,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.default_url_options = {:host => 'https://cs169-hjsutcliffe.c9users.io'}
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.gmail.com',
     :domain         => 'mail.google.com',
