@@ -90,12 +90,16 @@ class FormsController < ApplicationController
     
     # check user validity
     check_owner_and_address
+    handle_form(@form.form_type)
     
-    if @form.form_type == 'AtRisk'
+  end
+
+  def handle_form(type)
+      lower_type = type.downcase
       respond_to do |format|
         format.html do
           check_owner_and_address
-          render 'show_atrisk'
+          render 'show_' + lower_type
         end
         
         format.pdf do
@@ -106,7 +110,7 @@ class FormsController < ApplicationController
           # :save_to_file => Rails.root.join('pdfs', "#{filename}.pdf"),
           # :save_only: => false,
             :show_as_html => params[:debug].present?, 
-            :title => "The AtRisk Form for #{@form.name}",
+            :title => "The #{type} Form for #{@form.name}",
             :font_name => 'Times',
   
             :header => {
@@ -121,46 +125,10 @@ class FormsController < ApplicationController
           		left: 15, 
           		right: 20
             	}
-          send_data(@pdf, :filename => "#{@form.name} AtRisk Form.pdf",  :type=>"application/pdf")
-
+          send_data(@pdf, :filename => "#{@form.name} #{type} Form.pdf",  :type=>"application/pdf")
         end
       end
-      
-      
-      
-    elsif @form.form_type == 'Autism'
-      respond_to do |format|
-        format.html do
-          check_owner_and_address
-          render 'show_autism'
-        end
-        
-        format.pdf do
-          @pdf = render_to_string :pdf => "#{@form.name} AtRisk Form",
-            :encoding => "UTF-8",
-            :template => 'forms/pdf_atrisk.html.haml',
-            :show_as_html => params[:debug].present?, 
-            :title => "The Autism Form for #{@form.name}",
-            :font_name => 'Times',
-  
-            :header => {
-              right: 'Orinda Police Depertment',
-              font_name: 'Times',
-              # font_size: SIZE,
-            },
-            
-            :margin => {
-          		top: 20,
-          		bottom: 15, 
-          		left: 15, 
-          		right: 20
-            	}
-          send_data(@pdf, :filename => "#{@form.name} Autism Form.pdf",  :type=>"application/pdf")
-        end
-      end
-    end
-  end 
-  
+  end
 
   def edit
     check_owner_and_address
