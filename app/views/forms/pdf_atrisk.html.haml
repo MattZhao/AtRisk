@@ -20,8 +20,10 @@
       Birthday:&nbsp
       = @form.birth_date
     %li
-      Photo Path in system (to be implemented):&nbsp
-      = @form.photo_path
+      <b>Photo:&nbsp</b>
+      %br
+      - @form.form_attachments.each do |p|
+        = image_tag p.file_url
     %li
       Address:&nbsp
       = @form.address

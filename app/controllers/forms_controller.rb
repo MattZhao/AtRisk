@@ -221,11 +221,10 @@ class FormsController < ApplicationController
     end
     
     @form.update_attributes!(form_params)
-    if params["form"][:form_attachments_attributes].nil?
-      throw params["form"]["form_attachments_attributes"]
+    unless params["form"][:form_attachments_attributes].nil?
       params["form"]["form_attachments_attributes"].values.each do |remove_file|
         if remove_file["remove_file"] == "1"
-          @form.form_attachment.delete(remove_file["id"])
+          @form.form_attachments.delete(remove_file["id"])
         end
       end
     end
@@ -282,7 +281,6 @@ class FormsController < ApplicationController
   
   def form_params
     params.require(:form).permit! # permit all form attributes
-    params.permit(:form_attachments_attributes)
   end
   
   # validate id corresponds to valid form and assign to @form
