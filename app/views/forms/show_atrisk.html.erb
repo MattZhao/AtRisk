@@ -34,19 +34,14 @@
 
     <div class="container">
 
-      <div class="blog-header">
-        <h1 class="blog-title">ATRISK Form Details</h1>
-        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
-      </div>
-
       <div class="row">
 
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Sample blog post</h2>
+            <h2 class="blog-post-title">ATRISK Form Details</h2>
                         
-            <h2>ATRISK Form Details for #{@form.name}</h2>
+            <h2></h2>
             <% if current_user.admin %>
               <% if !@form.form_activeness %>
                 <p>This form is deleted by the owner/admin and will only be visible to admin. You may:</p>
@@ -222,107 +217,59 @@
               </li>
             </ul>
             <hr/>
-            <%= link_to 'Edit Form', edit_form_path(@form) %>
-            <%= link_to 'Delete Form', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this At Risk form?' } %>
-            <%= link_to 'Back to Dashboard', forms_path %>
-            <%= mail_to("Orindatip@cityoforinda.org", name = "Mail to Orinda PD", subject: "At Risk Person:" + @form.name, body: "Please see the information regarding my dependent here: " + request.url) %>
-            <%= link_to "Download As PDF", { :action => "show", :format => :pdf } %>
-
             
-            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-
-            <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+            <h5><%= link_to 'Edit Form |', edit_form_path(@form) %>
+            <%= link_to 'Delete Form |', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this At Risk form?' } %>
+            <%= link_to 'Back to Dashboard |', forms_path %>
+            <%= mail_to("Orindatip@cityoforinda.org ", name = "Mail to Orinda PD |", subject: "At Risk Person:" + @form.name, body: "Please see the information regarding my dependent here: " + request.url) %>
+            <%= link_to "Download As PDF", { :action => "show", :format => :pdf } %>
+            </h5>
             <hr>
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-            <blockquote>
-              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </blockquote>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <h2>Heading</h2>
-            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <h3>Sub-heading</h3>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <pre><code>Example code block</code></pre>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-            <h3>Sub-heading</h3>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <ul>
-              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-              <li>Donec id elit non mi porta gravida at eget metus.</li>
-              <li>Nulla vitae elit libero, a pharetra augue.</li>
-            </ul>
-            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-            <ol>
-              <li>Vestibulum id ligula porta felis euismod semper.</li>
-              <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-              <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-            </ol>
-            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
           </div><!-- /.blog-post -->
-
-          <div class="blog-post">
-            <h2 class="blog-post-title">Another blog post</h2>
-            <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
-
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-            <blockquote>
-              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </blockquote>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-          </div><!-- /.blog-post -->
-
-          <div class="blog-post">
-            <h2 class="blog-post-title">New feature</h2>
-            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
-
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <ul>
-              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-              <li>Donec id elit non mi porta gravida at eget metus.</li>
-              <li>Nulla vitae elit libero, a pharetra augue.</li>
-            </ul>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-          </div><!-- /.blog-post -->
-
-          <nav>
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
 
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
+            <% if current_user.admin %>
+              <h1>Admin Dashboard</h1>
+              <p>Viewing all forms in database</p>
+              <p>Total Forms: #{Form.count('id')}</p>
+              <p>Total Users: #{User.count('id')}</p>
+              <%= link_to 'Manage Users', 'users' %>
+              <br/>
+            <% else %>
+              <h3>Related Info: </h3>
+              <p>Visit these links for information about <a href="http://www.alz.org/what-is-dementia.asp">Dementia</a> and <a href="http://www.alz.org/alzheimers_disease_what_is_alzheimers.asp">Alzheimers</a>.</p>
+              <p>Additionally here are <a href="http://www.alz.org/i-have-alz/tips-for-daily-life.asp">tips on daily life for Alzheimers patients</a> and <a href="http://www.alz.org/care/alzheimers-dementia-wandering.asp">information about wandering patients</a>.</p>
+            <% end %>
+            <%= link_to 'FAQ', news_index_path %>
+          </div>
+          <div class="sidebar-module">
+            <h4>Contact us:</h4>
+            <p style="color:red;">In case of emergency,always call 911</li>
+            <li>Phone: (925) 254-6820</li>
+            <li>Fax: (925) 254-9158</li>
+            <li>Email: Orindatips@cityoforinda.org</li>
+            <li>22 Orinda Way, 2nd Floor</li>
+            <li>Orinda, CA  94563</li>
+          </div>
+          <div class="sidebar-module">
             <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-          <div class="sidebar-module">
-            <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
-            </ol>
-          </div>
-          <div class="sidebar-module">
-            <h4>Elsewhere</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
+              <h5> <b>Team Members:</b> </h5>
+              <li>Harry Sutcliffe</li>
+              <li>Huu Pham</li>
+              <li>Milton Ren</li>
+              <li>Qingyu Wang</li>
+              <li>Xueyan Zhao</li>
+              <li>Yaqi Miao</li>
+              <h5> <b>Special Thanks To:</b> </h5>
+              <li><a href="http://cityoforinda.org/index.asp?Type=B_BASIC&SEC=%7BB7C9FC74-5440-4274-BA91-7B9206C8411F%7D">Orinda Police Department</a></li>
+              <li>Mark Nagel</li>
+              <li>GSI Liang Gong</li>
+              <li>Professor Armando Fox</li>
+
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
