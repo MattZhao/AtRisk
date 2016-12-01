@@ -88,17 +88,9 @@ class FormsController < ApplicationController
     end
     @form = Form.find(id) # look up form by unique ID
     
-    # check user validaty
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      flash[:warning] = "Error: you are not the owner of this form."
-      return redirect_to forms_path
-    end
+    # check user validity
+    check_owner_and_address
     
-    if not @form.form_activeness and !current_user.admin
-      flash[:warning] = "Error: invalid address."
-      return redirect_to forms_path
-    end
-
     if @form.form_type == 'AtRisk'
       respond_to do |format|
         format.html do
