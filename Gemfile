@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # User authentication and authorization
 gem 'devise'
 
+# CSS and Design
+gem 'pure-css-rails'
+
 # Use CarrierWave to handdle file upload
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 

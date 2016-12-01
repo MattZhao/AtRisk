@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161116084141) do
 
   create_table "form_attachments", force: :cascade do |t|
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 20161116084141) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20161129015155) do
+>>>>>>> qy
 
   create_table "forms", force: :cascade do |t|
     t.string   "id_user"
@@ -37,18 +41,18 @@ ActiveRecord::Schema.define(version: 20161116084141) do
     t.text     "body_marks"
     t.text     "other_medical_conds"
     t.text     "meds_needed"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.string   "phone_company"
     t.string   "ec1_name"
     t.string   "ec1_address"
-    t.integer  "ec1_phone_home"
-    t.integer  "ec1_phone_work"
-    t.integer  "ec1_phone_cell"
+    t.string   "ec1_phone_home"
+    t.string   "ec1_phone_work"
+    t.string   "ec1_phone_cell"
     t.string   "ec2_name"
     t.string   "ec2_address"
-    t.integer  "ec2_phone_home"
-    t.integer  "ec2_phone_work"
-    t.integer  "ec2_phone_cell"
+    t.string   "ec2_phone_home"
+    t.string   "ec2_phone_work"
+    t.string   "ec2_phone_cell"
     t.string   "preferred_language"
     t.text     "info_id"
     t.text     "info_tracking"

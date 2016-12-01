@@ -1,3 +1,46 @@
-// Place all the styles related to the AtRisk controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.center {
+  text-align: center;
+}
+
+.desription {
+    font-size: 14px;
+    // margin: 10px 300px;
+    margin: 10px 25%;
+    text-align: left;
+}
+
+#l_text_box {
+    padding: 0px 10px 40px;
+}
+
+
+a.button {
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    background: #66ccff;
+    padding: 13px 18px;
+}
+
+a.button:hover {
+    text-decoration: none;
+}
+
+#words {
+    padding: 20px 20px;
+}
+
+.buttons {
+    padding: 5px 20px 40px;
+}
+
+#elderly {
+  max-height:300px;
+  width: auto;
+}
+
+#logo {
+    max-height: 50px;
+    width: auto;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AtRisk | Orinda PD</title>
+    <%= stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="validate-form">
+    <div id="main">
+      <nav class="navbar navbar-default navbar-static-top", id = "main_nav">
+        <div class="container">
+          <div class="navbar-header">
+
+            <a href="/forms", class="navbar-brand", id = "main_words">Orinda Police Department</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><% if user_signed_in? %>
+        			  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id:"main_words") %> 
+        		  <% end %></li>
+        		  
+        		  <li><% if user_signed_in? %>
+        			 <%= link_to('Edit Account', edit_user_registration_path, id:"main_words") %> 
+        		  <% end %></li>
+        		  
+              <li><%= link_to 'FAQ', news_index_path, id:"main_words" %></li>
+        		
+        		</ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+      <!--<div class="nav-bar">-->
+      <!--  <ul id="list-nav">-->
+      <!--    <li><a href="/forms">At Risk | Orinda PD</a></li>-->
+      <!--    <li><% if user_signed_in? %>-->
+    		<!--	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> -->
+    		<!--  <% end %></li>-->
+    		  
+    		<!--  <li><% if user_signed_in? %>-->
+    		<!--	 <%= link_to('Edit Account', edit_user_registration_path) %> -->
+    		<!--  <% end %></li>-->
+      <!--  </ul>-->
+      <!--</div>-->
+      <%= yield %>
+      
+      <div class="center">
+        <%= render 'devise/sessions/loginstat' %>
+        <% if flash[:notice] %>
+        <div class="message" id="notice">
+          <%= flash[:notice] %>
+        </div>
+        <% elsif flash[:warning] %>
+        <div class="message" id="warning">
+          <%= flash[:warning] %>
+        </div>
+      </div>
+      
+    <% end %>
+    </div>
+  </body>
+</html>

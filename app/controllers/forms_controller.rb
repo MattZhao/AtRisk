@@ -64,8 +64,10 @@ class FormsController < ApplicationController
   end
 
   def generate_pdf
-    id = params[:id] # retrieve form ID from URI route
-    if not Form.exists?(id)
+    id = params[:id]
+    id = id.to_i
+    exists = Form.exists?(id)
+    if not exists
       return redirect_to '/messages/invalid_page'
     end
     @form = Form.find(id) # look up form by unique ID
@@ -79,29 +81,26 @@ class FormsController < ApplicationController
   end
 
   def show
-    id = params[:id] # retrieve form ID from URI route
+    id = params[:id]
+    id = id.to_i
     if not Form.exists?(id)
       return redirect_to '/messages/invalid_page'
     end
     @form = Form.find(id) # look up form by unique ID
     @form_attachments = @form.form_attachments.all
     
-    # check user validaty
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      flash[:warning] = "Error: you are not the owner of this form."
-      return redirect_to forms_path
-    end
+    # check user validity
+    check_owner_and_address
+    handle_form(@form.form_type)
     
-    if not @form.form_activeness and !current_user.admin
-      flash[:warning] = "Error: invalid address."
-      return redirect_to forms_path
-    end
+  end
 
-    if @form.form_type == 'AtRisk'
+  def handle_form(type)
+      lower_type = type.downcase
       respond_to do |format|
         format.html do
           check_owner_and_address
-          render 'show_atrisk'
+          render 'show_' + lower_type
         end
         
         format.pdf do
@@ -112,7 +111,7 @@ class FormsController < ApplicationController
           # :save_to_file => Rails.root.join('pdfs', "#{filename}.pdf"),
           # :save_only: => false,
             :show_as_html => params[:debug].present?, 
-            :title => "The AtRisk Form for #{@form.name}",
+            :title => "The #{type} Form for #{@form.name}",
             :font_name => 'Times',
   
             :header => {
@@ -127,46 +126,10 @@ class FormsController < ApplicationController
           		left: 15, 
           		right: 20
             	}
-          send_data(@pdf, :filename => "#{@form.name} AtRisk Form.pdf",  :type=>"application/pdf")
-
+          send_data(@pdf, :filename => "#{@form.name} #{type} Form.pdf",  :type=>"application/pdf")
         end
       end
-      
-      
-      
-    elsif @form.form_type == 'Autism'
-      respond_to do |format|
-        format.html do
-          check_owner_and_address
-          render 'show_autism'
-        end
-        
-        format.pdf do
-          @pdf = render_to_string :pdf => "#{@form.name} AtRisk Form",
-            :encoding => "UTF-8",
-            :template => 'forms/pdf_atrisk.html.haml',
-            :show_as_html => params[:debug].present?, 
-            :title => "The Autism Form for #{@form.name}",
-            :font_name => 'Times',
-  
-            :header => {
-              right: 'Orinda Police Depertment',
-              font_name: 'Times',
-              # font_size: SIZE,
-            },
-            
-            :margin => {
-          		top: 20,
-          		bottom: 15, 
-          		left: 15, 
-          		right: 20
-            	}
-          send_data(@pdf, :filename => "#{@form.name} Autism Form.pdf",  :type=>"application/pdf")
-        end
-      end
-    end
-  end 
-  
+  end
 
   def edit
     check_owner_and_address
@@ -294,19 +257,25 @@ class FormsController < ApplicationController
 
   # helper for 'show' & 'edit'
   def check_owner_and_address
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      flash[:warning] = "Error: you are not the owner of this form."
-      return redirect_to forms_path
-    end
+    check_owner
+    check_address
     
-    if not @form.form_activeness and !current_user.admin
-      flash[:warning] = "Error: invalid address."
-      return redirect_to forms_path
-    end
-
     if @form.id_user != current_user.id.to_s and !current_user.admin
       return redirect_to '/messages/no_access'
     end
   end
-
+  
+  def check_owner
+    if @form.id_user != current_user.id.to_s and !current_user.admin
+      flash[:warning] = "Error: you are not the owner of this form."
+      return redirect_to forms_path
+    end
+  end
+  
+  def check_address
+    if not @form.form_activeness and !current_user.admin
+      flash[:warning] = "Error: invalid address."
+      return redirect_to forms_path
+    end
+  end
 end
