@@ -176,8 +176,8 @@
             <% if current_user.admin %>
               <h1>Admin Dashboard</h1>
               <p>Viewing all forms in database</p>
-              <p>Total Forms: #{Form.count('id')}</p>
-              <p>Total Users: #{User.count('id')}</p>
+              <p>Total Forms: <%= Form.count('id')%></p>
+              <p>Total Users: <%= User.count('id')%></p>
               <%= link_to 'Manage Users', 'users' %>
               <br/>
             <% else %>
