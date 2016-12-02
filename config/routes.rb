@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
+  resources :form_attachments
+  resources :test_attachments
+  resources :tests
+  resources :news
   resources :forms
   devise_for :users
+  resources :users
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
   root "at_risk#index"
+  
+  # static messages pages route
+  get "/messages/:page" => "messages#show"
+  
+  get "forms/:id/hard_delete" => "forms#hard_delete", :as => :hard_delete
+  get "forms/:id/revive" => "forms#revive", :as => :revive
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

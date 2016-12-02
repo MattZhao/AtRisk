@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Form Attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Form</th>
+      <th>File</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @form_attachments.each do |form_attachment| %>
+      <tr>
+        <td><%= form_attachment.form_id %></td>
+        <td><%= form_attachment.file %></td>
+        <td><%= link_to 'Show', form_attachment %></td>
+        <td><%= link_to 'Edit', edit_form_attachment_path(form_attachment) %></td>
+        <td><%= link_to 'Destroy', form_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Form attachment', new_form_attachment_path %>

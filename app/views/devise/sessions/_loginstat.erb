@@ -1,0 +1,11 @@
+<% if current_user %>
+  <% if current_user.name and current_user.name != "" %>
+    <% @display = current_user.name %>
+  <% else %>
+    <% @display = current_user.email %>
+  <% end %>
+  <%= 'signed in as: ' + @display%>
+  <!--<%= link_to "Edit Account", edit_user_registration_path %>-->
+  <!--<%= " | "%>-->
+  <!--<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>-->
+<% end %>

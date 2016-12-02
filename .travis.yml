@@ -1,5 +1,15 @@
-nguage: ruby
+language: ruby
 rvm:
  - 2.2.2
 # uncomment and edit the following line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
+script:
+  - RAILS_ENV=test bundle exec rake db:schema:load --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
+  - bundle exec cucumber
+after_script:
+  - bundle exec rake send_to_codeclimate
+addons:
+  code_climate:
+    repo_token: 4b312385bb4d41e9083e061305140d668c75b5a0db56280a5b6b8a25f872570f

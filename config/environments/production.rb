@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.active_record.logger = nil
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -13,6 +13,20 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+
+  config.action_mailer.default_url_options = { :host => 'https://at-risk.herokuapp.com/' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :domain         => 'mail.google.com',
+    :port           => "587",
+    :user_name      => "AtRiskOrinda@gmail.com",
+    :password       => "cs169fall",
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.

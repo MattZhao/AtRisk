@@ -65,6 +65,13 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
+When /^I select "([^"]*)" as the (.+) "([^"]*)" date$/ do |date, model, selector|
+  date = Date.parse(date)
+  select(date.year.to_s, :from => "#{model}[#{selector}(1i)]")
+  select(date.strftime("%B"), :from => "#{model}[#{selector}(2i)]")
+  select(date.day.to_s, :from => "#{model}[#{selector}(3i)]")
+end
+
 # Use this to fill in an entire form with data from a table. Example:
 #
 #   When I fill in the following:
@@ -216,6 +223,15 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should be checked$/ do |label, pa
   end
 end
 
+Then /^the "([^"]*)" should be checked$/ do |field|
+  field_checked = find_field(field)["checked"]
+  if field_checked.respond_to? :should
+    field_checked.should be_true
+  else
+    assert field_checked
+  end
+end
+
 Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label, parent|
   with_scope(parent) do
     field_checked = find_field(label)['checked']
@@ -251,4 +267,58 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+
+Then(/^the form_type of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).form_type.should == arg2
+end
+
+Then(/^the address of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).address.should == arg2
+end
+
+Then(/^the birth_date of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).birth_date.should == Date.parse(arg2)
+end
+
+Then(/^the favorite_topics of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).favorite_topics.should == arg2
+end
+
+Then(/^the has_alzheimers of "([^"]*)" should be "F"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).birth_date.should == Date.parse(arg2)
+end
+
+Then(/^the address of "([^"]*)" should not be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).address.should_not == arg2
+end
+
+Then(/^the Date of Birth of "([^"]*)" should not be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).birth_date.should_not == Date.parse(arg2)
+end
+
+Then(/^the favorite_topics of "([^"]*)" should not be "([^"]*)"$/) do |arg1, arg2|
+  Form.find_by(name: arg1).favorite_topics.should_not == arg2
+end
+
+When /^I choose to upload file at "(.*)"$/ do |file_path|
+  pending
+end
+
+Then /^I should see the image "(.*)"$/ do |image|
+  pending
+end
+
+Then /"(.*)" should appear before "(.*)"/ do |first_example, second_example|
+  expect(page.body.index(second_example) > page.body.index(first_example)).to be true
+ end
+
+
+Then /^I should receive a file(?: "([^"]*)")?/ do |file|
+  result = page.response_headers['Content-Type'].should == "application/pdf"
+  if result
+    result = page.response_headers['Content-Disposition'].should =~ /#{file}/
+  end
+  result
 end

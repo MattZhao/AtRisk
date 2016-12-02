@@ -1,0 +1,108 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: White;
+  color: black;
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: 10pt;
+}
+#main {
+  margin: 0;
+  padding: 0 20px 20px;
+}
+a {
+  background: transparent;
+  color: Black;
+  text-decoration: none;
+  font-weight: bold;
+}
+h1 {
+  text-decoration: none;
+  color: white;
+  font-size: 150%;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+h1.title {
+  text-decoration: none;
+  margin: 0 0 1em;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-bottom: 4px solid wheat;
+  font-size: 2em;
+  font-style: normal;
+}
+#forms th.hilite {
+  background-color: yellow;
+}
+#forms {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid wheat;
+}
+#forms th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+#forms th, #forms td {
+  padding: 4px;
+  text-align: left;
+}
+#forms th.hilite {
+  background-color: orange;
+}
+#notice #warning {
+  background: rosybrown;
+  margin: 1em 0;
+  padding: 4px;
+}
+form label {
+  display: block;
+  line-height: 25px;
+  font-weight: bold;
+  color: gray;
+}
+#forms tr:hover {
+  background-color: #ffff99;
+}
+table tr:hover {
+  background-color: #ffff99;
+}
+table {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid wheat;
+}
+table th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table th, table td {
+  padding: 4px;
+  text-align: left;
+}
+
+#logo {
+    max-height: 50px;
+    width: auto;
+}
+
+#main_nav {
+    background-color: steelblue;
+}
+
+#main_words {
+  color: white;
+  font-size: 16px;
+}
+
+.nav-bar {
+  
+
+}

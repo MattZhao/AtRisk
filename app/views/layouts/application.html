@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AtRisk | Orinda PD</title>
+    <%= stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="validate-form">
+    <div class="center">
+      <% if flash[:notice] %>
+        <div class="message" id="notice"><%= flash[:notice] %></div>
+      <% elsif flash[:warning] %>
+        <div class="message" id="warning"><%= flash[:warning] %></div>
+      <% end %>
+    </div>
+    
+    <div id="main">
+      <nav class="navbar navbar-default navbar-static-top", id = "main_nav">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="/forms", class="navbar-brand", id = "main_words">At Risk | Orinda PD</a>
+          </div>
+            <ul class="nav navbar-nav navbar-right", id = "navbar">
+              <li><% if user_signed_in? %>
+        			  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id:"main_words") %> 
+        		  <% end %></li>
+        		  
+        		  <li><% if user_signed_in? %>
+        			 <%= link_to('Edit Account', edit_user_registration_path, id:"main_words") %> 
+        		  <% end %></li>
+
+        		  <li><% if user_signed_in? %>
+        		    <%= link_to 'FAQ', news_index_path, id:"main_words" %>
+        		    <% end %></li>
+        		</ul>
+        </div>
+      </nav>
+      
+      <%= yield %>
+      <div class="center"><%= render 'devise/sessions/loginstat' %></div>
+    </div>
+  </body>
+</html>

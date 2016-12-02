@@ -1,0 +1,154 @@
+.pdf_big_head
+  %h2 AUTISM ALERT Form Details for #{@form.name}
+  
+.pdf_head
+  %h3 General Information
+  
+.pdf_body
+  %ul#general
+    %li
+      <b>Name:&nbsp</b>
+      = @form.name
+    %li
+      <b>Nickname:&nbsp</b>
+      = @form.nickname
+    %li
+      <b>Sex:&nbsp</b>
+      = @form.sex
+    %li
+      <b>Birthday:&nbsp</b>
+      = @form.birth_date
+    %li
+      <b>Photo:&nbsp</b>
+      %br
+      - @form.form_attachments.each do |p|
+        = image_tag p.file_url
+    %li
+      <b>Address:&nbsp</b>
+      = @form.address
+    %li
+      <b>Individual Lives Alone?:&nbsp</b>
+      = @form.live_alone
+    %li
+      <b>Height:&nbsp</b>
+      = @form.height
+    %li
+      <b>Weight:&nbsp</b>
+      = @form.weight
+    %li
+      <b>Eye Color:&nbsp</b>
+      = @form.color_eye
+    %li
+      <b>Hair Color:&nbsp</b>
+      = @form.color_hair
+    %li
+      <b>Body Marks:&nbsp</b>
+      = @form.body_marks
+    %li
+      <b>Phone Number:&nbsp</b>
+      = @form.phone_number
+    %li
+      <b>Phone Provider:&nbsp</b>
+      = @form.phone_company
+      
+.pdf_head
+  %h3 First Responder's Information
+  
+.pdf_body  
+%ul#autism
+  %li
+    <b>Sensory Dietary Issues:&nbsp</b>
+    = @form.sensory_dietary_issues
+  %li
+    <b>Calming Methods:&nbsp</b>
+    = @form.calming_methods
+  %li
+    <b>First Responders' Notes:&nbsp</b>
+    = @form.info_other_first_resp
+  %li
+    <b>Attractions and Special Locations:&nbsp</b>
+    = @form.attractions_locations
+  %li
+    <b>Atypical Behaviors:&nbsp</b>
+    = @form.atypical_behaviors
+  %li
+    <b>Favorite Topics:&nbsp</b>
+    = @form.favorite_topics
+  %li
+    <b>First Calming Method:&nbsp</b>
+    = @form.communication_method_1
+  %li
+    <b>Second Calming Method:&nbsp</b>
+    = @form.communication_method_2
+  %li
+    <b>Other Medical Conditions:&nbsp</b>
+    = @form.other_medical_conds
+  %li
+    <b>Medications Needed:&nbsp</b>
+    = @form.meds_needed
+    
+.pdf_head
+  %h3 Emergency Contact Information
+
+.pdf_body
+  %ul#emergency_contact
+    %li
+      <b>First Emergency Contact:&nbsp</b>
+      = @form.ec1_name
+    %li
+      <b>Address:&nbsp</b>
+      = @form.ec1_address
+    %li
+      <b>Home Phone:&nbsp</b>
+      = @form.ec1_phone_home
+    %li
+      <b>Work Phone:&nbsp</b>
+      = @form.ec1_phone_work
+    %li
+      <b>Cell Phone:&nbsp</b>
+      = @form.ec1_phone_cell
+    %li
+      <b>Second Emergency Contact:&nbsp</b>
+      = @form.ec2_name
+    %li
+      <b>Address:&nbsp</b>
+      = @form.ec2_address
+    %li
+      <b>Home Phone:&nbsp</b>
+      = @form.ec2_phone_home
+    %li
+      <b>Work Phone:&nbsp</b>
+      = @form.ec2_phone_work
+    %li
+      <b>Cell Phone:&nbsp</b>
+      = @form.ec2_phone_cell
+
+.pdf_head
+  %h3 Other Information
+  
+.pdf_body
+  %ul#other
+    %li
+      <b>Preferred Language:&nbsp</b>
+      = @form.preferred_language
+    %li
+      <b>Identification Information:&nbsp</b>
+      = @form.info_id
+    %li
+      <b>Tracking Information:&nbsp</b>
+      = @form.info_tracking
+
+.pdf_head
+  %h3 Meta Information
+  
+.pdf_body
+  %ul#meta
+    %li
+      <b>This form is active in the record:&nbsp</b>
+      = @form.form_activeness
+    %li
+      <b>This from is created at:&nbsp</b>
+      = @form.created_at
+    %li
+      <b>This form is updated at:&nbsp</b>
+      = @form.updated_at

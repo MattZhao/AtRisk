@@ -1,0 +1,145 @@
+.pdf_big_head
+  %h2 <center>AtRisk Form Details for #{@form.name}</center>
+  = wicked_pdf_stylesheet_link_tag "pdf"
+  
+.pdf_head
+  %h3 General Information
+  
+.pdf_body
+  %ul#general
+    %li
+      Name:&nbsp
+      = @form.name
+    %li
+      Nickname:&nbsp
+      = @form.nickname
+    %li
+      Sex:&nbsp
+      = @form.sex
+    %li
+      Birthday:&nbsp
+      = @form.birth_date
+    %li
+      <b>Photo:&nbsp</b>
+      %br
+      - @form.form_attachments.each do |p|
+        = image_tag p.file_url
+    %li
+      Address:&nbsp
+      = @form.address
+    %li
+      Individual Lives Alone?:&nbsp
+      = @form.live_alone
+    %li
+      Height:&nbsp
+      = @form.height
+    %li
+      Weight:&nbsp
+      = @form.weight
+    %li
+      Eye Color:&nbsp
+      = @form.color_eye
+    %li
+      Hair Color:&nbsp
+      = @form.color_hair
+    %li
+      Body Marks:&nbsp
+      = @form.body_marks
+    %li
+      Phone Number:&nbsp
+      = @form.phone_number
+    %li
+      Phone Provider:&nbsp
+      = @form.phone_company
+.pdf_head
+  %h3 Medical Information
+  
+.pdf_body
+  %ul#medical
+    %li
+      Individual Has Alzheimer's?:&nbsp
+      = @form.has_alzheimers
+    %li
+      Individual Has Dementia?:&nbsp
+      = @form.has_dementia
+    %li
+      Individual Has Down Syndrome?:&nbsp
+      = @form.has_down_syndrome
+    %li
+      Individual Has Other Related Disorders?:&nbsp
+      = @form.has_other_disorders
+    %li
+      Specification of Other Related Disorders:&nbsp
+      = @form.other_disorders
+    %li
+      Other Medical Conditions:&nbsp
+      = @form.other_medical_conds
+    %li
+      Medications Needed:&nbsp
+      = @form.meds_needed
+      
+.pdf_head
+%h3 Emergency Contact Information
+
+.pdf_body
+  %ul#emergency_contact
+    %li
+      First Emergency Contact:&nbsp
+      = @form.ec1_name
+    %li
+      Address:&nbsp
+      = @form.ec1_address
+    %li
+      Home Phone:&nbsp
+      = @form.ec1_phone_home
+    %li
+      Work Phone:&nbsp
+      = @form.ec1_phone_work
+    %li
+      Cell Phone:&nbsp
+      = @form.ec1_phone_cell
+    %li
+      Second Emergency Contact:&nbsp
+      = @form.ec2_name
+    %li
+      Address:&nbsp
+      = @form.ec2_address
+    %li
+      Home Phone:&nbsp
+      = @form.ec2_phone_home
+    %li
+      Work Phone:&nbsp
+      = @form.ec2_phone_work
+    %li
+      Cell Phone:&nbsp
+      = @form.ec2_phone_cell
+      
+.pdf_head
+  %h3 Other Information
+  
+.pdf_body
+  %ul#other
+    %li
+      Preferred Language:&nbsp
+      = @form.preferred_language
+    %li
+      Identification Information:&nbsp
+      = @form.info_id
+    %li
+      Tracking Information:&nbsp
+      = @form.info_tracking
+
+.pdf_head
+  %h3 Meta Information
+
+.pdf_body
+  %ul#meta
+    %li
+      This form is active in the record:&nbsp
+      = @form.form_activeness
+    %li
+      This from is created at:&nbsp
+      = @form.created_at
+    %li
+      This form is updated at:&nbsp
+      = @form.updated_at
