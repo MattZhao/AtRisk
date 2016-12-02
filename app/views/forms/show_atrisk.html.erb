@@ -39,6 +39,8 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
+            
+
             <h3 class="blog-post-title">AtRisk Alert Form for <%= @form.name %></h3>
             <h2></h2>
             <% if current_user.admin %>
@@ -69,10 +71,6 @@
               <li>
                 <b>Birthday:&nbsp</b>
                 <%= @form.birth_date %>
-              </li>
-              <li>
-                <b>Photo Path in system (to be implemented):&nbsp</b>
-                <%= @form.photo_path %>
               </li>
               <li>
                 <b>Address:&nbsp</b>
@@ -231,30 +229,12 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <% if current_user.admin %>
-              <h3>Admin Dashboard</h3>
-              <p>Viewing all forms in database</p>
-              <p>Total Forms: <%= Form.count('id')%></p>
-              <p>Total Users: <%= User.count('id')%></p>
-              <%= link_to 'Manage Users', 'users' %>
+              <h3>Photos:</h3>
+                <% @form.form_attachments.each do |p| %>
+                  <%= image_tag p.file_url %>
+                <% end %>
               <br/>
-            <% else %>
-              <h3>Related Info: </h3>
-              <p>Visit these links for information about <a href="http://www.alz.org/what-is-dementia.asp">Dementia</a> and <a href="http://www.alz.org/alzheimers_disease_what_is_alzheimers.asp">Alzheimers</a>.</p>
-              <p>Additionally here are <a href="http://www.alz.org/i-have-alz/tips-for-daily-life.asp">tips on daily life for Alzheimers patients</a> and <a href="http://www.alz.org/care/alzheimers-dementia-wandering.asp">information about wandering patients</a>.</p>
-            <% end %>
-            <%= link_to 'FAQ', news_index_path %>
           </div>
-          <div class="sidebar-module">
-            <h4>Contact us:</h4>
-            <p style="color:red;">In case of emergency,always call 911</li>
-            <li>Phone: (925) 254-6820</li>
-            <li>Fax: (925) 254-9158</li>
-            <li>Email: Orindatips@cityoforinda.org</li>
-            <li>22 Orinda Way, 2nd Floor</li>
-            <li>Orinda, CA  94563</li>
-          </div>
-
         </div><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
