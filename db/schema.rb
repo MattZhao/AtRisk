@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20161201013259) do
   create_table "tests", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "form_id"
   end
 
   create_table "users", force: :cascade do |t|

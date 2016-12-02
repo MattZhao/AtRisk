@@ -11,8 +11,8 @@
 #   Form.create!(form)
 # end
 
-users= [{:email => 'admin@atrisk.com', :name => 'admin', :phone => '1234567890', :password => 'admin_atrisk', :password_confirmation => 'admin_atrisk', :admin => true},
-        {:email => 'default@user.com', :name => 'anonymous', :phone => '666', :password => '111111', :password_confirmation => '111111'},
+users= [{:email => 'admin@atrisk.com', :name => 'admin', :phone => '1234567890', :password => 'admin_atrisk', :password_confirmation => 'admin_atrisk', :admin => true, :confirmed_at => '01/01/1990'},
+        {:email => 'default@user.com', :name => 'anonymous', :phone => '666', :password => '111111', :password_confirmation => '111111', :confirmed_at => '01/01/1990'},
         ]
 
 users.each do |user|
