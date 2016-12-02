@@ -3,7 +3,6 @@
   redirect_to forms_path
 
 %h2 View Users
-%p (users who have not confirmed their emails are not listed here)
 %p Total Users: #{User.count('id')}
 %table#forms
   %thead
@@ -17,12 +16,14 @@
       
   %tbody
     - @selected_users.each do |user|
+      - if !user.last_sign_in_at
+        - @not_sign_in_yet = "user never logged in"
       %tr
         %td= user.id
         %td= user.name
         %td= user.phone
         %td= user.email
-        %td= convert_time(user.last_sign_in_at)
+        %td= @not_sign_in_yet or convert_time(user.last_sign_in_at)
         %td= user.getFormsCount
 
 = link_to 'Back to Dashboard', forms_path
