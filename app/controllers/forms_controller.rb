@@ -64,8 +64,7 @@ class FormsController < ApplicationController
   end
 
   def generate_pdf
-    id = params[:id]
-    id = id.to_i
+    id = params[:id].to_i
     exists = Form.exists?(id)
     if not exists
       return redirect_to '/messages/invalid_page'
@@ -81,8 +80,7 @@ class FormsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    id = id.to_i
+    id = params[:id].to_i
     if not Form.exists?(id)
       return redirect_to '/messages/invalid_page'
     end
@@ -133,8 +131,7 @@ class FormsController < ApplicationController
 
   def edit
     check_owner_and_address
-    id = params[:id]
-    id.to_i
+    id = params[:id].to_i
     @form = Form.find(id)
     check_access
     @form_attachments = @form.form_attachments.all

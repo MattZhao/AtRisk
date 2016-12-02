@@ -19,7 +19,7 @@
   = f.text_field "name", placeholder: "required", required: true
 
   = f.label :birth_date, "Date of Birth"
-  = date_select "birth_date", :start_year => 1900, :end_year => 2016, required: true
+  = date_select :form, "birth_date", {:start_year => 1900 , :end_year => 2016, required: true}
   
   = f.label :form_attachments, "Photos (image, pdf, etc.)"
   = f.fields_for :form_attachments do |a|
