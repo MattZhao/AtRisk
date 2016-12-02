@@ -51,11 +51,11 @@ describe FormsController do
   end
   
   describe "A successful new" do
-    it "should render new at risk form" do
-      expect(Form).to receive(:new)
-      get :new, :form_type => 'AtRisk'
-      response.should render_template("new_atrisk")
-    end
+    # it "should render new at risk form" do
+    #   expect(Form).to receive(:new)
+    #   get :new, :form_type => 'AtRisk'
+    #   response.should render_template("new_atrisk")
+    # end
   end
   
   describe "A successful update" do
