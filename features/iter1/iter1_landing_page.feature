@@ -8,3 +8,8 @@ Feature: Visit the landing page
     And I am on the home page
     Then I should see "Log In"
     And I should see "Sign Up"
+    
+  Scenario: Logged in users should be redirected to dashboard
+    Given I am logged in
+    When I go to the home page
+    Then I should be on the user dashboard page

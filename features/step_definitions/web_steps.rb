@@ -302,12 +302,12 @@ Then(/^the favorite_topics of "([^"]*)" should not be "([^"]*)"$/) do |arg1, arg
   Form.find_by(name: arg1).favorite_topics.should_not == arg2
 end
 
-When /^I choose to upload file at "(.*)"$/ do |file_path|
-  pending
+When /^I upload a file called "(.+)"$/ do |file_path|
+  attach_file "form_attachments[file][]", File.join('features', 'upload-files', file_path)
 end
 
-Then /^I should see the image "(.*)"$/ do |image|
-  pending
+Then /^I should see the image "(.+)"$/ do |image|
+    page.should have_xpath("//img[contains(@src,'#{image}')]")
 end
 
 Then /"(.*)" should appear before "(.*)"/ do |first_example, second_example|
@@ -322,3 +322,14 @@ Then /^I should receive a file(?: "([^"]*)")?/ do |file|
   end
   result
 end
+
+Then /^I should( not)? see a field "([^"]*)"$/ do |negate, name|
+  expectation = negate ? :should_not : :should
+  begin
+    field = find_field(name)
+  rescue Capybara::ElementNotFound
+  end
+  field.send(expectation, be_present)
+end
+
+  

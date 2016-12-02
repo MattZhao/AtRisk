@@ -2,6 +2,11 @@
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
+require "simplecov"
+SimpleCov.start do
+  add_filter 'features/'
+end
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'

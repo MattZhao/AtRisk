@@ -1,8 +1,6 @@
 require 'simplecov'
-require "codeclimate-test-reporter"
 SimpleCov.start
 # at TOP of spec/spec_helper.rb:
-CodeClimate::TestReporter.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'

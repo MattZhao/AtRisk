@@ -70,14 +70,14 @@ end
 group :test do
   gem 'rspec-rails', '2.14'
   gem 'cucumber' # trying to fix "World" bug
-  gem 'simplecov', :require => false
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels' # basic imperative step defs
   gem 'database_cleaner' # required by Cucumber
   gem 'autotest-rails'
   gem 'factory_girl_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
-  gem 'codeclimate-test-reporter', require: nil # test coverage
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0" # test coverage
   gem 'test-unit' # fix the bug "`require': cannot load such file -- test/unit/assertions (LoadError)"
 end
 

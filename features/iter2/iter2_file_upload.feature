@@ -1,18 +1,23 @@
-# Feature: Upload file
-#   As a common user
-#   In order attach relevant file such as photos
-#   I should be able to upload file to the server
+Feature: Upload file
+  As a common user
+  In order attach relevant file such as photos
+  I should be able to upload file to the server
   
   
-#   Scenario: Logged in can choose a file from local file system to upload to the server
-#     Given I am logged in
-#     And I am on the file uploading test page
-#     Then I should see "choose the file you want to upload"
-#     When I choose to upload file at "~/tmp/image.png"
-#     And I press "upload"
-#     Then I should see the image "image.png"
+  Scenario: Logged in user can upload photo when creating a new autism form
+    Given I am logged in
+    And I am on the user dashboard page
+    When I follow "New Autism Alert Form"
+    Then I should see "Photos (image, pdf, etc.)"
+    And I should see a field "form_attachments[file][]"
+    When I fill in "Individuals Name" with "Matthew"
+    And I select "May 2, 1950" as the form "birth_date" date
+    And I upload a file called "img1.png"
+    And I check "form_terms_of_service"
+    And I press "Submit Form"
+    Then I should see "Successfully Created Form for Matthew"
+    And I should be on the user dashboard page
+    When I go to the info page for "Matthew"
+    Then I should see "Autism Alert Form for Matthew"
+    And I should see the image "img1.png"
     
-#   Scenario: User must log in to upload file
-#     Given I am not logged in 
-#     And I am on the file uploading test page
-#     Then I should see "You must log in to upload file."
