@@ -227,7 +227,6 @@
               <h5 align="center">
                 <%= link_to 'Edit Form |', edit_form_path(@form) %>
                 <%= link_to 'Delete Form |', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this At Risk form?' } %>
-                <%= link_to 'Back to Dashboard |', forms_path %>
                 <%= mail_to("Orindatip@cityoforinda.org ", name = "Mail to Orinda PD |", subject: "At Risk Person:" + @form.name, body: "Please see the information regarding my dependent here: " + request.url) %>
                 <%= link_to "Download As PDF", { :action => "show", :format => :pdf } %>
               </h5>
@@ -240,7 +239,7 @@
           <div class="sidebar-module sidebar-module-inset">
               <h3>Photos:</h3>
                 <% @form.form_attachments.each do |p| %>
-                  <%= image_tag(p.file_url, :width => "260") %>
+                  <%= image_tag(p.file_url, :width => "100%") %>
                 <% end %>
               <br/>
           </div>
