@@ -15,13 +15,14 @@
       <% end %>
     </div>
     
-    <div id="main">
       <nav class="navbar navbar-default navbar-static-top", id = "main_nav">
         <div class="container">
           <div class="navbar-header">
             <a href="/forms", class="navbar-brand", id = "main_words">At Risk | Orinda PD</a>
           </div>
+          
             <ul class="nav navbar-nav navbar-right", id = "navbar">
+              
               <li><% if user_signed_in? %>
         			  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id:"main_words") %> 
         		  <% end %></li>
@@ -34,9 +35,11 @@
         		    <%= link_to 'FAQ', news_index_path, id:"main_words" %>
         		    <% end %></li>
         		</ul>
+        		
         </div>
       </nav>
       
+    <div id="main">
       <%= yield %>
       <div class="center"><%= render 'devise/sessions/loginstat' %></div>
     </div>

@@ -54,11 +54,11 @@
                     <%= check_box_tag "activeness[#{form_activeness}]", 1, @selected_activeness.include?(form_activeness), :id => "activeness_#{form_activeness}" %>
                   <% end %>
                 <% end %>
-                <%= submit_tag "Reload", :id => "types_submit" %>
+                <%= submit_tag "Reload", :id => "types_submit", class: "button" %>
               <% end %>
               <%= form_tag forms_path, :method => "get", :id => "search_form" do %>
                 <%= text_field_tag :search, params[:search], placeholder: "Search by names", :id => "search_fillin" %>
-                <%= submit_tag "Search", :id => "search_submit" %>
+                <%= submit_tag "Search", :id => "search_submit", class: "button" %>
               <% end %>
               <% content_for :admin_table do %>
                 <p>Note: when user deletes one form, the form is not removed from database but the user will no longer see it. You may go to the form details page by clicking the form name and perform hard deletion.</p>

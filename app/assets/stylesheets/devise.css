@@ -11,7 +11,8 @@ body {
 
 .login-card {
   padding: 40px;
-  width: 300px;
+  width: 60%;
+  /*width: 300px;*/
   /*background-color: #66ccff;*/
   /*background-color: #c0c5ce;*/
   background-color: gainsboro;
@@ -24,7 +25,7 @@ body {
 .login-card h1 {
   font-weight: 100;
   text-align: center;
-  font-size: 2.3em;
+  font-size: 2.5em;
 }
 
 .login-card input[type=submit] {
@@ -60,7 +61,6 @@ body {
 .login {
   text-align: center;
   font-size: 14px;
-  /*font-family: 'Arial', sans-serif;*/
   font-weight: 700;
   height: 36px;
   padding: 0 8px;
@@ -74,21 +74,20 @@ body {
   border: 0px;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
-  background-color: #4d90fe;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+  background-color: steelblue;
 }
 
 .login-submit:hover {
   /* border: 1px solid #2f5bb7; */
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #357ae8;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+  background-color: steelblue;
 }
 
 .login-card a {
   text-decoration: none;
-  color: #666;
+  /*color: #666;*/
+  color: steelblue;
   font-weight: 400;
   text-align: center;
   display: inline-block;
