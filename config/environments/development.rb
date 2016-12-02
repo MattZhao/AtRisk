@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.default_url_options = {:host => 'https://cs169-hjsutcliffe.c9users.io'}
+  config.action_mailer.default_url_options = {:host => 'http://milton-01-cloned-sirmilton.c9users.io'}
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   ActionMailer::Base.smtp_settings = {

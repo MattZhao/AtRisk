@@ -7,3 +7,4 @@ exclude_paths:
 - "coverage/assets/0.10.0/application.js"
 - "coverage/assets/0.10.0/application.css"
 - "features/"
+- "app/assets/stylesheets/bootstrap.css"
