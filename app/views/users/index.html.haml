@@ -1,12 +1,10 @@
-- if current_user.admin
-  %h1 Admin Dashboard
-  %p Total Users: #{User.count('id')}
-- else
+- if !current_user.admin
   flash[:warning] = "Error: you are not an administrator of the site."
   redirect_to forms_path
 
 %h2 View Users
-
+%p (users who have not confirmed their emails are not listed here)
+%p Total Users: #{User.count('id')}
 %table#forms
   %thead
     %tr

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
         flash[:warning] = "Error: you are not an administrator of the site."
         redirect_to forms_path
       else
-        @selected_users = User.where(admin: false)
+        @selected_users = User.where(admin: false).where.not(confirmed_at: nil)
         sort = params[:order] || session[:order]
         case sort
           when 'name'
