@@ -14,7 +14,7 @@
 
 <%= form_for @form, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field "form_type", value: "AtRisk" %>
-  <%= f.label :name, "Individuals Name" %>
+  <%= f.label :name, "Individual's Name" %>
   <%= f.text_field "name", placeholder: "required", required: true %>
   <%= f.label :birth_date, "Date of Birth" %>
   <%= date_select :form, "birth_date", {:start_year => 1900 , :end_year => 2016, required: true} %>
@@ -48,7 +48,7 @@
     This person has Down Syndrome?
   <% end %>
     
-  <%= f.label :has_other_disorders, "Any Other Related Disorder?"%>
+  <%= f.label :has_other_disorders, "Any Other Related Disorders?"%>
     <%= f.text_area "other_disorders", size: "60x4", :class => "txt_field" %>
     
     
@@ -117,11 +117,11 @@
     <%= f.text_area "meds_needed", size: "60x4", :class => "txt_field" %>
 
 
-  <%= f.label :phone_number, "Individuals Cell Phone Number"%>
+  <%= f.label :phone_number, "Individual's Cell Phone Number"%>
     <%= f.number_field "phone_number" %>
 
   <%= f.label :phone_company do%>
-    Individuals Cell Phone Provider Company
+    Individual's Cell Phone Provider Company
     <%= f.text_field "phone_company" %>
   <% end %>
 
@@ -131,17 +131,17 @@
   <% end %>
 
   <%= f.label :ec1_address do%>
-    Emergency Contacts Address
+    Emergency Contact's Address
     <%= f.text_field "ec1_address" %>
   <% end %>
 
-  <%= f.label :ec1_phone_home, "Emergency Contacts Home Phone"%>
+  <%= f.label :ec1_phone_home, "Emergency Contact's Home Phone"%>
     <%= f.number_field "ec1_phone_home" %>
 
-  <%= f.label :ec1_phone_work, "Emergency Contacts Work Phone"%>
+  <%= f.label :ec1_phone_work, "Emergency Contact's Work Phone"%>
     <%= f.number_field "ec1_phone_work" %>
 
-  <%= f.label :ec1_phone_cell, "Emergency Contacts Cell Phone"%>
+  <%= f.label :ec1_phone_cell, "Emergency Contact's Cell Phone"%>
     <%= f.number_field "ec1_phone_cell" %>
 
   <%= f.label :ec2_name do%>
@@ -150,26 +150,26 @@
   <% end %>
 
   <%= f.label :ec2_address do%>
-    Alternative Emergency Contacts Address
+    Alternative Emergency Contact's Address
     <%= f.text_field "ec2_address" %>
   <% end %>
   
-  <%= f.label :ec2_phone_home, "Alternative Emergency Contacts Home Phone"%>
+  <%= f.label :ec2_phone_home, "Alternative Emergency Contact's Home Phone"%>
     <%= f.number_field "ec2_phone_home" %>
 
-  <%= f.label :ec2_phone_work, "Alternative Emergency Contacts Work Phone"%>
+  <%= f.label :ec2_phone_work, "Alternative Emergency Contact's Work Phone"%>
     <%= f.number_field "ec2_phone_work" %>
 
-  <%= f.label :ec2_phone_cell, "Alternative Emergency Contacts Cell Phone"%>
+  <%= f.label :ec2_phone_cell, "Alternative Emergency Contact's Cell Phone"%>
     <%= f.number_field "ec2_phone_cell" %>
 
-  <%= f.label :preferred_language, "Individuals Preferred Spoken Language"%>
+  <%= f.label :preferred_language, "Individual's Preferred Spoken Language"%>
     <%= f.text_field "preferred_language" %>
 
-  <%= f.label :info_id, "Individuals Identification Information"%>
+  <%= f.label :info_id, "Individual's Identification Information"%>
     <%= f.text_area "info_id", size: "60x4", :class => "txt_field" %>
 
-  <%= f.label :info_tracking, "Individuals Tracking Information"%>
+  <%= f.label :info_tracking, "Individual's Tracking Information"%>
     <%= f.text_area "info_tracking", size: "60x4", :class => "txt_field" %>
 
   <%= f.label :terms_of_service do%>
