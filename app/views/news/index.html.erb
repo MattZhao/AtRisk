@@ -26,10 +26,12 @@
   </tbody>
 </table>
 
-<% if current_user.admin %>
-  <br>
-  <%= link_to 'New FAQ', new_news_path %>
-<% end %>
+    <div class="center">
+    <% if current_user.admin %>
+      <%= link_to 'New FAQ', new_news_path, class: "button-sm" %>
+    <% end %></br>
+    <%= link_to 'Back to Dashboard', forms_path, class: "button-sm" %>
+    </div>
 
-<br>
-<%= link_to 'Back to Dashboard', forms_path %>
+
+
