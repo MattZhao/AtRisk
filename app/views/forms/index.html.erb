@@ -47,6 +47,7 @@
             <hr></hr>
             
             <h2 class="blog-post-title">View Forms</h2>
+              <h5 class = "small_box">Note: when user deletes one form, the form is not removed from database but the user will no longer see it. You may go to the form details page by clicking the form name and perform hard deletion.</p>
               <%= form_tag forms_path, :method => :get, :id => "types_form" do %>
                 <%= hidden_field_tag "name_sort", true if @name_header %>
                 <%= hidden_field_tag "birth_date_sort", true if @birth_date_header %>
@@ -67,7 +68,6 @@
                 <%= submit_tag "Search", :id => "search_submit", class: "button" %>
               <% end %>
               <% content_for :admin_table do %>
-                <p>Note: when user deletes one form, the form is not removed from database but the user will no longer see it. You may go to the form details page by clicking the form name and perform hard deletion.</p>
                 <table id="forms">
                   <thead>
                     <tr>
@@ -186,12 +186,12 @@
           </div>
           <div class="sidebar-module">
             <h4>Contact us:</h4>
-            <p style="color:red;">In case of emergency,always call 911</li>
             <li>Phone: (925) 254-6820</li>
             <li>Fax: (925) 254-9158</li>
             <li>Email: Orindatips@cityoforinda.org</li>
             <li>22 Orinda Way, 2nd Floor</li>
             <li>Orinda, CA  94563</li>
+            <p style="color:red;">In case of emergency, always call 911</li>
           </div>
         </div><!-- /.blog-sidebar -->
 

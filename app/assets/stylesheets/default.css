@@ -41,12 +41,14 @@ h1.title {
   margin: 10px;
   border-collapse: collapse;
   width: 100%;
-  border-bottom: 2px solid wheat;
+  border-bottom: 2px solid #f5f5f5;
 }
 #forms th {
   border: 2px solid white;
-  font-weight: bold;
-  background-color: wheat;
+  /*font-weight: bold;*/
+  background-color: #f5f5f5;
+  font-size: 14px;
+  
 }
 #forms th, #forms td {
   padding: 4px;
@@ -117,4 +119,8 @@ table th, table td {
 
 .button:hover {
     text-decoration: none;
+}
+
+.small_box {
+  margin: 10px 7px 10px;
 }
