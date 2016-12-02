@@ -18,21 +18,21 @@
       <nav class="navbar navbar-default navbar-static-top", id = "main_nav">
         <div class="container">
           <div class="navbar-header">
-            <a href="/forms", class="navbar-brand", id = "main_words">At Risk | Orinda PD</a>
+            <a href="/forms", class="navbar-brand", id = "main_words"><b>At Risk</b> | Orinda PD</a>
           </div>
           
             <ul class="nav navbar-nav navbar-right", id = "navbar">
               
               <li><% if user_signed_in? %>
-        			  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id:"main_words") %> 
+        			  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id:"side_words") %> 
         		  <% end %></li>
         		  
         		  <li><% if user_signed_in? %>
-        			 <%= link_to('Edit Account', edit_user_registration_path, id:"main_words") %> 
+        			 <%= link_to('Edit Account', edit_user_registration_path, id:"side_words") %> 
         		  <% end %></li>
 
         		  <li><% if user_signed_in? %>
-        		    <%= link_to 'FAQ', news_index_path, id:"main_words" %>
+        		    <%= link_to 'FAQ', news_index_path, id:"side_words" %>
         		    <% end %></li>
         		</ul>
         		

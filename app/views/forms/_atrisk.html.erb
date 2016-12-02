@@ -1,0 +1,181 @@
+<script>
+  function validateName() {
+    if (String(document.getElementById("form_name").value) == "" ) {
+      alert("Please provide the individual's name.");
+      return false;
+    }
+    if (!document.getElementById('form_terms_of_service').checked) {
+      alert("Please agree to the disclaimer.");
+      return false;
+    }
+  }
+</script>
+
+
+<%= form_for @form, :html => {:multipart => true} do |f| %>
+  <%= f.hidden_field "form_type", value: "AtRisk" %>
+  <%= f.label :name, "Individuals Name" %>
+  <%= f.text_field "name", placeholder: "required", required: true %>
+  <%= f.label :birth_date, "Date of Birth" %>
+  <%= date_select :form, "birth_date", {:start_year => 1900 , :end_year => 2016, required: true} %>
+  <%= f.label :form_attachments, "Photos (image, pdf, etc.)" %>
+  <%= f.fields_for :form_attachments do |a| %>
+    <div class="field">
+      <% if !a.object.file_url.nil? %>
+        <%= image_tag(a.object.file_url, :width => "20%") %>
+        <%= a.check_box :remove_file %>
+        Remove this 
+        <br/>
+      <% end %>
+      <%= a.file_field :file, multiple: true, :accept => "image/png,image/gif,image/jpeg,application/pdf", name: "form_attachments[file][]" %>
+    </div>
+  <% end %>
+  
+  
+  <%= f.label :has_alzheimers do %>
+    <%= f.check_box "has_alzheimers" %>
+    This person has Alzheimer?
+  <% end %>
+    
+  <%= f.label :has_dementia do%>
+    <%= f.check_box "has_dementia" %>
+    This person has Dementia?
+  <% end %>
+
+
+  <%= f.label :has_down_syndrome do%>
+    <%= f.check_box "has_down_syndrome" %>
+    This person has Down Syndrome?
+  <% end %>
+    
+  <%= f.label :has_other_disorders, "Any Other Related Disorder?"%>
+    <%= f.text_area "other_disorders", size: "60x4", :class => "txt_field" %>
+    
+    
+  <%= f.label :address do%>
+    Address
+    <%= f.text_field "address" %>
+  <% end %>
+    
+    
+  <%= f.label :live_alone do%>
+    <%= f.check_box "live_alone" %>
+    Lives Alone
+  <% end %>
+    
+    
+  <%= f.label :nickname do%>
+    Preferred Name, Nickname
+    <%= f.text_field "nickname" %>
+  <% end %>
+
+  <%= f.label :sex, "sex" do%>
+    Sex:
+  <% end %>
+
+  <%= f.label :sex, "sex" do%>
+    <%= f.radio_button "sex", "male" %>
+    Male
+  <% end %>
+
+  <%= f.label :sex do%>
+    <%= f.radio_button "sex", "female" %>
+    Female
+  <% end %>
+
+
+  <%= f.label :height do%>
+    Height
+    <%= f.text_field "height" %>
+  <% end %>
+
+
+  <%= f.label :weight do%>
+    Weight
+    <%= f.text_field "weight" %>
+  <% end %>
+
+
+  <%= f.label :color_eye do%>
+    Eye Color
+    <%= f.text_field "color_eye" %>
+  <% end %>
+
+  <%= f.label :color_hair do%>
+    Hair Color
+    <%= f.text_field "color_hair" %>
+  <% end %>
+
+  <%= f.label :body_marks, "Scars, Tattoos, or Other Identifying Marks"%>
+    <%= f.text_area "body_marks", size: "60x4", :class => "txt_field" %>
+
+
+  <%= f.label :other_medical_conds, "Other Reverent Medical Conditions"%>
+    <%= f.text_area "other_medical_conds", size: "60x4", :class => "txt_field" %>
+
+  <%= f.label :meds_needed, "Prescription Medicines Needed"%>
+    <%= f.text_area "meds_needed", size: "60x4", :class => "txt_field" %>
+
+
+  <%= f.label :phone_number, "Individuals Cell Phone Number"%>
+    <%= f.number_field "phone_number" %>
+
+  <%= f.label :phone_company do%>
+    Individuals Cell Phone Provider Company
+    <%= f.text_field "phone_company" %>
+  <% end %>
+
+  <%= f.label :ec1_name do%>
+    Name of Emergency Contact
+    <%= f.text_field "ec1_name" %>
+  <% end %>
+
+  <%= f.label :ec1_address do%>
+    Emergency Contacts Address
+    <%= f.text_field "ec1_address" %>
+  <% end %>
+
+  <%= f.label :ec1_phone_home, "Emergency Contacts Home Phone"%>
+    <%= f.number_field "ec1_phone_home" %>
+
+  <%= f.label :ec1_phone_work, "Emergency Contacts Work Phone"%>
+    <%= f.number_field "ec1_phone_work" %>
+
+  <%= f.label :ec1_phone_cell, "Emergency Contacts Cell Phone"%>
+    <%= f.number_field "ec1_phone_cell" %>
+
+  <%= f.label :ec2_name do%>
+    Name of Alternative Emergency Contact
+    <%= f.text_field "ec2_name" %>
+  <% end %>
+
+  <%= f.label :ec2_address do%>
+    Alternative Emergency Contacts Address
+    <%= f.text_field "ec2_address" %>
+  <% end %>
+  
+  <%= f.label :ec2_phone_home, "Alternative Emergency Contacts Home Phone"%>
+    <%= f.number_field "ec2_phone_home" %>
+
+  <%= f.label :ec2_phone_work, "Alternative Emergency Contacts Work Phone"%>
+    <%= f.number_field "ec2_phone_work" %>
+
+  <%= f.label :ec2_phone_cell, "Alternative Emergency Contacts Cell Phone"%>
+    <%= f.number_field "ec2_phone_cell" %>
+
+  <%= f.label :preferred_language, "Individuals Preferred Spoken Language"%>
+    <%= f.text_field "preferred_language" %>
+
+  <%= f.label :info_id, "Individuals Identification Information"%>
+    <%= f.text_area "info_id", size: "60x4", :class => "txt_field" %>
+
+  <%= f.label :info_tracking, "Individuals Tracking Information"%>
+    <%= f.text_area "info_tracking", size: "60x4", :class => "txt_field" %>
+
+  <%= f.label :terms_of_service do%>
+    <%= f.check_box "terms_of_service", required: true %>
+    Disclaimer: All information provided is voluntary. Checking this box indicates that you agree to share your information.
+  <% end %>
+
+  <%= f.submit 'Submit Form', :onclick => "return validateName();", class: "button" %>
+<% end %>

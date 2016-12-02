@@ -21,4 +21,5 @@ FactoryGirl.define do
     confirmed_at Time.now
     admin true
   end
+
 end

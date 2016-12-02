@@ -4,6 +4,7 @@ class FormsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_form, :only => [:show, :update, :destroy, :revive, :hard_delete, :edit]
   before_filter :check_for_cancel, :only => [:create, :update]
+  
       
   def index
     @search_active_msg = ""

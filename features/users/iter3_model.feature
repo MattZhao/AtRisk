@@ -17,7 +17,7 @@ Feature: Sign up
 
     Scenario: Search stuff
       Given I am on the user dashboard page
-      When I fill in "search_fillin" with "Milton"
+      When I fill in "search_bar" with "Milton"
       And I press "search_submit"
       Then I should see "Milton"
       But I should not see "Matthew"

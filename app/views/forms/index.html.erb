@@ -47,7 +47,9 @@
             <hr></hr>
             
             <h2 class="blog-post-title">View Forms</h2>
-              <h5 class = "small_box">Note: when user deletes one form, the form is not removed from database but the user will no longer see it. You may go to the form details page by clicking the form name and perform hard deletion.</p>
+              <% if current_user.admin %>
+                <h5 class = "small_box">Note: when user deletes one form, the form is not removed from database but the user will no longer see it. You may go to the form details page by clicking the form name and perform hard deletion.</p>
+              <% end %>
               <%= form_tag forms_path, :method => :get, :id => "types_form" do %>
                 <%= hidden_field_tag "name_sort", true if @name_header %>
                 <%= hidden_field_tag "birth_date_sort", true if @birth_date_header %>
@@ -64,7 +66,7 @@
                 <%= submit_tag "Reload", :id => "types_submit", class: "button" %>
               <% end %>
               <%= form_tag forms_path, :method => "get", :id => "search_form" do %>
-                <%= text_field_tag :search, params[:search], placeholder: "Search by names", :id => "search_fillin" %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search by names", :id => "search_bar" %>
                 <%= submit_tag "Search", :id => "search_submit", class: "button" %>
               <% end %>
               <% content_for :admin_table do %>
