@@ -7,8 +7,7 @@ class FormsController < ApplicationController
       
   def index
     @search_active_msg = ""
-    @all_types = Form.all_types
-    @all_active = Form.all_active
+    @all_types, @all_active = Form.all_types, Form.all_active
     @selected_types = params[:types] || session[:types] || {}
     @selected_activeness = params[:activeness] || session[:activeness] || {}
     
@@ -24,16 +23,7 @@ class FormsController < ApplicationController
     end
     
     sort = params[:order] || session[:order]
-    case sort
-      when 'name'
-        ordering, @name_header = {:name => :asc}, 'hilite'
-      when 'birth_date'
-        ordering, @birth_date_header = {:birth_date => :asc}, 'hilite'
-      when 'created_at'
-        ordering, @created_at_header = {:created_at => :asc}, 'hilite'
-      when 'updated_at'
-        ordering, @updated_at_header = {:updated_at => :asc}, 'hilite'
-    end
+    ordering = handlesort(sort)
     
     if @selected_types == {}
       @selected_types = Hash[@all_types.map {|type| [type, type]}]
@@ -61,6 +51,20 @@ class FormsController < ApplicationController
     else
       @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
     end
+  end
+  
+  def handlesort(type)
+    case type
+      when 'name'
+        ordering, @name_header = {:name => :asc}, 'hilite'
+      when 'birth_date'
+        ordering, @birth_date_header = {:birth_date => :asc}, 'hilite'
+      when 'created_at'
+        ordering, @created_at_header = {:created_at => :asc}, 'hilite'
+      when 'updated_at'
+        ordering, @updated_at_header = {:updated_at => :asc}, 'hilite'
+    end
+    return ordering
   end
 
   def generate_pdf
@@ -133,7 +137,6 @@ class FormsController < ApplicationController
     check_owner_and_address
     id = params[:id].to_i
     @form = Form.find(id)
-    check_access
     @form_attachments = @form.form_attachments.all
     if @form_attachments.empty?
       @form_attachment = @form.form_attachments.build
@@ -199,10 +202,7 @@ class FormsController < ApplicationController
   end
   
   def destroy
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      return redirect_to '/messages/no_access'
-    end
-    
+    check_access
     @form.form_activeness = false
     if @form.save!
       flash[:notice] = "Form for #{@form.name} is deleted"
