@@ -14,7 +14,7 @@
 </script>
 <%= form_for @form, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field "form_type", value: "Autism" %>
-  <%= f.label :name, "Individuals Name" %>
+  <%= f.label :name, "Individual's Name" %>
   <%= f.text_field "name", placeholder: "required", required: true %>
   <%= f.label :birth_date, "Date of Birth" %>
   <%= f.date_select "birth_date", :start_year => 1900, :end_year => 2016, required: true %>
@@ -75,45 +75,45 @@
   <%= f.text_area "calming_methods", size: "60x4", :class => "txt_field" %>
   <%= f.label :info_other_first_resp, 'Any Other Information First Responders May Need' %>
   <%= f.text_area "info_other_first_resp", size:"60x4", :class => "txt_field" %>
-  <%= f.label :phone_number, "Individuals Cell Phone Number" %>
+  <%= f.label :phone_number, "Individual's Cell Phone Number" %>
   <%= f.number_field "phone_number" %>
-  <%= f.label :phone_company, 'Individuals Cell Phone Provider Company' %>
+  <%= f.label :phone_company, "Individual's Cell Phone Provider Company" %>
   <%= f.text_field "phone_company" %>
   <%= f.label :ec1_name, 'Name of Emergency Contact' %>
   <%= f.text_field "ec1_name" %>
-  <%= f.label :ec1_address, 'Emergency Contacts Address' %>
+  <%= f.label :ec1_address, "Emergency Contact's Address" %>
   <%= f.text_field "ec1_address" %>
-  <%= f.label :ec1_phone_home, 'Emergency Contacts Home Phone' %>
+  <%= f.label :ec1_phone_home, "Emergency Contact's Home Phone" %>
   <%= f.number_field "ec1_phone_home" %>
-  <%= f.label :ec1_phone_work, 'Emergency Contacts Work Phone' %>
+  <%= f.label :ec1_phone_work, "Emergency Contact's Work Phone" %>
   <%= f.number_field "ec1_phone_work" %>
-  <%= f.label :ec1_phone_cell, 'Emergency Contacts Cell Phone' %>
+  <%= f.label :ec1_phone_cell, "Emergency Contact's Cell Phone" %>
   <%= f.number_field "ec1_phone_cell" %>
   <%= f.label :ec2_name, 'Name of Alternative Emergency Contact' %>
   <%= f.text_field "ec2_name" %>
-  <%= f.label :ec2_address, 'Alternative Emergency Contacts Address' %>
+  <%= f.label :ec2_address, "Alternative Emergency Contact's Address" %>
   <%= f.text_field "ec2_address" %>
-  <%= f.label :ec2_phone_home, 'Alternative Emergency Contacts Home Phone' %>
+  <%= f.label :ec2_phone_home, "Alternative Emergency Contact's Home Phone" %>
   <%= f.number_field "ec2_phone_home" %>
-  <%= f.label :ec2_phone_work, 'Alternative Emergency Contacts Work Phone' %>
+  <%= f.label :ec2_phone_work, "Alternative Emergency Contact's Work Phone" %>
   <%= f.number_field "ec2_phone_work" %>
-  <%= f.label :ec2_phone_cell, 'Alternative Emergency Contacts Cell Phone' %>
+  <%= f.label :ec2_phone_cell, "Alternative Emergency Contact's Cell Phone" %>
   <%= f.number_field "ec2_phone_cell" %>
-  <%= f.label :preferred_language, 'Individuals Preferred Spoken Language' %>
+  <%= f.label :preferred_language, "Individual's Preferred Spoken Language" %>
   <%= f.text_field "preferred_language" %>
   <%= f.label :attractions_locations, 'Nearby water sources & favorite attractions or locations where the individual may be found' %>
   <%= f.text_area "attractions_locations", size: "60x4", :class => "txt_field" %>
   <%= f.label :atypical_behaviors, 'Atypical behaviors or characteristics of the individual that may affect the attention of responders' %>
   <%= f.text_area "atypical_behaviors", size: "60x4", :class => "txt_field" %>
-  <%= f.label :favorite_topics, 'Individuals favorite toys, objects, music, discussion topics, likes, and dislikes' %>
+  <%= f.label :favorite_topics, "Individual's favorite toys, objects, music, discussion topics, likes, and dislikes" %>
   <%= f.text_area "favorite_topics", size: "60x4", :class => "txt_field" %>
   <%= f.label :communication_method_1, 'Method of Preferred Communication' %>
   <%= f.text_area "communication_method_1", size: "60x4", :class => "txt_field" %>
   <%= f.label :communication_method_2, 'Method of Preferred Communication II' %>
   <%= f.text_area "communication_method_2", size: "60x4", :class => "txt_field" %>
-  <%= f.label :info_id, 'Individuals Identification Information' %>
+  <%= f.label :info_id, "Individual's Identification Information" %>
   <%= f.text_area "info_id", size: "60x4", :class => "txt_field" %>
-  <%= f.label :info_tracking, 'Individuals Tracking Information' %>
+  <%= f.label :info_tracking, "Individual's Tracking Information" %>
   <%= f.text_area "info_tracking", size: "60x4", :class => "txt_field" %>
 
   <%= f.label :terms_of_service do%>
@@ -121,5 +121,5 @@
     Disclaimer: All information provided is voluntary. Checking this box indicates that you agree to share your information.
   <% end %>
 
-  <%= f.submit 'Submit Form', :onclick => "return validateName();", class: "button" %>
+  <%= f.submit 'Submit Form', :onclick => "return validateName();" , class: "button" %>
 <% end %>
