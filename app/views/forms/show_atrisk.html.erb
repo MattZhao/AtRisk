@@ -229,7 +229,7 @@
           <div class="sidebar-module sidebar-module-inset">
               <h3>Photos:</h3>
                 <% @form.form_attachments.each do |p| %>
-                  <%= image_tag p.file_url %>
+                  <%= image_tag(p.file_url, :width => "260") %>
                 <% end %>
               <br/>
           </div>

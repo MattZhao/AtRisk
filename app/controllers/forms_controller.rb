@@ -124,9 +124,9 @@ class FormsController < ApplicationController
             
             :margin => {
           		top: 20,
-          		bottom: 15, 
-          		left: 15, 
-          		right: 20
+          		bottom: 20,
+          		left: 15,
+          		right: 15
             	}
           send_data(@pdf, :filename => "#{@form.name} #{type} Form.pdf",  :type=>"application/pdf")
         end
