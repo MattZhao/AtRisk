@@ -39,7 +39,7 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h3 class="blog-post-title">AtRisk Alert Form for <%= @form.name %></h3>
+            <h3 class="blog-post-title">Autism Alert Form for <%= @form.name %></h3>
             <h2></h2>
             <% if current_user.admin %>
               <% if !@form.form_activeness %>
@@ -69,10 +69,6 @@
               <li>
                 <b>Birthday:&nbsp</b>
                 <%= @form.birth_date %>
-              </li>
-              <li>
-                <b>Photo Path in system (to be implemented):&nbsp</b>
-                <%= @form.photo_path %>
               </li>
               <li>
                 <b>Address:&nbsp</b>
@@ -111,27 +107,39 @@
                 <%= @form.phone_company %>
               </li>
             </ul>
-            <h3>Medical Information</h3>
-            <ul id="medical">
+            <h3>First Responder's Information</h3>
+            <ul id="autism">
               <li>
-                <b>Individual Has Alzheimer's?:&nbsp</b>
-                <%= @form.has_alzheimers %>
+                <b>Sensory Dietary Issues:&nbsp</b>
+                <%= @form.sensory_dietary_issues %>
               </li>
               <li>
-                <b>Individual Has Dementia?:&nbsp</b>
-                <%= @form.has_dementia %>
+                <b>Calming Methods:&nbsp</b>
+                <%= @form.calming_methods %>
               </li>
               <li>
-                <b>Individual Has Down Syndrome?:&nbsp</b>
-                <%= @form.has_down_syndrome %>
+                <b>First Responders' Notes:&nbsp</b>
+                <%= @form.info_other_first_resp %>
               </li>
               <li>
-                <b>Individual Has Other Related Disorders?:&nbsp</b>
-                <%= @form.has_other_disorders %>
+                <b>Attractions and Special Locations:&nbsp</b>
+                <%= @form.attractions_locations %>
               </li>
               <li>
-                <b>Specification of Other Related Disorders:&nbsp</b>
-                <%= @form.other_disorders %>
+                <b>Atypical Behaviors:&nbsp</b>
+                <%= @form.atypical_behaviors %>
+              </li>
+              <li>
+                <b>Favorite Topics:&nbsp</b>
+                <%= @form.favorite_topics %>
+              </li>
+              <li>
+                <b>First Calming Method:&nbsp</b>
+                <%= @form.communication_method_1 %>
+              </li>
+              <li>
+                <b>Second Calming Method:&nbsp</b>
+                <%= @form.communication_method_2 %>
               </li>
               <li>
                 <b>Other Medical Conditions:&nbsp</b>
@@ -216,14 +224,13 @@
               </li>
             </ul>
             <hr/>
-            
-            <h5>
-              <%= link_to 'Edit Form |', edit_form_path(@form) %>
-              <%= link_to 'Delete Form |', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this At Risk form?' } %>
-              <%= link_to 'Back to Dashboard |', forms_path %>
-              <%= mail_to("Orindatip@cityoforinda.org ", name = "Mail to Orinda PD |", subject: "At Risk Person:" + @form.name, body: "Please see the information regarding my dependent here: " + request.url) %>
-              <%= link_to "Download As PDF", { :action => "show", :format => :pdf } %>
-            </h5>
+              <h5>
+                <%= link_to 'Edit Form |', edit_form_path(@form) %>
+                <%= link_to 'Delete Form |', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this At Risk form?' } %>
+                <%= link_to 'Back to Dashboard |', forms_path %>
+                <%= mail_to("Orindatip@cityoforinda.org ", name = "Mail to Orinda PD |", subject: "At Risk Person:" + @form.name, body: "Please see the information regarding my dependent here: " + request.url) %>
+                <%= link_to "Download As PDF", { :action => "show", :format => :pdf } %>
+              </h5>
             <hr>
           </div><!-- /.blog-post -->
 
@@ -231,29 +238,16 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <% if current_user.admin %>
-              <h3>Admin Dashboard</h3>
-              <p>Viewing all forms in database</p>
-              <p>Total Forms: <%= Form.count('id')%></p>
-              <p>Total Users: <%= User.count('id')%></p>
-              <%= link_to 'Manage Users', 'users' %>
+              <h3>Photos:</h3>
+                          <hr>
+
+                <% @form.form_attachments.each do |p| %>
+                  <%= image_tag p.file_url %>
+                <% end %>
               <br/>
-            <% else %>
-              <h3>Related Info: </h3>
-              <p>Visit these links for information about <a href="http://www.alz.org/what-is-dementia.asp">Dementia</a> and <a href="http://www.alz.org/alzheimers_disease_what_is_alzheimers.asp">Alzheimers</a>.</p>
-              <p>Additionally here are <a href="http://www.alz.org/i-have-alz/tips-for-daily-life.asp">tips on daily life for Alzheimers patients</a> and <a href="http://www.alz.org/care/alzheimers-dementia-wandering.asp">information about wandering patients</a>.</p>
-            <% end %>
-            <%= link_to 'FAQ', news_index_path %>
           </div>
-          <div class="sidebar-module">
-            <h4>Contact us:</h4>
-            <p style="color:red;">In case of emergency,always call 911</li>
-            <li>Phone: (925) 254-6820</li>
-            <li>Fax: (925) 254-9158</li>
-            <li>Email: Orindatips@cityoforinda.org</li>
-            <li>22 Orinda Way, 2nd Floor</li>
-            <li>Orinda, CA  94563</li>
-          </div>
+          
+
 
         </div><!-- /.blog-sidebar -->
 
@@ -271,3 +265,4 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+
