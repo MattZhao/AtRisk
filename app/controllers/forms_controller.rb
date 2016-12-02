@@ -192,7 +192,7 @@ class FormsController < ApplicationController
         end
       end
     end
-    unless params[:form_attachments].nil?
+    if not params[:form_attachments].nil?
       params[:form_attachments]['file'].each do |a|
         @form_attachment = @form.form_attachments.create!(:file => a)
       end
