@@ -2,8 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   background: White;
-  /*color: DarkSlateGrey;*/
-  color: white;
+  color: black;
   font-family: Tahoma, Verdana, sans-serif;
   font-size: 10pt;
 }
@@ -92,33 +91,6 @@ table th, table td {
 #logo {
     max-height: 50px;
     width: auto;
-}
-
-ul#list-nav {
-  list-style:none;
-  margin: 0px;
-  padding:0;
-  clear: bottom;
-  float: left;
-}
-
-ul#list-nav li {
-  display:inline;
-}
-
-ul#list-nav li a {
-  text-decoration:none;
-  padding:10px 20px;
-  background: black;
-  color:#eee;
-  float:left;
-  text-align:center;
-  border-left:1px solid #fff;
-}
-
-ul#list-nav li a:hover {
-  background: wheat;
-  color:#000
 }
 
 #main_nav {

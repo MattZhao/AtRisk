@@ -7,6 +7,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="validate-form">
+    <div class="center">
+      <% if flash[:notice] %>
+        <div class="message" id="notice"><%= flash[:notice] %></div>
+      <% elsif flash[:warning] %>
+        <div class="message" id="warning"><%= flash[:warning] %></div>
+      <% end %>
+    </div>
+    
     <div id="main">
       <nav class="navbar navbar-default navbar-static-top", id = "main_nav">
         <div class="container">
@@ -25,40 +33,17 @@
         		  <li><% if user_signed_in? %>
         			 <%= link_to('Edit Account', edit_user_registration_path, id:"main_words") %> 
         		  <% end %></li>
-        		  
-              <li><%= link_to 'FAQ', news_index_path, id:"main_words" %></li>
-        		
+
+        		  <li><% if user_signed_in? %>
+        		    <%= link_to 'FAQ', news_index_path, id:"main_words" %>
+        		    <% end %></li>
+        		    
         		</ul>
           </div><!--/.nav-collapse -->
         </div>
       </nav>
-      <!--<div class="nav-bar">-->
-      <!--  <ul id="list-nav">-->
-      <!--    <li><a href="/forms">At Risk | Orinda PD</a></li>-->
-      <!--    <li><% if user_signed_in? %>-->
-    		<!--	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> -->
-    		<!--  <% end %></li>-->
-    		  
-    		<!--  <li><% if user_signed_in? %>-->
-    		<!--	 <%= link_to('Edit Account', edit_user_registration_path) %> -->
-    		<!--  <% end %></li>-->
-      <!--  </ul>-->
-      <!--</div>-->
       <%= yield %>
-      
-      <div class="center">
-        <%= render 'devise/sessions/loginstat' %>
-        <% if flash[:notice] %>
-        <div class="message" id="notice">
-          <%= flash[:notice] %>
-        </div>
-        <% elsif flash[:warning] %>
-        <div class="message" id="warning">
-          <%= flash[:warning] %>
-        </div>
-      </div>
-      
-    <% end %>
+      <div class="center"><%= render 'devise/sessions/loginstat' %></div>
     </div>
   </body>
 </html>
