@@ -5,7 +5,7 @@
       <%= label :form, :name, "Individuals Name" %>
       <%= text_field :form, "name", placeholder: "required", required: true %>
       <%= label :form, :birth_date, "Date of Birth" %>
-      <%= date_select :form, "birth_date", :start_year => 1900, :end_year => 2016, required: true %>
+      <%= date_select :form, "birth_date", {:start_year => 1900, :end_year => 2016, :required => true} %>
       <%= label :form, :photo_path, 'Photo of the Individual' %>
       <%= text_field :form, "photo_path", placeholder: "UNDER DEVELOPMENT" %>
       <%= label :form, :has_alzheimers, "This person has Alzheimer?" %>

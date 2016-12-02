@@ -27,6 +27,7 @@ def create_user_2
   @visitor2 = { :name => "Holy Cow", :email => "aaa@example.com", :phone => "1234567890",
     :password => "ppppppppp", :password_confirmation => "ppppppppp", :id => "2"}
   @user2 = FactoryGirl.create(:user, @visitor2)
+  @user2.confirm
 end
 
 def create_user_admin
