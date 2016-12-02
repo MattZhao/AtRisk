@@ -24,15 +24,15 @@
             <ul class="nav navbar-nav navbar-right", id = "navbar">
               
               <li><% if user_signed_in? %>
-        			  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id:"main_words") %> 
+        			  <%= link_to('Logout', destroy_user_session_path, :method => :delete, id:"side_words") %> 
         		  <% end %></li>
         		  
         		  <li><% if user_signed_in? %>
-        			 <%= link_to('Edit Account', edit_user_registration_path, id:"main_words") %> 
+        			 <%= link_to('Edit Account', edit_user_registration_path, id:"side_words") %> 
         		  <% end %></li>
 
         		  <li><% if user_signed_in? %>
-        		    <%= link_to 'FAQ', news_index_path, id:"main_words" %>
+        		    <%= link_to 'FAQ', news_index_path, id:"side_words" %>
         		    <% end %></li>
         		</ul>
         		

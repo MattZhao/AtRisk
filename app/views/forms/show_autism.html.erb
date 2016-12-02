@@ -8,8 +8,6 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Blog Template for Bootstrap</title>
-
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -228,7 +226,8 @@
                 <%= link_to 'Edit Form |', edit_form_path(@form) %>
                 <%= link_to 'Delete Form |', @rule, method: :delete, data: { confirm: 'Are you sure you want to delete this At Risk form?' } %>
                 <%= mail_to("Orindatip@cityoforinda.org ", name = "Mail to Orinda PD |", subject: "At Risk Person:" + @form.name, body: "Please see the information regarding my dependent here: " + request.url) %>
-                <%= link_to "Download As PDF", { :action => "show", :format => :pdf } %>
+                <%= link_to "Download As PDF |", { :action => "show", :format => :pdf } %>
+                <%= link_to 'Back', forms_path %>
               </h5>
             <hr>
           </div><!-- /.blog-post -->
