@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(version: 20161201013259) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "form_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "test_attachments", force: :cascade do |t|
     t.string   "attachment"
     t.datetime "created_at", null: false
@@ -90,7 +97,6 @@ ActiveRecord::Schema.define(version: 20161201013259) do
   create_table "tests", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "form_id"
   end
 
   create_table "users", force: :cascade do |t|
