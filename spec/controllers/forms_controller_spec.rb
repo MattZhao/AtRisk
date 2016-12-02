@@ -6,9 +6,10 @@ describe FormsController do
   include Devise::Test::ControllerHelpers
 
   before :each do        
-      @user=create(:user)
-      sign_in @user
+      user=create(:user)
+      sign_in user
   end
+  
 
   describe "A successful show" do
 
@@ -17,6 +18,7 @@ describe FormsController do
       get :show, id: form
     end
   end
+  
 
   describe "Index" do
     it "renders the index template" do
@@ -34,6 +36,8 @@ describe FormsController do
       get :index, :search => 'a'
     end
     
+    it "sorts when necessary" do
+    end
     
   end
 
@@ -46,6 +50,14 @@ describe FormsController do
     # end
   end
   
+  describe "A successful new" do
+    it "should render new at risk form" do
+      expect(Form).to receive(:new)
+      get :new, :form_type => 'AtRisk'
+      response.should render_template("new_atrisk")
+    end
+  end
+  
   describe "A successful update" do
     # it 'should update a form' do
     #   formU = double("formu", :id => '1')
@@ -55,9 +67,19 @@ describe FormsController do
     # end
   end
   
+  
   describe "A successful destroy" do
+    # it "calls check_access" do
+    #   form = double(:form)
+    #   delete :destroy, id: form
+    #   response.should redirect_to forms_path
+
+    # end
+    
   end
 
   describe "A successful edit" do
   end
+
+  
 end
