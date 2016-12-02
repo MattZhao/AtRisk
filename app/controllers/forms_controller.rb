@@ -7,8 +7,7 @@ class FormsController < ApplicationController
       
   def index
     @search_active_msg = ""
-    @all_types = Form.all_types
-    @all_active = Form.all_active
+    @all_types, @all_active = Form.all_types, Form.all_active
     @selected_types = params[:types] || session[:types] || {}
     @selected_activeness = params[:activeness] || session[:activeness] || {}
     
@@ -138,7 +137,6 @@ class FormsController < ApplicationController
     check_owner_and_address
     id = params[:id].to_i
     @form = Form.find(id)
-    check_access
     @form_attachments = @form.form_attachments.all
     if @form_attachments.empty?
       @form_attachment = @form.form_attachments.build
@@ -204,10 +202,7 @@ class FormsController < ApplicationController
   end
   
   def destroy
-    if @form.id_user != current_user.id.to_s and !current_user.admin
-      return redirect_to '/messages/no_access'
-    end
-    
+    check_access
     @form.form_activeness = false
     if @form.save!
       flash[:notice] = "Form for #{@form.name} is deleted"
