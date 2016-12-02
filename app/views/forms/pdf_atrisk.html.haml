@@ -20,11 +20,6 @@
       Birthday:&nbsp
       = @form.birth_date
     %li
-      <b>Photo:&nbsp</b>
-      %br
-      - @form.form_attachments.each do |p|
-        = image_tag p.file_url
-    %li
       Address:&nbsp
       = @form.address
     %li
@@ -143,3 +138,12 @@
     %li
       This form is updated at:&nbsp
       = @form.updated_at
+      
+      
+.pdf_head
+  %h3 Photos:
+  
+.pdf_body
+  %br
+  - @form.form_attachments.each do |p|
+    = wicked_pdf_image_tag p.file_url
