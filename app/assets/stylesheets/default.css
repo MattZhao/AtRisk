@@ -94,14 +94,12 @@ table th, table td {
 }
 
 #main_nav {
-    /*background-color: #0099CC;*/
     background-color: steelblue;
 }
 
 #main_words {
   color: white;
-  font-family: Georgia;
-  font-size: 25px;
+  font-size: 16px;
 }
 
 .nav-bar {
