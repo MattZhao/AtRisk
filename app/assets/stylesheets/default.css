@@ -105,9 +105,9 @@ table th, table td {
 
 #main_words {
   color: white;
-  font-size: 24px;
+  font-size: 32px;
   font-family: Arial;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 #side_words {
