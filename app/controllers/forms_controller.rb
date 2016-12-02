@@ -24,16 +24,7 @@ class FormsController < ApplicationController
     end
     
     sort = params[:order] || session[:order]
-    case sort
-      when 'name'
-        ordering, @name_header = {:name => :asc}, 'hilite'
-      when 'birth_date'
-        ordering, @birth_date_header = {:birth_date => :asc}, 'hilite'
-      when 'created_at'
-        ordering, @created_at_header = {:created_at => :asc}, 'hilite'
-      when 'updated_at'
-        ordering, @updated_at_header = {:updated_at => :asc}, 'hilite'
-    end
+    ordering = handlesort(sort)
     
     if @selected_types == {}
       @selected_types = Hash[@all_types.map {|type| [type, type]}]
@@ -61,6 +52,20 @@ class FormsController < ApplicationController
     else
       @my_forms = Form.where(:id_user => current_user.id.to_s, :form_activeness => true, form_type: @selected_types.keys).order(ordering)
     end
+  end
+  
+  def handlesort(type)
+    case type
+      when 'name'
+        ordering, @name_header = {:name => :asc}, 'hilite'
+      when 'birth_date'
+        ordering, @birth_date_header = {:birth_date => :asc}, 'hilite'
+      when 'created_at'
+        ordering, @created_at_header = {:created_at => :asc}, 'hilite'
+      when 'updated_at'
+        ordering, @updated_at_header = {:updated_at => :asc}, 'hilite'
+    end
+    return ordering
   end
 
   def generate_pdf
