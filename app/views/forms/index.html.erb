@@ -39,8 +39,14 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
+            <h2 class="blog-post-title">Create Forms</h2>
+            <%= link_to 'New At-Risk Form', new_form_path(:form_type => "AtRisk") %>
+            <p>· For elders with disorders like Alzheimer's</p>
+            <%= link_to '  New Autism Alert Form', new_form_path(:form_type => "Autism") %>
+            <p>    · For children with autism:</p>
+            <hr></hr>
+            
             <h2 class="blog-post-title">View Forms</h2>
-            <p class="lead blog-description">You may view or edit your forms here</p>
               <%= form_tag forms_path, :method => :get, :id => "types_form" do %>
                 <%= hidden_field_tag "name_sort", true if @name_header %>
                 <%= hidden_field_tag "birth_date_sort", true if @birth_date_header %>
@@ -158,14 +164,6 @@
               <% else %>
                 <%= content_for :user_table %>
               <% end %>
-            <hr/>
-            <h2 class="blog-post-title">Create Forms</h2>
-            <p class="lead blog-description">You may create a new AtRisk or Autism forms here </p>
-            <%= link_to 'New At-Risk Form', new_form_path(:form_type => "AtRisk") %>
-            <p>For elders with disorders like Alzheimer's:</p>
-            <%= link_to 'New Autism Alert Form', new_form_path(:form_type => "Autism") %>
-            <p>For children with autism:</p>
-            <hr/>
 
           </div><!-- /.blog-post -->
 
@@ -174,7 +172,7 @@
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
             <% if current_user.admin %>
-              <h1>Admin Dashboard</h1>
+              <h3>Admin Dashboard</h3>
               <p>Viewing all forms in database</p>
               <p>Total Forms: <%= Form.count('id')%></p>
               <p>Total Users: <%= User.count('id')%></p>
@@ -195,38 +193,11 @@
             <li>22 Orinda Way, 2nd Floor</li>
             <li>Orinda, CA  94563</li>
           </div>
-          <div class="sidebar-module">
-            <h4>About</h4>
-            <ol class="list-unstyled">
-              <h5> <b>Team Members:</b> </h5>
-              <li>Harry Sutcliffe</li>
-              <li>Huu Pham</li>
-              <li>Milton Ren</li>
-              <li>Qingyu Wang</li>
-              <li>Xueyan Zhao</li>
-              <li>Yaqi Miao</li>
-              <h5> <b>Special Thanks To:</b> </h5>
-              <li><a href="http://cityoforinda.org/index.asp?Type=B_BASIC&SEC=%7BB7C9FC74-5440-4274-BA91-7B9206C8411F%7D">Orinda Police Department</a></li>
-              <li>Mark Nagel</li>
-              <li>GSI Liang Gong</li>
-              <li>Professor Armando Fox</li>
-
-            </ol>
-          </div>
         </div><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
 
     </div><!-- /.container -->
-
-    <footer class="blog-footer">
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-      
-      <p>Copyright © 2016 Orinda Police Department. All rights reserved.</p>
-    </footer>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
